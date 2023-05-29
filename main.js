@@ -1,6 +1,6 @@
 import {Player} from './player.js'
 import { Platform } from './platform.js';
-import { level } from './levelA.js';
+import { level } from './level_1.js';
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
