@@ -9,6 +9,7 @@ canvas.height = innerHeight;
 const context = canvas.getContext('2d');
 
 const gravity = 1;
+const defaultVelocity = 5;
 
 const keys = {
     right: {
@@ -43,18 +44,18 @@ function animate() {
     });
 
     if(keys.right.pressed && player.position.x < innerWidth - 100 ) {
-        player.velocity.x = 5
+        player.velocity.x = defaultVelocity
     } else if(keys.left.pressed && player.position.x > 100) {
-        player.velocity.x = -5
+        player.velocity.x = -defaultVelocity
     } else {
         player.velocity.x = 0
         if (keys.right.pressed) {
             platforms.forEach(platform => {
-                platform.position.x -= 5
+                platform.position.x -= defaultVelocity
             });
         } else if (keys.left.pressed) {
             platforms.forEach(platform => {
-                platform.position.x += 5
+                platform.position.x += defaultVelocity
             });
         }
     }
