@@ -29,8 +29,10 @@ addEventListener('keydown', ({ keyCode }) => {
         case 68:
             console.log('right')
             break
-        case 32:
-            console.log('up')
+        case 87:
+            if(player.position.y + player.height + player.velocity.y > canvas.height) {
+                player.velocity.y -= 20
+            }
             break
     }
 })
