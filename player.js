@@ -7,8 +7,6 @@ export class Player extends Entity {
             y: 1
         }
         this.gravity = gravity
-        this.context = context
-        this.canvas = canvas
         this.right = false,
         this.left = false
     }
