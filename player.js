@@ -13,6 +13,8 @@ export class Player {
         this.gravity = gravity
         this.context = context
         this.canvas = canvas
+        this.right = false,
+        this.left = false
     }
 
     draw() {
@@ -23,11 +25,18 @@ export class Player {
     update() {
         this.draw();
         this.position.y += this.velocity.y;
+        this.position.x += this.velocity.x;
 
         if(this.position.y + this.height + this.velocity.y <= this.canvas.height) {
             this.velocity.y += this.gravity;
         } else {
             this.velocity.y = 0;
+        }
+
+        if(this.right) {
+            this.velocity.x = 5
+        } else if(this.left) {
+            this.velocity.x = -5
         }
     }
 
@@ -36,4 +45,5 @@ export class Player {
             this.velocity.y -= 20
         }
     }
+
 }

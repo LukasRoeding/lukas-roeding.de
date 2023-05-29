@@ -21,16 +21,27 @@ animate()
 addEventListener('keydown', ({ keyCode }) => {
     switch (keyCode) {
         case 65:
-            console.log('left')
+            player.left = true
             break
         case 83:
             console.log('down')
             break
         case 68:
-            console.log('right')
+            player.right = true
             break
         case 87:
             player.up()
+            break
+    }
+})
+
+addEventListener('keyup', ({ keyCode }) => {
+    switch (keyCode) {
+        case 65:
+            player.left = false
+            break
+        case 68:
+            player.right = false
             break
     }
 })
