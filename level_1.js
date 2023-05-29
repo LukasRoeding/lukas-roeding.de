@@ -19,6 +19,20 @@ export const level = {
             target: '/level_1'
         }
     ],
+    images: [
+        {
+            x: 100,
+            y: 100,
+            source: '/test.png'
+        }
+    ],
+    enemies: [
+        {
+            x: 100,
+            y: 100,
+            type: 'violett_mushroom'
+        }
+    ],
     platforms: [
         {
             x: 100,
