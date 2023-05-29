@@ -9,7 +9,7 @@ const context = canvas.getContext('2d');
 const gravity = 1;
 
 const player = new Player(gravity, context, canvas);
-const platform = new Platform(context, canvas)
+const platform = new Platform({x:200, y:200},context, canvas)
 
 function animate() {
     requestAnimationFrame(animate)
