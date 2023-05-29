@@ -1,15 +1,11 @@
-export class Player {
+import { Entity } from "./entitiy.js"
+export class Player extends Entity {
     constructor(gravity, context, canvas) {
-        this.position = {
-            x: 100,
-            y: 100
-        }
+        super({x: 100,y: 100},30,30)
         this.velocity = {
             x: 0,
             y: 1
         }
-        this.width = 30
-        this.height = 30
         this.gravity = gravity
         this.context = context
         this.canvas = canvas
@@ -37,6 +33,8 @@ export class Player {
             this.velocity.x = 5
         } else if(this.left) {
             this.velocity.x = -5
+        } else {
+            this.velocity.x = 0
         }
     }
 
