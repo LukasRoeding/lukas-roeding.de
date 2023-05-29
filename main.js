@@ -1,6 +1,7 @@
 import { Player } from './player.js'
 import { Platform } from './platform.js';
 import { level } from './level_1.js';
+
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -8,6 +9,15 @@ canvas.height = innerHeight;
 const context = canvas.getContext('2d');
 
 const gravity = 1;
+
+const keys = {
+    right: {
+        pressed : false
+    },
+    left: {
+        pressed: false
+    }
+}
 
 const player = new Player(gravity, context, canvas);
 const platforms = []
@@ -31,6 +41,24 @@ function animate() {
             player.velocity.y = 0
         }
     });
+
+    if(keys.right.pressed && player.position.x < innerWidth - 100 ) {
+        player.velocity.x = 5
+    } else if(keys.left.pressed && player.position.x > 100) {
+        player.velocity.x = -5
+    } else {
+        player.velocity.x = 0
+        if (keys.right.pressed) {
+            platforms.forEach(platform => {
+                platform.position.x -= 5
+            });
+        } else if (keys.left.pressed) {
+            platforms.forEach(platform => {
+                platform.position.x += 5
+            });
+        }
+    }
+
 }
 
 animate()
@@ -38,13 +66,13 @@ animate()
 addEventListener('keydown', ({ keyCode }) => {
     switch (keyCode) {
         case 65:
-            player.left = true
+            keys.left.pressed = true
             break
         case 83:
             console.log('down')
             break
         case 68:
-            player.right = true
+            keys.right.pressed = true
             break
         case 87:
             player.up()
@@ -55,10 +83,10 @@ addEventListener('keydown', ({ keyCode }) => {
 addEventListener('keyup', ({ keyCode }) => {
     switch (keyCode) {
         case 65:
-            player.left = false
+            keys.left.pressed = false
             break
         case 68:
-            player.right = false
+            keys.right.pressed = false
             break
     }
 })

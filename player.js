@@ -7,8 +7,6 @@ export class Player extends Entity {
             y: 1
         }
         this.gravity = gravity
-        this.right = false,
-        this.left = false
     }
 
     draw() {
@@ -25,14 +23,6 @@ export class Player extends Entity {
             this.velocity.y += this.gravity;
         } else {
             this.velocity.y = 0;
-        }
-
-        if(this.right && this.position.x < innerWidth / 2 - this.width / 2 ) {
-            this.velocity.x = 5
-        } else if(this.left && this.position.x > 100) {
-            this.velocity.x = -5
-        } else {
-            this.velocity.x = 0
         }
     }
 
