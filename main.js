@@ -43,9 +43,9 @@ function animate() {
         }
     });
 
-    if(keys.right.pressed && player.position.x < innerWidth - 100 ) {
+    if (keys.right.pressed && player.position.x < innerWidth / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
-    } else if(keys.left.pressed && player.position.x > 100) {
+    } else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -defaultVelocity
     } else {
         player.velocity.x = 0
@@ -59,7 +59,6 @@ function animate() {
             });
         }
     }
-
 }
 
 animate()
