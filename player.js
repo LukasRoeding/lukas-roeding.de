@@ -27,9 +27,9 @@ export class Player extends Entity {
             this.velocity.y = 0;
         }
 
-        if(this.right) {
+        if(this.right && this.position.x < innerWidth / 2 - this.width / 2 ) {
             this.velocity.x = 5
-        } else if(this.left) {
+        } else if(this.left && this.position.x > 100) {
             this.velocity.x = -5
         } else {
             this.velocity.x = 0
