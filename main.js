@@ -1,8 +1,8 @@
+import {Player} from './player.js'
+
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
-
-import {Player} from './player.js'
 
 const context = canvas.getContext('2d');
 
