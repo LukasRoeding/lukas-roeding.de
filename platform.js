@@ -2,7 +2,7 @@ import { Entity } from "./entitiy.js"
 
 export class Platform extends Entity {
     constructor(context, canvas) {
-        super({x:0, y:0}, 200, 20, context, canvas)
+        super({x:200, y:900}, 200, 20, context, canvas)
     }
 
     draw() {

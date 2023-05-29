@@ -37,9 +37,7 @@ export class Player extends Entity {
     }
 
     up() {
-        if(this.position.y + this.height + this.velocity.y > this.canvas.height) {
-            this.velocity.y -= 20
-        }
+        this.velocity.y -= 20
     }
 
 }
