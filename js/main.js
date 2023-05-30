@@ -62,9 +62,15 @@ function animate() {
             platforms.forEach(platform => {
                 platform.position.x -= defaultVelocity
             });
+            images.forEach(image => {
+                image.position.x -= defaultVelocity / 2
+            });
         } else if (keys.left.pressed) {
             platforms.forEach(platform => {
                 platform.position.x += defaultVelocity
+            });
+            images.forEach(image => {
+                image.position.x += defaultVelocity / 2
             });
         }
     }
