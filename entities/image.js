@@ -1,6 +1,6 @@
 import { Entity } from "./entitiy.js"
 
-export class GenericObject extends Entity {
+export class Image extends Entity {
     constructor(position, context, canvas, image, width, height) {
         super({x:position.x, y:position.y}, width, height, context, canvas)
         this.image = image

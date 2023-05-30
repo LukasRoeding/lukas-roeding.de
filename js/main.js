@@ -3,7 +3,7 @@ import { Platform } from '../entities/platform.js';
 import { level } from './level_1.js';
 import { controls } from './controls.js';
 import { collision } from './collision.js';
-import { GenericObject } from '../entities/generic_object.js';
+import { Image } from '../entities/image.js';
 import { createImage } from './createImage.js';
 
 const canvas = document.querySelector('canvas');
@@ -38,7 +38,7 @@ const images = []
 level.images.forEach(image => {
     const createdImage = createImage(image.source)
     createdImage.onload = function() {
-        images.push(new GenericObject({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h))
+        images.push(new Image({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h))
     }
 })
 
