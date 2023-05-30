@@ -1,6 +1,7 @@
 import { Player } from './player.js'
 import { Platform } from './platform.js';
 import { level } from './level_1.js';
+import { controls } from './controls.js';
 
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
@@ -62,31 +63,4 @@ function animate() {
 }
 
 animate()
-
-addEventListener('keydown', ({ keyCode }) => {
-    switch (keyCode) {
-        case 65:
-            keys.left.pressed = true
-            break
-        case 83:
-            console.log('down')
-            break
-        case 68:
-            keys.right.pressed = true
-            break
-        case 87:
-            player.up()
-            break
-    }
-})
-
-addEventListener('keyup', ({ keyCode }) => {
-    switch (keyCode) {
-        case 65:
-            keys.left.pressed = false
-            break
-        case 68:
-            keys.right.pressed = false
-            break
-    }
-})
+controls(keys, player)
