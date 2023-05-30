@@ -33,13 +33,11 @@ image.onload = function() {
     })
 }
 
-
-
 function animate() {
     requestAnimationFrame(animate)
     context.clearRect(0,0, canvas.width, canvas.height);
-    player.update();
     collision(platforms, player);
+    player.update();
     if (keys.right.pressed && player.position.x < innerWidth / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
     } else if (keys.left.pressed && player.position.x > 100) {
