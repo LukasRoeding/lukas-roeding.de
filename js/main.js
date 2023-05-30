@@ -5,7 +5,7 @@ import { controls } from './controls.js';
 import { collision } from './collision.js';
 import { Image } from '../entities/image.js';
 import { createImage } from './createImage.js';
-import { init } from './inits.js';
+import { reset } from './reset.js';
 
 const canvas = document.querySelector('canvas');
 canvas.width = 1024
@@ -76,7 +76,7 @@ function animate() {
         }
     }
     if (player.position.y > canvas.height) {
-        init(player, platforms, images, level)
+        reset(player, platforms, images, level)
     }
 }
 

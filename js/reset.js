@@ -1,4 +1,4 @@
-export function init(player, platforms, images, level) {
+export function reset(player, platforms, images, level) {
     player.position.x = 100
     player.position.y = 200
     for (let index = 0; index < platforms.length; index++) {
