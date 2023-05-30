@@ -3,6 +3,8 @@ import { Platform } from '../entities/platform.js';
 import { level } from './level_1.js';
 import { controls } from './controls.js';
 import { collision } from './collision.js';
+import { GenericObject } from '../entities/generic_object.js';
+import { createImage } from './createImage.js';
 
 const canvas = document.querySelector('canvas');
 canvas.width = 1024
@@ -24,8 +26,7 @@ const keys = {
 
 const player = new Player(gravity, context, canvas);
 
-const image = new Image()
-image.src = '../images/platform.png'
+const image = createImage('../images/platform.png')
 const platforms = []
 image.onload = function() {
     level.platforms.forEach(platform => {
@@ -33,11 +34,23 @@ image.onload = function() {
     })
 }
 
+const images = []
+level.images.forEach(image => {
+    const createdImage = createImage(image.source)
+    createdImage.onload = function() {
+        images.push(new GenericObject({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h))
+    }
+})
+
 function animate() {
     requestAnimationFrame(animate)
     context.fillStyle = 'white'
-    context.fillRect(0,0, canvas.width, canvas.height);
-    collision(platforms, player);
+    context.fillRect(0,0, canvas.width, canvas.height);    
+    images.forEach(element => {
+        element.draw();
+    });
+    collision(platforms, player);    
+
     player.update();
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity

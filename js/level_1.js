@@ -15,9 +15,11 @@ export const level = {
     ],
     images: [
         {
-            x: 100,
-            y: 100,
-            source: '/test.png'
+            x: 0,
+            y: -1,
+            w: 2000,
+            h: 1000,
+            source: '../images/background.png'
         }
     ],
     enemies: [
