@@ -29,7 +29,7 @@ image.src = '../images/platform.png'
 const platforms = []
 image.onload = function() {
     level.platforms.forEach(platform => {
-        platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, image))
+        platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, image, 400, 40))
     })
 }
 
@@ -39,7 +39,7 @@ function animate() {
     context.fillRect(0,0, canvas.width, canvas.height);
     collision(platforms, player);
     player.update();
-    if (keys.right.pressed && player.position.x < innerWidth / 2 - player.width / 2 ) {
+    if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
     } else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -defaultVelocity
