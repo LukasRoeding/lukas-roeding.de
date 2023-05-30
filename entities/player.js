@@ -24,11 +24,16 @@ export class Player extends Entity {
             this.velocity.y += this.gravity;
         } else {
             this.velocity.y = 0;
+            this.die()
         }
     }
 
     up() {
         this.velocity.y -= 20
+    }
+
+    die() {
+        console.log("Death")
     }
 
 }

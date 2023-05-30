@@ -1,10 +1,4 @@
 export const level = {
-    deathPits: [
-        {
-            y: 800,
-            width: 200
-        }
-    ],
     informations: [
         {
             x: 100,
@@ -39,11 +33,11 @@ export const level = {
             y: 75
         },
         {
-            x: 250,
-            y: 250
+            x: -1,
+            y: 451
         },
         {
-            x: 450,
+            x: 575,
             y: 451
         },
     ]
