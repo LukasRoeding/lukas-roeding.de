@@ -5,8 +5,8 @@ import { controls } from './controls.js';
 import { collision } from './collision.js';
 
 const canvas = document.querySelector('canvas');
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = 1024
+canvas.height = 576;
 
 const context = canvas.getContext('2d');
 
@@ -35,7 +35,8 @@ image.onload = function() {
 
 function animate() {
     requestAnimationFrame(animate)
-    context.clearRect(0,0, canvas.width, canvas.height);
+    context.fillStyle = 'white'
+    context.fillRect(0,0, canvas.width, canvas.height);
     collision(platforms, player);
     player.update();
     if (keys.right.pressed && player.position.x < innerWidth / 2 - player.width / 2 ) {
