@@ -1,5 +1,5 @@
-import { Player } from './player.js'
-import { Platform } from './platform.js';
+import { Player } from '../entities/player.js'
+import { Platform } from '../entities/platform.js';
 import { level } from './level_1.js';
 import { controls } from './controls.js';
 
