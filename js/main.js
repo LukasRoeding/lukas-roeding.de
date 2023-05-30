@@ -44,7 +44,7 @@ level.images.forEach(image => {
     }
 })
 
-const informationImage = createImage('../images/platform.png')
+const informationImage = createImage('../images/info.png')
 const informations = []
 informationImage.onload = function() {
     level.informations.forEach(information => {
