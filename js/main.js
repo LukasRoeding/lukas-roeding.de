@@ -23,10 +23,17 @@ const keys = {
 }
 
 const player = new Player(gravity, context, canvas);
+
+const image = new Image()
+image.src = '../images/platform.png'
 const platforms = []
-level.platforms.forEach(platform => {
-    platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas))
-})
+image.onload = function() {
+    level.platforms.forEach(platform => {
+        platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, image))
+    })
+}
+
+
 
 function animate() {
     requestAnimationFrame(animate)

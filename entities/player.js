@@ -1,4 +1,5 @@
 import { Entity } from "./entitiy.js"
+
 export class Player extends Entity {
     constructor(gravity, context, canvas) {
         super({x: 100, y: 100}, 30, 30, context, canvas)

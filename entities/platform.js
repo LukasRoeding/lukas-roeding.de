@@ -1,12 +1,12 @@
 import { Entity } from "./entitiy.js"
 
 export class Platform extends Entity {
-    constructor(position, context, canvas) {
-        super({x:position.x, y:position.y}, 200, 20, context, canvas)
+    constructor(position, context, canvas, image) {
+        super({x:position.x, y:position.y}, image.width, image.height, context, canvas)
+        this.image = image
     }
 
     draw() {
-        this.context.fillStyle = 'blue'
-        this.context.fillRect(this.position.x, this.position.y, this.width, this.height)
+        this.context.drawImage(this.image, this.position.x, this.position.y)
     }
 }
