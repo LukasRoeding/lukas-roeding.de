@@ -2,6 +2,7 @@ import { Player } from '../entities/player.js'
 import { Platform } from '../entities/platform.js';
 import { level } from './level_1.js';
 import { controls } from './controls.js';
+import { collision } from './collision.js';
 
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
@@ -31,19 +32,7 @@ function animate() {
     requestAnimationFrame(animate)
     context.clearRect(0,0, canvas.width, canvas.height);
     player.update();
-
-    platforms.forEach(platform => {
-        platform.draw();
-        if (
-            player.position.y + player.height <= platform.position.y && 
-            player.position.y + player.height + player.velocity.y >= platform.position.y &&
-            player.position.x + player.width >= platform.position.x &&
-            player.position.x <= platform.position.x + platform.width
-        ) {
-            player.velocity.y = 0
-        }
-    });
-
+    collision(platforms, player);
     if (keys.right.pressed && player.position.x < innerWidth / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
     } else if (keys.left.pressed && player.position.x > 100) {
