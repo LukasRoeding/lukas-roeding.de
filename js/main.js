@@ -6,6 +6,7 @@ import { collision } from './collision.js';
 import { Image } from '../entities/image.js';
 import { createImage } from './createImage.js';
 import { reset } from './reset.js';
+import { Information } from '../entities/information.js';
 
 const canvas = document.querySelector('canvas');
 canvas.width = 1024
@@ -27,11 +28,11 @@ const keys = {
 
 const player = new Player(gravity, context, canvas);
 
-const image = createImage('../images/platform.png')
+const platformImage = createImage('../images/platform.png')
 const platforms = []
-image.onload = function() {
+platformImage .onload = function() {
     level.platforms.forEach(platform => {
-        platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, image, 400, 40))
+        platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, platformImage , 400, 40))
     })
 }
 
@@ -43,6 +44,14 @@ level.images.forEach(image => {
     }
 })
 
+const informationImage = createImage('../images/platform.png')
+const informations = []
+informationImage.onload = function() {
+    level.informations.forEach(information => {
+        informations.push(new Information({x:information.x, y:information.y}, context, canvas, informationImage, 40, 40, information.html))
+    })
+}
+
 function animate() {
     requestAnimationFrame(animate)
     context.fillStyle = 'white'
@@ -50,7 +59,7 @@ function animate() {
     images.forEach(element => {
         element.draw();
     });
-    collision(platforms, player);    
+    collision(platforms, player, informations);    
 
     player.update();
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
