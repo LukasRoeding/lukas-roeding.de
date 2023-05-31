@@ -75,12 +75,18 @@ function animate() {
             images.forEach(image => {
                 image.position.x -= defaultVelocity / 2
             });
+            informations.forEach(information => {
+                information.position.x -= defaultVelocity
+            });
         } else if (keys.left.pressed) {
             platforms.forEach(platform => {
                 platform.position.x += defaultVelocity
             });
             images.forEach(image => {
                 image.position.x += defaultVelocity / 2
+            });
+            informations.forEach(information => {
+                information.position.x += defaultVelocity
             });
         }
     }
