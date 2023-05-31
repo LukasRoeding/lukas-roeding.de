@@ -2,7 +2,7 @@ export const level = {
     informations: [
         {
             x: 100,
-            y: 200,
+            y: 300,
             html: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>'
         }
     ],

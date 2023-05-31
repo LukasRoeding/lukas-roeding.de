@@ -28,7 +28,7 @@ export class Player extends Entity {
 
     up() {
         if (this.jumped == false) {
-            this.velocity.y -= 20
+            this.velocity.y -= 16
             this.jumped = true  
         }
     }
