@@ -8,6 +8,7 @@ export class Player extends Entity {
             y: 1
         }
         this.gravity = gravity
+        this.jumped = false
     }
 
     draw() {
@@ -26,6 +27,9 @@ export class Player extends Entity {
     }
 
     up() {
-        this.velocity.y -= 20
+        if (this.jumped == false) {
+            this.velocity.y -= 20
+            this.jumped = true  
+        }
     }
 }

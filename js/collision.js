@@ -7,7 +7,8 @@ export function collision(platforms, player, informations) {
             player.position.x + player.width >= platform.position.x &&
             player.position.x <= platform.position.x + platform.width
         ) {
-            player.velocity.y = 0
+            player.jumped = false;
+            player.velocity.y = 0 
         }
     });
     informations.forEach(information => {
@@ -20,6 +21,7 @@ export function collision(platforms, player, informations) {
                 player.position.y + player.height <= information.position.y && 
                 player.position.y + player.height + player.velocity.y >= information.position.y
             ) {
+                player.jumped = false;
                 player.velocity.y = 0
             } else if (
                 player.position.y >= information.position.y + information.height && 
