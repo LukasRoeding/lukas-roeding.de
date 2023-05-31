@@ -12,5 +12,9 @@ export class Information extends Platform {
 
     displayInformation() {
         console.log(this.information)
+        let modal = document.getElementById('information-modal')
+        modal.style.display = 'unset'
+        let modalText = document.getElementById('information-text')
+        modalText.innerHTML = this.information
     }
 }

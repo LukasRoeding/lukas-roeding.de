@@ -91,7 +91,7 @@ function animate() {
         }
     }
     if (player.position.y > canvas.height) {
-        reset(player, platforms, images, level)
+        reset(player, platforms, images, informations, level)
     }
 }
 

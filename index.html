@@ -7,9 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="information-modal" class="information-modal">
+        <div id="information-text"></div>
+        <button onclick="closeModal()">Schließen</button>
+    </div>
     <canvas></canvas>
 </body>
 <script type="module" src="js/main.js"></script>
+<script>
+    function closeModal() {
+        const modal = document.getElementById('information-modal')
+        modal.style.display = 'none'
+    }
+</script>
 <style>
     body {
         margin: 0;
@@ -21,6 +31,14 @@
     }
     canvas {
         display:block;
+    }
+    .information-modal {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white
     }
 </style>
 </html>
