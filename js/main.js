@@ -37,7 +37,7 @@ function animate() {
     });    
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
-    } else if (keys.left.pressed && player.position.x > 100) {a
+    } else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -defaultVelocity
     } else {
         player.velocity.x = 0
