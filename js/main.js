@@ -33,7 +33,9 @@ init(context, canvas, level, platforms, images, informations)
 
 function animate() {  
     images.forEach(element => {
-        element.draw();
+        if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
+            element.draw();   
+        }
     });    
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity

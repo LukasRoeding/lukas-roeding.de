@@ -1,17 +1,21 @@
 export function collision(platforms, player, informations) {
     platforms.forEach(platform => {
-        platform.draw();
-        if (
-            player.position.y + player.height <= platform.position.y && 
-            player.position.y + player.height + player.velocity.y >= platform.position.y &&
-            player.position.x + player.width >= platform.position.x &&
-            player.position.x <= platform.position.x + platform.width
-        ) {
-            player.jumped = false;
-            player.velocity.y = 0 
+        if (platform.position.x <= innerWidth || platform.position.x + platform.width >= 0) {
+            platform.draw();
+            if (
+                player.position.y + player.height <= platform.position.y && 
+                player.position.y + player.height + player.velocity.y >= platform.position.y &&
+                player.position.x + player.width >= platform.position.x &&
+                player.position.x <= platform.position.x + platform.width
+            ) {
+                player.jumped = false;
+                player.velocity.y = 0 
+            }  
         }
+
     });
     informations.forEach(information => {
+        if (information.position.x <= innerWidth || information.position.x + information.width >= 0) {
         information.draw();
         if (
             player.position.x + player.width >= information.position.x &&
@@ -46,6 +50,7 @@ export function collision(platforms, player, informations) {
                     ) {
                     player.velocity.x = 0;
                 }
+            }
         }
     });
 }

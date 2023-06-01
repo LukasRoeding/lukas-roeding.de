@@ -7,9 +7,7 @@ export class Information extends Platform {
     }
 
     draw() {
-        if (this.position.x <= innerWidth || this.position.x + this.width >= 0) {
-          this.context.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)  
-        }
+        this.context.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)  
     }
 
     displayInformation() {
