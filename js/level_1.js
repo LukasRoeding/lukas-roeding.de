@@ -1,11 +1,6 @@
 export const level = {
     informations: [
         {
-            x: 200,
-            y: innerHeight - 200,
-            html: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>'
-        },
-        {
             x: 500,
             y: innerHeight - 200,
             html: '<p>Test</p>'
@@ -32,7 +27,14 @@ export const level = {
             w: innerHeight * 10,
             h: innerHeight,
             source: '../images/hills.png'
-        }
+        },
+        {
+            x: 100,
+            y: innerHeight - 400,
+            w: 200,
+            h: 200,
+            source: '../images/wasd.png'
+        },
     ],
     enemies: [
         {
@@ -64,21 +66,21 @@ export const level = {
             source: '../images/platform.png'
         },
         {
-            x: 1300,
+            x: 1200,
             y: innerHeight - 40,
             height: 40,
             width: 400,
             source: '../images/platform.png'
         },
         {
-            x: 800-3,
+            x: 800-4,
             y: innerHeight - 140,
             height: 100,
             width: 200,
             source: '../images/platformSmallTall.png'
         },
         {
-            x: 1300,
+            x: 1200,
             y: innerHeight - 140,
             height: 100,
             width: 200,
