@@ -7,17 +7,17 @@ export function init(context, canvas, level, platforms, images, informations) {
 
     level.platforms.forEach(platform => {
         const platformImage = createImage(platform.source)
-        platformImage .onload = function() {
+        platformImage.onload = function() {
             platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, platformImage , platform.width, platform.height))
         } 
     })
 
-    level.images.forEach(image => {
+    for (const image of level.images) {
         const createdImage = createImage(image.source)
         createdImage.onload = function() {
             images.push(new Image({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h))
         }
-    })
+    }
 
     const informationImage = createImage('../images/info.png')
     informationImage.onload = function() {
@@ -25,5 +25,12 @@ export function init(context, canvas, level, platforms, images, informations) {
             informations.push(new Information({x:information.x, y:information.y}, context, canvas, informationImage, 40, 40, information.html))
         })
     }
+
+    function imagesLoaded() {
+        if (level.platforms.length > platforms.length && level.images.length > images.length && level.informations.length > informations.length) {
+            setTimeout(imagesLoaded, 10);
+        }
+    }
+    imagesLoaded()
 }
 
