@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+canvas {
+    display:block;
+}
+.information-modal {
+    min-width: 500px;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: brown;
+    color: white;
+    padding: 10px;
+}
