@@ -10,7 +10,7 @@ canvas {
     display:block;
 }
 .information-modal {
-    min-width: 500px;
+    width: 90%;
     display: none;
     position: absolute;
     left: 50%;

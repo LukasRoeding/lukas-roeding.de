@@ -1,9 +1,14 @@
 export const level = {
     informations: [
         {
-            x: 100,
-            y: 300,
+            x: 200,
+            y: innerHeight - 200,
             html: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>'
+        },
+        {
+            x: 500,
+            y: innerHeight - 200,
+            html: '<p>Test</p>'
         }
     ],
     doors: [
@@ -17,15 +22,15 @@ export const level = {
         {
             x: -1,
             y: -2,
-            w: 10000,
-            h: 1000,
+            w: innerHeight * 10,
+            h: innerHeight + 4,
             source: '../images/background.png'
         },
         {
-            x: -1,
-            y: -2,
-            w: 10000,
-            h: 1000,
+            x: 0,
+            y: 0,
+            w: innerHeight * 10,
+            h: innerHeight,
             source: '../images/hills.png'
         }
     ],
@@ -39,15 +44,19 @@ export const level = {
     platforms: [
         {
             x: -1,
-            y: 451
+            y: innerHeight - 40
         },
         {
-            x: 575,
-            y: 451
+            x: 398,
+            y: innerHeight - 40
         },
         {
-            x: 1400,
-            y: 300
+            x: 597,
+            y: innerHeight - 40
+        },
+        {
+            x: 1000,
+            y: innerHeight - 140
         },
     ]
 }

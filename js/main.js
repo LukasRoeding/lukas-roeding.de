@@ -10,13 +10,14 @@ import { Information } from '../entities/information.js';
 import { init } from './inits.js';
 
 const canvas = document.querySelector('canvas');
-canvas.width = 1024
-canvas.height = 576;
+canvas.width = innerWidth
+canvas.height = innerHeight
 
 const context = canvas.getContext('2d');
 
 const gravity = 1;
 const defaultVelocity = 5;
+
 
 const keys = {
     right: {
