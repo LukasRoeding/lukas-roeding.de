@@ -44,19 +44,45 @@ export const level = {
     platforms: [
         {
             x: -1,
-            y: innerHeight - 40
+            y: innerHeight - 40,
+            height: 40,
+            width: 400,
+            source: '../images/platform.png'
         },
         {
             x: 398,
-            y: innerHeight - 40
+            y: innerHeight - 40,
+            height: 40,
+            width: 400,
+            source: '../images/platform.png'
         },
         {
-            x: 597,
-            y: innerHeight - 40
+            x: 596,
+            y: innerHeight - 40,
+            height: 40,
+            width: 400,
+            source: '../images/platform.png'
         },
         {
-            x: 1000,
-            y: innerHeight - 140
+            x: 1300,
+            y: innerHeight - 40,
+            height: 40,
+            width: 400,
+            source: '../images/platform.png'
+        },
+        {
+            x: 800-3,
+            y: innerHeight - 140,
+            height: 100,
+            width: 200,
+            source: '../images/platformSmallTall.png'
+        },
+        {
+            x: 1300,
+            y: innerHeight - 140,
+            height: 100,
+            width: 200,
+            source: '../images/platformSmallTall.png'
         },
     ]
 }

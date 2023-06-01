@@ -5,12 +5,12 @@ import { createImage } from "./createImage.js";
 
 export function init(context, canvas, level, platforms, images, informations) {
 
-    const platformImage = createImage('../images/platform.png')
-    platformImage .onload = function() {
-        level.platforms.forEach(platform => {
-            platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, platformImage , 400, 40))
-        })
-    }
+    level.platforms.forEach(platform => {
+        const platformImage = createImage(platform.source)
+        platformImage .onload = function() {
+            platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, platformImage , platform.width, platform.height))
+        } 
+    })
 
     level.images.forEach(image => {
         const createdImage = createImage(image.source)
