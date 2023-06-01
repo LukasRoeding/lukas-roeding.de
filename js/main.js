@@ -7,6 +7,7 @@ import { Image } from '../entities/image.js';
 import { createImage } from './createImage.js';
 import { reset } from './reset.js';
 import { Information } from '../entities/information.js';
+import { init } from './inits.js';
 
 const canvas = document.querySelector('canvas');
 canvas.width = 1024
@@ -25,32 +26,13 @@ const keys = {
         pressed: false
     }
 }
-
 const player = new Player(gravity, context, canvas);
 
-const platformImage = createImage('../images/platform.png')
 const platforms = []
-platformImage .onload = function() {
-    level.platforms.forEach(platform => {
-        platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, platformImage , 400, 40))
-    })
-}
-
 const images = []
-level.images.forEach(image => {
-    const createdImage = createImage(image.source)
-    createdImage.onload = function() {
-        images.push(new Image({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h))
-    }
-})
-
-const informationImage = createImage('../images/info.png')
 const informations = []
-informationImage.onload = function() {
-    level.informations.forEach(information => {
-        informations.push(new Information({x:information.x, y:information.y}, context, canvas, informationImage, 40, 40, information.html))
-    })
-}
+
+init(context, canvas, level, platforms, images, informations)
 
 function animate() {
     requestAnimationFrame(animate)
