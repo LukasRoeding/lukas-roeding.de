@@ -30,6 +30,22 @@ export function collision(platforms, player, informations) {
                 information.displayInformation()
                 player.velocity.y = 0
             }
+        } else {
+            if (
+                player.position.y + player.height + player.velocity.y >= information.position.y &&
+                player.position.y + player.velocity.y <= information.position.y + information.height
+            )   
+                if (
+                    player.position.x + player.velocity.x + player.width >= information.position.x &&
+                    player.position.x + player.velocity.x < information.position.x + information.width
+                    ) {
+                    player.velocity.x = 0;
+                } else if (
+                    player.position.x + player.velocity.x <= information.position.x + information.width &&
+                    player.position.x > information.position.x + information.width
+                    ) {
+                    player.velocity.x = 0;
+                }
         }
     });
 }
