@@ -27,7 +27,7 @@ export class Player extends Entity {
     }
 
     up() {
-        if (this.jumped == false) {
+        if (this.jumped == false && this.velocity.y == this.gravity) {
             this.velocity.y -= 16
             this.jumped = true  
         }
