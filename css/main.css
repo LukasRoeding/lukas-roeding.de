@@ -6,11 +6,13 @@ body {
     justify-content: center;
     height: 100vh;
     box-sizing: border-box;
+    color: whitesmoke;
 }
 canvas {
     display:block;
 }
 .information-modal {
+    flex-flow: column;
     width: 90%;
     max-width: 700px;
     display: none;
@@ -19,29 +21,31 @@ canvas {
     top: 50%;
     transform: translate(-50%, -50%);
     background: #2b1d14;
-    color: white;
+    height: 90vh;
+    align-items: stretch;
+    max-height: 700px;
 }
 .information-header {
     padding: 20px;
-    border-bottom: 1px solid #dbdbdb;
+    border-bottom: 2px solid #dbdbdb;
     font-size: larger;
 }
 .information-text {
     padding: 20px;
-    height: 90vh;
-    max-height: 500px;
+    flex-grow: 1;
     font-size: large;
+    overflow-y: scroll;
 }
 .information-footer {
     padding: 10px;
-    border-top: 1px solid #dbdbdb;
+    border-top: 2px solid #dbdbdb;
 }
 button {
     padding: 10px 20px;
-    background-color: #2D5A27;
+    background-color: #376e31;
     border: none;
     font-size: medium;
-    color: white;
+    color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
 }
