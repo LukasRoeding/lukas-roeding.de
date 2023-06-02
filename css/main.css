@@ -41,6 +41,8 @@ canvas {
     padding: 10px;
     border-top: 2px solid #dbc9ba;
     background: #38251b;
+    display: flex;
+    justify-content: end;
 }
 button {
     padding: 10px 20px;
