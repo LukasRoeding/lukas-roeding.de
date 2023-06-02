@@ -65,6 +65,9 @@ function animate() {
             informations.forEach(information => {
                 information.position.x -= defaultVelocity
             });
+            doors.forEach(door => {
+                door.position.x -= defaultVelocity
+            });  
         } else if (keys.left.pressed && scrollOffset > 0) {
             scrollOffset -= defaultVelocity
             platforms.forEach(platform => {
@@ -76,6 +79,9 @@ function animate() {
             informations.forEach(information => {
                 information.position.x += defaultVelocity
             });
+            doors.forEach(door => {
+                door.position.x += defaultVelocity
+            });  
         } else if (keys.enter.pressed) {
             doors.forEach(door => {
                 if (
