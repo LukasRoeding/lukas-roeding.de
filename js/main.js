@@ -32,6 +32,8 @@ const informations = []
 init(context, canvas, level, platforms, images, informations)
 
 function animate() {  
+    context.fillStyle = '#065535'
+    context.fillRect(0, 0, innerWidth, innerHeight)
     images.forEach(element => {
         if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
             element.draw();   
