@@ -3,7 +3,9 @@ export const level = {
         {
             x: 500,
             y: innerHeight - 200,
-            html: '<p>Test</p>'
+            html: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>',
+            title: 'Willkommen',
+            link: ''
         }
     ],
     doors: [
@@ -25,8 +27,8 @@ export const level = {
         {
             id: 2,
             x: 0,
-            y: 0,
-            w: innerHeight * 10,
+            y: 100,
+            w: innerHeight * 12,
             h: innerHeight,
             source: '../images/hills.png'
         },

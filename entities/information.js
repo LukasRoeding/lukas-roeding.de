@@ -1,9 +1,11 @@
 import { Platform } from "./platform.js"
 
 export class Information extends Platform {
-    constructor(position, context, canvas, image, width, height, information) {
+    constructor(position, context, canvas, image, width, height, information, title, link) {
         super(position, context, canvas, image, width, height)
         this.information = information
+        this.title = title
+        this.link = link
     }
 
     draw() {
@@ -15,5 +17,7 @@ export class Information extends Platform {
         modal.style.display = 'unset'
         let modalText = document.getElementById('information-text')
         modalText.innerHTML = this.information
+        let modaltitle = document.getElementById('information-header')
+        modaltitle.innerHTML = this.title
     }
 }

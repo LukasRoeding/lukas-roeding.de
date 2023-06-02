@@ -22,7 +22,7 @@ export function init(context, canvas, level, platforms, images, informations) {
     const informationImage = createImage('../images/info.png')
     informationImage.onload = function() {
         level.informations.forEach(information => {
-            informations.push(new Information({x:information.x, y:information.y}, context, canvas, informationImage, 40, 40, information.html))
+            informations.push(new Information({x:information.x, y:information.y}, context, canvas, informationImage, 40, 40, information.html, information.title, information.link))
         })
     }
 

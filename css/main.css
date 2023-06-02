@@ -5,18 +5,43 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    box-sizing: border-box;
 }
 canvas {
     display:block;
 }
 .information-modal {
     width: 90%;
+    max-width: 700px;
     display: none;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: brown;
+    background: #2b1d14;
     color: white;
+}
+.information-header {
+    padding: 20px;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: larger;
+}
+.information-text {
+    padding: 20px;
+    height: 90vh;
+    max-height: 500px;
+    font-size: large;
+}
+.information-footer {
     padding: 10px;
+    border-top: 1px solid #dbdbdb;
+}
+button {
+    padding: 10px 20px;
+    background-color: #2D5A27;
+    border: none;
+    font-size: medium;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
