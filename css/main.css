@@ -27,8 +27,9 @@ canvas {
 }
 .information-header {
     padding: 20px;
-    border-bottom: 2px solid #dbdbdb;
+    border-bottom: 2px solid #dbc9ba;
     font-size: larger;
+    background: #38251b;
 }
 .information-text {
     padding: 20px;
@@ -38,7 +39,8 @@ canvas {
 }
 .information-footer {
     padding: 10px;
-    border-top: 2px solid #dbdbdb;
+    border-top: 2px solid #dbc9ba;
+    background: #38251b;
 }
 button {
     padding: 10px 20px;
