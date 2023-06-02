@@ -13,6 +13,9 @@ export function controls(keys, player) {
             case 87:
                 player.up()
                 break
+            case 13:
+                keys.enter.pressed = true
+                break
         }
     })
     
@@ -23,6 +26,9 @@ export function controls(keys, player) {
                 break
             case 68:
                 keys.right.pressed = false
+                break
+            case 13:
+                keys.enter.pressed = false
                 break
         }
     })

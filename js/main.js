@@ -21,6 +21,9 @@ const keys = {
     },
     left: {
         pressed: false
+    },
+    enter: {
+        pressed: false
     }
 }
 const player = new Player(gravity, context, canvas);
@@ -28,16 +31,22 @@ const player = new Player(gravity, context, canvas);
 const platforms = []
 const images = []
 const informations = []
+const doors = []
 let scrollOffset = 0
 
-init(context, canvas, level, platforms, images, informations)
+init(context, canvas, level, platforms, images, informations, doors)
 
 function animate() {  
     images.forEach(element => {
         if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
             element.draw();   
         }
-    });    
+    });
+    doors.forEach(element => {
+        if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
+            element.draw();   
+        }
+    });   
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
     } else if (keys.left.pressed && player.position.x > 100
@@ -67,6 +76,18 @@ function animate() {
             informations.forEach(information => {
                 information.position.x += defaultVelocity
             });
+        } else if (keys.enter.pressed) {
+            doors.forEach(door => {
+                if (
+                    player.position.x + player.width + player.velocity.x >= door.position.x &&
+                    player.position.x + player.velocity.x <= door.position.x + 30 &&
+                    player.position.y + player.velocity.y + player.height >= door.position.y &&
+                    player.position.y + player.velocity.y <= door.position.y + 60
+                    ) {
+                    door.open()
+                    keys.enter.pressed = false
+                }
+            });   
         }
     }
     collision(platforms, player, informations);    

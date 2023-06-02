@@ -10,8 +10,8 @@ export const level = {
     ],
     doors: [
         {
-            x: 1000,
-            y: 1000,
+            x: 100,
+            y: innerHeight - 100,
             target: '/level_1'
         }
     ],
