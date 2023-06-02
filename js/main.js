@@ -28,6 +28,7 @@ const player = new Player(gravity, context, canvas);
 const platforms = []
 const images = []
 const informations = []
+let scrollOffset = 0
 
 init(context, canvas, level, platforms, images, informations)
 
@@ -39,11 +40,13 @@ function animate() {
     });    
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity
-    } else if (keys.left.pressed && player.position.x > 100) {
+    } else if (keys.left.pressed && player.position.x > 100
+        || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
         player.velocity.x = -defaultVelocity
     } else {
         player.velocity.x = 0
         if (keys.right.pressed) {
+            scrollOffset += defaultVelocity
             platforms.forEach(platform => {
                 platform.position.x -= defaultVelocity
             });
@@ -53,7 +56,8 @@ function animate() {
             informations.forEach(information => {
                 information.position.x -= defaultVelocity
             });
-        } else if (keys.left.pressed) {
+        } else if (keys.left.pressed && scrollOffset > 0) {
+            scrollOffset -= defaultVelocity
             platforms.forEach(platform => {
                 platform.position.x += defaultVelocity
             });
@@ -69,6 +73,7 @@ function animate() {
     player.update();
 
     if (player.position.y > canvas.height) {
+        scrollOffset = 0
         reset(player, platforms, images, informations, level)
     }
     requestAnimationFrame(animate);
