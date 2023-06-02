@@ -31,6 +31,7 @@ export function init(context, canvas, level, platforms, images, informations) {
             setTimeout(imagesLoaded, 10);
         } else {
             images.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+            platforms.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
         }
     }
     imagesLoaded()
