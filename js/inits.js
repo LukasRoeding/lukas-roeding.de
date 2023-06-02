@@ -15,7 +15,7 @@ export function init(context, canvas, level, platforms, images, informations) {
     for (const image of level.images) {
         const createdImage = createImage(image.source)
         createdImage.onload = function() {
-            images.push(new Image({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h))
+            images.push(new Image({x:image.x, y:image.y}, context, canvas, createdImage, image.w, image.h, image.id))
         }
     }
 
@@ -29,6 +29,8 @@ export function init(context, canvas, level, platforms, images, informations) {
     function imagesLoaded() {
         if (level.platforms.length > platforms.length && level.images.length > images.length && level.informations.length > informations.length) {
             setTimeout(imagesLoaded, 10);
+        } else {
+            images.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
         }
     }
     imagesLoaded()

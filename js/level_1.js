@@ -15,6 +15,7 @@ export const level = {
     ],
     images: [
         {
+            id: 1,
             x: -1,
             y: -2,
             w: innerHeight * 10,
@@ -22,6 +23,7 @@ export const level = {
             source: '../images/background.png'
         },
         {
+            id: 2,
             x: 0,
             y: 0,
             w: innerHeight * 10,
@@ -29,10 +31,11 @@ export const level = {
             source: '../images/hills.png'
         },
         {
-            x: 100,
-            y: innerHeight - 400,
-            w: 200,
-            h: 200,
+            id: 3,
+            x: 0,
+            y: 100,
+            w: innerHeight / 3,
+            h: innerHeight / 3,
             source: '../images/wasd.png'
         },
     ],
