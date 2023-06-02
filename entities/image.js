@@ -6,10 +6,10 @@ export class Image extends Entity {
         this.id = id
         this.image = image
         this.offscreenCanvas = document.createElement('canvas');
-        this.offscreenCanvas.width = innerWidth;
-        this.offscreenCanvas.height = innerHeight;
+        this.offscreenCanvas.width = width;
+        this.offscreenCanvas.height = height;
         const ctx = this.offscreenCanvas.getContext("2d");
-        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)  
+        ctx.drawImage(this.image, 0, 0, this.width, this.height)  
     }
 
     draw() {

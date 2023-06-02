@@ -18,7 +18,7 @@ export const level = {
             id: 1,
             x: -1,
             y: -2,
-            w: innerHeight * 10,
+            w: innerWidth * 3,
             h: innerHeight + 4,
             source: '../images/background.png'
         },
@@ -32,10 +32,10 @@ export const level = {
         },
         {
             id: 3,
-            x: 0,
-            y: 100,
-            w: innerHeight / 3,
-            h: innerHeight / 3,
+            x: 100,
+            y: innerHeight - 300,
+            w: 200,
+            h: 200,
             source: '../images/wasd.png'
         },
     ],
