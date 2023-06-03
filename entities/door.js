@@ -12,6 +12,6 @@ export class Door extends Entity {
     }
 
     open() {
-        window.open(this.link)
+        window.open(this.link,"_self")
     }
 }
