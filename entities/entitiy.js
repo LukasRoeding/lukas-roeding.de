@@ -1,5 +1,5 @@
 export class Entity {
-    constructor(position, width, height, context, canvas) {
+    constructor(position, width, height, context, canvas, id) {
         this.position = {
             x: position.x,
             y: position.y
@@ -8,5 +8,6 @@ export class Entity {
         this.height = height
         this.context = context
         this.canvas = canvas
+        this.id = id
     }
 }

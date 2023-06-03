@@ -1,8 +1,8 @@
 import { Platform } from "./platform.js"
 
 export class Information extends Platform {
-    constructor(position, context, canvas, image, width, height, information, title, link) {
-        super(position, context, canvas, image, width, height)
+    constructor(position, context, canvas, id, image, width, height, information, title, link) {
+        super(position, context, canvas, id, image, width, height)
         this.information = information
         this.title = title
         this.link = link

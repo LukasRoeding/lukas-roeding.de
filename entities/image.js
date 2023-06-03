@@ -1,9 +1,8 @@
 import { Entity } from "./entitiy.js"
 
 export class Image extends Entity {
-    constructor(position, context, canvas, image, width, height, id) {
-        super({x:position.x, y:position.y}, width, height, context, canvas)
-        this.id = id
+    constructor(position, context, canvas, id, image, width, height) {
+        super({x:position.x, y:position.y}, width, height, context, canvas, id)
         this.image = image
         this.offscreenCanvas = document.createElement('canvas');
         this.offscreenCanvas.width = width;

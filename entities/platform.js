@@ -1,8 +1,8 @@
 import { Entity } from "./entitiy.js"
 
 export class Platform extends Entity {
-    constructor(position, context, canvas, image, width, height) {
-        super({x:position.x, y:position.y}, width, height, context, canvas)
+    constructor(position, context, canvas, id, image, width, height) {
+        super({x:position.x, y:position.y}, width, height, context, canvas, id)
         this.image = image
     }
 
