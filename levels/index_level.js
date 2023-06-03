@@ -11,9 +11,9 @@ export const level = {
     ],
     doors: [
         {
-            x: 100,
-            y: innerHeight - 100,
-            target: '/level_1'
+            x: 880,
+            y: innerHeight - 200,
+            target: '/experience.html'
         }
     ],
     images: [

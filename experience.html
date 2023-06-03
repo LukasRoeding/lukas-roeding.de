@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="css/main.css" rel="stylesheet" />
+    <title>Berufserfahrung</title>
+</head>
+<body>
+    <div id="information-modal" class="information-modal">
+        <div id="information-header" class="information-header"></div>
+        <div id="information-text" class="information-text"></div>
+        <div  id="information-footer" class="information-footer">
+            <button onclick="closeModal()">Schließen</button>
+        </div>
+        
+    </div>
+    <canvas></canvas>
+</body>
+<script type="module" src="js/main.js"></script>
+<script>
+    function closeModal() {
+        const modal = document.getElementById('information-modal')
+        modal.style.display = 'none'
+    }
+</script>
+</html>

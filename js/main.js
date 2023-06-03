@@ -1,9 +1,22 @@
 import { Player } from '../entities/player.js'
-import { level } from './level_1.js';
 import { controls } from './controls.js';
 import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
+
+var path = window.location.pathname;
+var pageName = path.split("/").pop().split(".")[0];
+
+async function getLevel(pageName) {
+    try {
+       const module = await import('../levels/' + pageName + '_level.js');
+       return module.level
+    } catch (error) {
+       console.error('importing level failed');
+    }
+}
+
+const level = await getLevel(pageName)
 
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth
