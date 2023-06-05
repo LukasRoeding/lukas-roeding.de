@@ -2,7 +2,7 @@ export const level = {
     informations: [
         {
             id: 1,
-            x: 400,
+            x: 200,
             y: innerHeight - 200,
             html: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>',
             title: 'Willkommen',
@@ -11,24 +11,9 @@ export const level = {
     ],
     doors: [
         {
-            x: 680,
-            y: innerHeight - 200,
-            target: '/experience.html'
-        },
-        {
             x: 880,
             y: innerHeight - 200,
-            target: '/education.html'
-        },
-        {
-            x: 1080,
-            y: innerHeight - 200,
-            target: '/personal.html'
-        },        
-        {
-            x: 1280,
-            y: innerHeight - 200,
-            target: '/fun.html'
+            target: '/experience.html'
         }
     ],
     images: [
@@ -91,15 +76,7 @@ export const level = {
         },
         {
             id: 4,
-            x: 1000-5,
-            y: innerHeight - 40,
-            height: 40,
-            width: 400,
-            source: '../images/platform.png'
-        },
-        {
-            id: 4,
-            x: 1400-6,
+            x: 1200,
             y: innerHeight - 40,
             height: 40,
             width: 400,
@@ -107,15 +84,7 @@ export const level = {
         },
         {
             id: 5,
-            x: 600-4,
-            y: innerHeight - 140,
-            height: 100,
-            width: 200,
-            source: '../images/platformSmallTall.png'
-        },
-        {
-            id: 5,
-            x: 800-6,
+            x: 800-4,
             y: innerHeight - 140,
             height: 100,
             width: 200,
@@ -123,15 +92,7 @@ export const level = {
         },
         {
             id: 6,
-            x: 1000-9,
-            y: innerHeight - 140,
-            height: 100,
-            width: 200,
-            source: '../images/platformSmallTall.png'
-        },
-        {
-            id: 6,
-            x: 1200-11,
+            x: 1200,
             y: innerHeight - 140,
             height: 100,
             width: 200,
