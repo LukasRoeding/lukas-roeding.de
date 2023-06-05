@@ -27,8 +27,11 @@ export function init(context, canvas, level, platforms, images, informations, do
         })
     }
 
-    for (const door of level.doors) {
-        doors.push(new Door({x: door.x, y: door.y}, context, canvas, 30, 60, door.target))
+    const doorImage = createImage('../images/door.png')
+    doorImage.onload = function() {
+        level.doors.forEach(door => {
+            doors.push(new Door({x: door.x, y: door.y}, context, canvas, 50, 50, door.target, doorImage))
+        })
     }
 
     function imagesLoaded() {

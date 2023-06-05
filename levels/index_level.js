@@ -12,22 +12,22 @@ export const level = {
     doors: [
         {
             x: 680,
-            y: innerHeight - 200,
+            y: innerHeight - 190,
             target: '/experience.html'
         },
         {
             x: 880,
-            y: innerHeight - 200,
+            y: innerHeight - 190,
             target: '/education.html'
         },
         {
             x: 1080,
-            y: innerHeight - 200,
+            y: innerHeight - 190,
             target: '/personal.html'
         },        
         {
             x: 1280,
-            y: innerHeight - 200,
+            y: innerHeight - 190,
             target: '/fun.html'
         }
     ],

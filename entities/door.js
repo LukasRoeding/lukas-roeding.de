@@ -1,14 +1,21 @@
 import { Entity } from "./entitiy.js";
 
 export class Door extends Entity {
-    constructor(position, context, canvas, width, height, link) {
+    constructor(position, context, canvas, width, height, link, image) {
         super({x:position.x, y:position.y}, width, height, context, canvas)
         this.link = link
+        this.image = image
+        this.offscreenCanvas = document.createElement('canvas');
+        this.offscreenCanvas.width = width;
+        this.offscreenCanvas.height = height;
+        const ctx = this.offscreenCanvas.getContext("2d");
+        ctx.drawImage(this.image, 0, 0, this.width, this.height)  
     }
 
     draw() {
-        this.context.fillStyle = 'brown'
-        this.context.fillRect(this.position.x, this.position.y, this.width, this.height) 
+        if (this.position.x <= innerWidth || this.position.x + this.width >= 0) {
+            this.context.drawImage(this.offscreenCanvas, this.position.x, this.position.y)  
+        }
     }
 
     open() {
