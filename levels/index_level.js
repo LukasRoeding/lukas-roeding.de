@@ -64,7 +64,23 @@ export const level = {
             type: 'violett_mushroom'
         }
     ],
-    platforms: [
+    platforms: [        
+        {
+            id: 1,
+            x: innerHeight,
+            y: innerHeight - innerHeight / 4,
+            height: innerHeight / 4,
+            width: innerHeight / 2,
+            source: '../images/platformSmallTall.png'
+        },
+        {
+            id: 2,
+            x: innerHeight + innerHeight / 2 - 3,
+            y: innerHeight - innerHeight / 4,
+            height: innerHeight / 4,
+            width: innerHeight / 2,
+            source: '../images/platformSmallTall.png'
+        },
         {
             id: 3,
             x: -1,
@@ -89,21 +105,6 @@ export const level = {
             width: innerHeight,
             source: '../images/platform.png'
         },
-        {
-            id: 2,
-            x: innerHeight,
-            y: innerHeight - innerHeight / 4,
-            height: innerHeight / 4,
-            width: innerHeight / 2,
-            source: '../images/platformSmallTall.png'
-        },
-        {
-            id: 1,
-            x: innerHeight + innerHeight / 2 - 3,
-            y: innerHeight - innerHeight / 4,
-            height: innerHeight / 4,
-            width: innerHeight / 2,
-            source: '../images/platformSmallTall.png'
-        },
+
     ]
 }
