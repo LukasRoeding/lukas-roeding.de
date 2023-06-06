@@ -35,7 +35,6 @@ export function init(context, canvas, level, platforms, images, informations, do
     }
 
     function imagesLoaded() {
-        console.log(level.images.length, images.length)
         if (level.platforms.length == platforms.length && level.images.length == images.length && level.informations.length== informations.length) {
             images.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
             platforms.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
