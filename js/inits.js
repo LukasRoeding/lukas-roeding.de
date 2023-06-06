@@ -23,14 +23,14 @@ export function init(context, canvas, level, platforms, images, informations, do
     const informationImage = createImage('../images/info.png')
     informationImage.onload = function() {
         level.informations.forEach(information => {
-            informations.push(new Information({x:information.x, y:information.y}, context, canvas, information.id, informationImage, 40, 40, information.html, information.title, information.link))
+            informations.push(new Information({x:information.x, y:information.y}, context, canvas, information.id, informationImage, innerHeight / 20, innerHeight / 20, information.html, information.title, information.link))
         })
     }
 
     const doorImage = createImage('../images/door.png')
     doorImage.onload = function() {
         level.doors.forEach(door => {
-            doors.push(new Door({x: door.x, y: door.y}, context, canvas, 50, 50, door.target, doorImage))
+            doors.push(new Door({x: door.x, y: door.y}, context, canvas, innerHeight / 10, innerHeight / 10, door.target, doorImage))
         })
     }
 

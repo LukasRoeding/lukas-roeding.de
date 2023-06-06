@@ -6,7 +6,7 @@ import { init } from './inits.js';
 
 const path = window.location.pathname;
 let pageName = ''
-if (path = '/') {
+if (path == '/') {
     pageName = 'index'
 } else {
     pageName = path.split("/").pop().split(".")[0];
@@ -31,8 +31,8 @@ canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
 
-const gravity = 1;
-const defaultVelocity = 6;
+const gravity = innerHeight / 1000;
+const defaultVelocity = innerHeight / 100;
 
 
 const keys = {

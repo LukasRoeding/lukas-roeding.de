@@ -2,7 +2,7 @@ import { Entity } from "./entitiy.js"
 
 export class Player extends Entity {
     constructor(gravity, context, canvas) {
-        super({x: 100, y: 100}, 30, 30, context, canvas)
+        super({x: 100, y: 100}, innerHeight / 20, innerHeight / 20, context, canvas)
         this.velocity = {
             x: 0,
             y: 1
@@ -28,7 +28,7 @@ export class Player extends Entity {
 
     up() {
         if (this.jumped == false && this.velocity.y == this.gravity) {
-            this.velocity.y -= 16
+            this.velocity.y -= innerHeight / 50
             this.jumped = true  
         }
     }
