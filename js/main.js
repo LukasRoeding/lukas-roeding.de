@@ -5,7 +5,12 @@ import { reset } from './reset.js';
 import { init } from './inits.js';
 
 var path = window.location.pathname;
-var pageName = path.split("/").pop().split(".")[0];
+if (path = '/') {
+    var pageName = 'index'
+} else {
+    var pageName = path.split("/").pop().split(".")[0];
+}
+
 
 async function getLevel(pageName) {
     try {
@@ -21,6 +26,7 @@ const level = await getLevel(pageName)
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth
 canvas.height = innerHeight
+canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
 
@@ -120,4 +126,5 @@ function animate() {
 }
 
 animate()
+canvas.style.display = 'unset'
 controls(keys, player)
