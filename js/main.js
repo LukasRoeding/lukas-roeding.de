@@ -4,11 +4,12 @@ import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
 
-var path = window.location.pathname;
+const path = window.location.pathname;
+let pageName = ''
 if (path = '/') {
-    var pageName = 'index'
+    pageName = 'index'
 } else {
-    var pageName = path.split("/").pop().split(".")[0];
+    pageName = path.split("/").pop().split(".")[0];
 }
 
 
