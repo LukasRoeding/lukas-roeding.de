@@ -133,7 +133,7 @@ function animate() {
 
     if (player.position.y > canvas.height) {
         scrollOffset = 0
-        reset(player, platforms, images, informations, doors, level)
+        reset(player, platforms, images, informations, doors, backgroundImages, level)
     }
     requestAnimationFrame(animate);
 }

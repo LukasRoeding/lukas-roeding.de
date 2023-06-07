@@ -48,6 +48,7 @@ export function init(context, canvas, level, platforms, images, informations, do
             level.backgroundImages.length == backgroundImages.length) {
             images.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
             platforms.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+            backgroundImages.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
             return
         } else {
             setTimeout(imagesLoaded, 10);
