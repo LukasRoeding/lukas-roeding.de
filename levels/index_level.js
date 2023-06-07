@@ -33,6 +33,16 @@ export const level = {
     ],
     images: [
         {
+            id: 3,
+            x: 100,
+            y: innerHeight / 2,
+            w: innerHeight / 4,
+            h: innerHeight / 4,
+            source: '../images/wasd.png'
+        },
+    ],
+    backgroundImages: [
+        {
             id: 1,
             x: -1,
             y: -2,
@@ -47,14 +57,6 @@ export const level = {
             w: innerHeight * 12,
             h: innerHeight,
             source: '../images/hills.png'
-        },
-        {
-            id: 3,
-            x: 100,
-            y: innerHeight / 2,
-            w: innerHeight / 4,
-            h: innerHeight / 4,
-            source: '../images/wasd.png'
         },
     ],
     enemies: [

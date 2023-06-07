@@ -52,11 +52,17 @@ const platforms = []
 const images = []
 const informations = []
 const doors = []
+const backgroundImages = []
 let scrollOffset = 0
 
-init(context, canvas, level, platforms, images, informations, doors)
+init(context, canvas, level, platforms, images, informations, doors, backgroundImages)
 
-function animate() {  
+function animate() {
+    backgroundImages.forEach(element => {
+        if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
+            element.draw();   
+        }
+    }); 
     images.forEach(element => {
         if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
             element.draw();   
@@ -80,6 +86,9 @@ function animate() {
                 platform.position.x -= defaultVelocity
             });
             images.forEach(image => {
+                image.position.x -= defaultVelocity
+            });
+            backgroundImages.forEach(image => {
                 image.position.x -= defaultVelocity / 2
             });
             informations.forEach(information => {
@@ -94,6 +103,9 @@ function animate() {
                 platform.position.x += defaultVelocity
             });
             images.forEach(image => {
+                image.position.x += defaultVelocity
+            });
+            backgroundImages.forEach(image => {
                 image.position.x += defaultVelocity / 2
             });
             informations.forEach(information => {

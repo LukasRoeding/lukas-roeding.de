@@ -4,7 +4,7 @@ import { Information } from "../entities/information.js";
 import { createImage } from "./createImage.js";
 import { Door } from "../entities/door.js";
 
-export function init(context, canvas, level, platforms, images, informations, doors) {
+export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages) {
 
     level.platforms.forEach(platform => {
         const platformImage = createImage(platform.source)
@@ -17,6 +17,13 @@ export function init(context, canvas, level, platforms, images, informations, do
         const createdImage = createImage(image.source)
         createdImage.onload = function() {
             images.push(new Image({x:image.x, y:image.y}, context, canvas, image.id, createdImage, image.w, image.h, image.id))
+        }
+    }
+
+    for (const image of level.backgroundImages) {
+        const createdImage = createImage(image.source)
+        createdImage.onload = function() {
+            backgroundImages.push(new Image({x:image.x, y:image.y}, context, canvas, image.id, createdImage, image.w, image.h, image.id))
         }
     }
 
@@ -35,7 +42,10 @@ export function init(context, canvas, level, platforms, images, informations, do
     }
 
     function imagesLoaded() {
-        if (level.platforms.length == platforms.length && level.images.length == images.length && level.informations.length== informations.length) {
+        if (level.platforms.length == platforms.length && 
+            level.images.length == images.length && 
+            level.informations.length == informations.length && 
+            level.backgroundImages.length == backgroundImages.length) {
             images.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
             platforms.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
             return
