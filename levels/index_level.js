@@ -31,14 +31,46 @@ export const level = {
             target: '/fun.html'
         }
     ],
-    images: [
+    images: [        
         {
-            id: 3,
+            id: 1,
             x: 100,
             y: innerHeight / 2,
             w: innerHeight / 4,
             h: innerHeight / 4,
             source: '../images/wasd.png'
+        },
+        {
+            id: 2,
+            x: innerHeight + innerHeight / 20 - innerHeight / 80,
+            y: innerHeight - innerHeight / 4 - innerHeight / 10 - innerHeight / 6,
+            w: innerHeight / 8,
+            h: innerHeight / 8,
+            source: '../images/experience.png'
+        },
+        {
+            id: 3,
+            x: innerHeight + innerHeight / 2 - innerHeight / 10 - innerHeight / 20 - innerHeight / 80,
+            y: innerHeight - innerHeight / 4 - innerHeight / 10 - innerHeight / 6,
+            w: innerHeight / 8,
+            h: innerHeight / 8,
+            source: '../images/education.png'
+        },
+        {
+            id: 4,
+            x: innerHeight + innerHeight / 2 + innerHeight / 20 - innerHeight / 120,
+            y: innerHeight - innerHeight / 4 - innerHeight / 10 - innerHeight / 6,
+            w: innerHeight / 9,
+            h: innerHeight / 9,
+            source: '../images/personal.png'
+        },
+        {
+            id: 5,
+            x: innerHeight * 2 - innerHeight / 10 - innerHeight / 20 - innerHeight / 80,
+            y: innerHeight - innerHeight / 4 - innerHeight / 10 - innerHeight / 6,
+            w: innerHeight / 8,
+            h: innerHeight / 9,
+            source: '../images/fun.png'
         },
     ],
     backgroundImages: [
