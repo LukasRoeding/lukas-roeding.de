@@ -2,9 +2,9 @@ body {
     margin: 0;
     background-color: black;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     box-sizing: border-box;
     color: whitesmoke;
 }
@@ -53,3 +53,20 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.touch-controls {
+    display: none;
+}
+canvas {
+    height: 100vh;
+}
+
+@media only screen and (max-width: 1024px) {
+    .touch-controls {
+        height: 10vh;
+        display: block;
+    }
+    canvas {
+        height: 90vh;
+    }
+  }

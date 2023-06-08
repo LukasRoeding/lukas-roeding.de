@@ -32,4 +32,17 @@ export function controls(keys, player) {
                 break
         }
     })
+
+    document.getElementById('left-button').onmousedown = () => { keys.left.pressed = true };
+    document.getElementById('right-button').onmousedown = () => { keys.right.pressed = true };
+    document.getElementById('jump-button').onmousedown = () => { player.up() };
+
+    document.getElementById('left-button').onmouseup = () => { keys.left.pressed = false };
+    document.getElementById('right-button').onmouseup = () => { keys.right.pressed = false };
+
+    document.getElementById('left-button').ontouchstart = () => { keys.left.pressed = true };
+    document.getElementById('right-button').ontouchstart = () => { keys.right.pressed = true };
+
+    document.getElementById('left-button').ontouchend = () => { keys.left.pressed = false };
+    document.getElementById('right-button').ontouchend = () => { keys.right.pressed = false };
 }
