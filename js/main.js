@@ -13,20 +13,25 @@ if (path == '/') {
 }
 
 
-async function getLevel(pageName) {
+async function getLevel(pageName, levelHeight) {
     try {
        const module = await import('../levels/' + pageName + '_level.js');
-       return module.level
+       return module.level(levelHeight)
     } catch (error) {
        console.error('importing level failed');
     }
 }
 
-const level = await getLevel(pageName)
-
 const canvas = document.querySelector('canvas');
 canvas.width = innerWidth
-canvas.height = innerHeight
+if (innerWidth > 1024 ) {
+    canvas.height = innerHeight  
+} else {
+    canvas.height = innerHeight * 0.9
+}
+
+const level = await getLevel(pageName, canvas.height)
+
 canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
