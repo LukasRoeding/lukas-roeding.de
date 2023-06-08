@@ -55,13 +55,20 @@ button {
 }
 
 .touch-controls {
+    background: #38251b;
     display: none;
-    user-select: none; 
+    user-select: none;
+}
+
+.touch-controls button{
+    width: 25%;
+    margin: 6px 4px;
 }
 
 @media only screen and (max-width: 1024px) {
     .touch-controls {
         height: 10vh;
-        display: block;
+        width: 100%;
+        display: flex;
     }
   }
