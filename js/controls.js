@@ -36,6 +36,7 @@ export function controls(keys, player) {
     document.getElementById('left-button').onmousedown = () => { keys.left.pressed = true };
     document.getElementById('right-button').onmousedown = () => { keys.right.pressed = true };
     document.getElementById('jump-button').onmousedown = () => { player.up() };
+    document.getElementById('enter-button').onmousedown = () => { keys.enter.pressed = true };
 
     document.getElementById('left-button').onmouseup = () => { keys.left.pressed = false };
     document.getElementById('right-button').onmouseup = () => { keys.right.pressed = false };
