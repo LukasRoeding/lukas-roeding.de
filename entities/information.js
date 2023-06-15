@@ -8,10 +8,6 @@ export class Information extends Platform {
         this.link = link
     }
 
-    draw() {
-        this.context.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)  
-    }
-
     displayInformation() {
         let modal = document.getElementById('information-modal')
         modal.style.display = 'flex'
