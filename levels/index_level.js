@@ -6,7 +6,7 @@ export function level(height) {
                 x: height / 2,
                 y: height - height / 3,
                 html: "<p>auf meiner Website. Mein Name ist Lukas Röding und ich bin ein Webentwickler ausm Pott.</p>" +
-                "<p>Die Website soll Ihnen einen Überblick über meine Fähigkeiten geben, als auch ein wenig über mich persönlich erzählen.</p>" + 
+                "<p>Die Website soll Ihnen einen Überblick über meine Fähigkeiten geben und ein wenig über mich persönlich erzählen.</p>" + 
                 "<p>Falls Ihnen das zu langweilig ist, überspringen Sie einfach die ersten drei Türen und gehen Sie direkt durch die letzte. Dort gelangen Sie in ein kleines Sidescroller-Spiel.</p>" +
                 "<p>Sie können durch Türen gehen, indem Sie Enter drücken, wenn Sie sich auf einer Tür befinden.</p>",
                 title: 'Willkommen...',
