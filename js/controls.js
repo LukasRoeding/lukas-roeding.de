@@ -40,10 +40,13 @@ export function controls(keys, player) {
 
     document.getElementById('left-button').onmouseup = () => { keys.left.pressed = false };
     document.getElementById('right-button').onmouseup = () => { keys.right.pressed = false };
+    document.getElementById('enter-button').onmouseup = () => { keys.enter.pressed = false };
 
     document.getElementById('left-button').ontouchstart = () => { keys.left.pressed = true };
     document.getElementById('right-button').ontouchstart = () => { keys.right.pressed = true };
+    document.getElementById('enter-button').ontouchstart = () => { keys.enter.pressed = true };
 
     document.getElementById('left-button').ontouchend = () => { keys.left.pressed = false };
     document.getElementById('right-button').ontouchend = () => { keys.right.pressed = false };
+    document.getElementById('enter-button').ontouchend = () => { keys.enter.pressed = false };
 }
