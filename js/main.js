@@ -123,9 +123,9 @@ function animate() {
             doors.forEach(door => {
                 if (
                     player.position.x + player.width + player.velocity.x >= door.position.x &&
-                    player.position.x + player.velocity.x <= door.position.x + 30 &&
+                    player.position.x + player.velocity.x <= door.position.x + innerHeight / 10 &&
                     player.position.y + player.velocity.y + player.height >= door.position.y &&
-                    player.position.y + player.velocity.y <= door.position.y + 60
+                    player.position.y + player.velocity.y <= door.position.y + innerHeight / 10
                     ) {
                     door.open()
                     keys.enter.pressed = false
