@@ -63,6 +63,7 @@ button {
 .touch-controls button{
     width: 25%;
     margin: 6px 4px;
+    user-select: none;
 }
 
 @media only screen and (max-width: 1024px) {

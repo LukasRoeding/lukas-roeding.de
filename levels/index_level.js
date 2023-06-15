@@ -79,7 +79,7 @@ export function level(height) {
                 id: 1,
                 x: -1,
                 y: -2,
-                w: innerWidth * 3,
+                w: height * 10,
                 h: height + 4,
                 source: '../images/background.png'
             },
