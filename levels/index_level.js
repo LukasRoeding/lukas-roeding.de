@@ -5,8 +5,11 @@ export function level(height) {
                 id: 1,
                 x: height / 2,
                 y: height - height / 3,
-                html: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>',
-                title: 'Willkommen',
+                html: "<p>auf meiner Website. Mein Name ist Lukas Röding und ich bin ein Webentwickler ausm Pott.</p>" +
+                "<p>Die Website soll Ihnen einen Überblick über meine Fähigkeiten geben, als auch ein wenig über mich persönlich erzählen.</p>" + 
+                "<p>Falls Ihnen das zu langweilig ist, überspringen Sie einfach die ersten drei Türen und gehen Sie direkt durch die letzte. Dort gelangen Sie in ein kleines Sidescroller-Spiel.</p>" +
+                "<p>Sie können durch Türen gehen, indem Sie Enter drücken, wenn Sie sich auf einer Tür befinden.</p>",
+                title: 'Willkommen...',
                 link: ''
             }
         ],
@@ -22,12 +25,12 @@ export function level(height) {
                 target: '/education.html'
             },
             {
-                x: height + height / 2 + height / 20,
+                x: height + height / 2 + height / 20 + height / 8,
                 y: height - height / 4 - height / 10,
                 target: '/personal.html'
             },
             {
-                x: height * 2 - height / 10 - height / 20,
+                x: height * 2 - height / 10 - height / 20 + height / 8,
                 y: height - height / 4 - height / 10,
                 target: '/fun.html'
             }
@@ -59,7 +62,7 @@ export function level(height) {
             },
             {
                 id: 4,
-                x: height + height / 2 + height / 20 - height / 120,
+                x: height + height / 2 + height / 20 - height / 120 + height / 8,
                 y: height - height / 4 - height / 10 - height / 6,
                 w: height / 9,
                 h: height / 9,
@@ -67,7 +70,7 @@ export function level(height) {
             },
             {
                 id: 5,
-                x: height * 2 - height / 10 - height / 20 - height / 80,
+                x: height * 2 - height / 10 - height / 20 - height / 80 + height / 8,
                 y: height - height / 4 - height / 10 - height / 6,
                 w: height / 8,
                 h: height / 9,
@@ -102,7 +105,7 @@ export function level(height) {
         platforms: [        
             {
                 id: 1,
-                x: height,
+                x: height - 1,
                 y: height - height / 4,
                 height: height / 4,
                 width: height / 2,
@@ -110,7 +113,7 @@ export function level(height) {
             },
             {
                 id: 2,
-                x: height + height / 2 - 3,
+                x: height + height / 2 + height / 8 - 4,
                 y: height - height / 4,
                 height: height / 4,
                 width: height / 2,
