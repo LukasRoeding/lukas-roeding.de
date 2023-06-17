@@ -1,5 +1,5 @@
 export function collision(platforms, player, informations) {
-    platforms.forEach(platform => {
+    for(const platform of platforms) {
         if (platform.position.x <= innerWidth || platform.position.x + platform.width >= 0) {
             platform.draw();
             if (
@@ -13,8 +13,8 @@ export function collision(platforms, player, informations) {
             }  
         }
 
-    });
-    informations.forEach(information => {
+    };
+    for(const information of informations) {
         if (information.position.x <= innerWidth || information.position.x + information.width >= 0) {
         information.draw();
         if (

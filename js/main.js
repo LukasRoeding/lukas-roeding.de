@@ -65,21 +65,21 @@ function animate() {
     const now = new Date().getTime();
     const dt = (now - (time || now)) * 0.06;
     time = now;
-    backgroundImages.forEach(element => {
-        if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
-            element.draw();   
+    for(const image of backgroundImages) {
+        if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
+            image.draw();   
         }
-    }); 
-    images.forEach(element => {
-        if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
-            element.draw();   
+    }; 
+    for(const image of images) {
+        if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
+            image.draw();   
         }
-    });
-    doors.forEach(element => {
-        if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
-            element.draw();   
+    };
+    for(const door of doors) {
+        if (door.position.x <= innerWidth || door.position.x + door.width >= 0) {
+            door.draw();   
         }
-    });   
+    };   
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity * dt
     } else if (keys.left.pressed && player.position.x > 100
@@ -89,40 +89,40 @@ function animate() {
         player.velocity.x = 0
         if (keys.right.pressed) {
             scrollOffset += defaultVelocity * dt
-            platforms.forEach(platform => {
+            for(const platform of platforms) {
                 platform.position.x -= defaultVelocity * dt
-            });
-            images.forEach(image => {
+            };
+            for(const image of images) {
                 image.position.x -= defaultVelocity * dt
-            });
-            backgroundImages.forEach(image => {
+            };
+            for(const image of backgroundImages) {
                 image.position.x -= defaultVelocity / 2 * dt
-            });
-            informations.forEach(information => {
+            };
+            for(const information of informations) {
                 information.position.x -= defaultVelocity * dt
-            });
-            doors.forEach(door => {
+            };
+            for(const door of doors) {
                 door.position.x -= defaultVelocity * dt
-            });  
+            };  
         } else if (keys.left.pressed && scrollOffset > 0) {
             scrollOffset -= defaultVelocity
-            platforms.forEach(platform => {
+            for(const platform of platforms) {
                 platform.position.x += defaultVelocity * dt
-            });
-            images.forEach(image => {
+            };
+            for(const image of images) {
                 image.position.x += defaultVelocity * dt
-            });
-            backgroundImages.forEach(image => {
+            };
+            for(const image of backgroundImages) {
                 image.position.x += defaultVelocity / 2 * dt
-            });
-            informations.forEach(information => {
+            };
+            for(const information of informations) {
                 information.position.x += defaultVelocity * dt
-            });
-            doors.forEach(door => {
+            };
+            for(const door of doors) {
                 door.position.x += defaultVelocity * dt
-            });  
+            };  
         } else if (keys.enter.pressed) {
-            doors.forEach(door => {
+            for(const door of doors) {
                 if (
                     player.position.x + player.width + player.velocity.x >= door.position.x &&
                     player.position.x + player.velocity.x <= door.position.x + innerHeight / 10 &&
@@ -132,7 +132,7 @@ function animate() {
                     door.open()
                     keys.enter.pressed = false
                 }
-            });   
+            };   
         }
     }
     collision(platforms, player, informations);    
