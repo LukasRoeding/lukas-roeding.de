@@ -12,7 +12,6 @@ if (path == '/') {
     pageName = path.split("/").pop().split(".")[0];
 }
 
-
 async function getLevel(pageName, levelHeight) {
     try {
        const module = await import('../levels/' + pageName + '_level.js');
@@ -61,8 +60,11 @@ const backgroundImages = []
 let scrollOffset = 0
 
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages)
-
+var time;
 function animate() {
+    const now = new Date().getTime();
+    const dt = (now - (time || now)) * 0.06;
+    time = now;
     backgroundImages.forEach(element => {
         if (element.position.x <= innerWidth || element.position.x + element.width >= 0) {
             element.draw();   
@@ -79,45 +81,45 @@ function animate() {
         }
     });   
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
-        player.velocity.x = defaultVelocity
+        player.velocity.x = defaultVelocity * dt
     } else if (keys.left.pressed && player.position.x > 100
         || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
-        player.velocity.x = -defaultVelocity
+        player.velocity.x = -defaultVelocity * dt
     } else {
         player.velocity.x = 0
         if (keys.right.pressed) {
-            scrollOffset += defaultVelocity
+            scrollOffset += defaultVelocity * dt
             platforms.forEach(platform => {
-                platform.position.x -= defaultVelocity
+                platform.position.x -= defaultVelocity * dt
             });
             images.forEach(image => {
-                image.position.x -= defaultVelocity
+                image.position.x -= defaultVelocity * dt
             });
             backgroundImages.forEach(image => {
-                image.position.x -= defaultVelocity / 2
+                image.position.x -= defaultVelocity / 2 * dt
             });
             informations.forEach(information => {
-                information.position.x -= defaultVelocity
+                information.position.x -= defaultVelocity * dt
             });
             doors.forEach(door => {
-                door.position.x -= defaultVelocity
+                door.position.x -= defaultVelocity * dt
             });  
         } else if (keys.left.pressed && scrollOffset > 0) {
             scrollOffset -= defaultVelocity
             platforms.forEach(platform => {
-                platform.position.x += defaultVelocity
+                platform.position.x += defaultVelocity * dt
             });
             images.forEach(image => {
-                image.position.x += defaultVelocity
+                image.position.x += defaultVelocity * dt
             });
             backgroundImages.forEach(image => {
-                image.position.x += defaultVelocity / 2
+                image.position.x += defaultVelocity / 2 * dt
             });
             informations.forEach(information => {
-                information.position.x += defaultVelocity
+                information.position.x += defaultVelocity * dt
             });
             doors.forEach(door => {
-                door.position.x += defaultVelocity
+                door.position.x += defaultVelocity * dt
             });  
         } else if (keys.enter.pressed) {
             doors.forEach(door => {
