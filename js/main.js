@@ -105,7 +105,7 @@ function animate() {
                 door.position.x -= defaultVelocity * dt
             };  
         } else if (keys.left.pressed && scrollOffset > 0) {
-            scrollOffset -= defaultVelocity
+            scrollOffset -= defaultVelocity * dt
             for(const platform of platforms) {
                 platform.position.x += defaultVelocity * dt
             };
