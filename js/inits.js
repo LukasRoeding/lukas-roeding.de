@@ -4,7 +4,7 @@ import { Information } from "../entities/information.js";
 import { createImage } from "./createImage.js";
 import { Door } from "../entities/door.js";
 
-export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages) {
+export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages, height) {
 
     level.platforms.forEach(platform => {
         const platformImage = createImage(platform.source)
@@ -30,14 +30,14 @@ export function init(context, canvas, level, platforms, images, informations, do
     const informationImage = createImage('../images/info.png')
     informationImage.onload = function() {
         level.informations.forEach(information => {
-            informations.push(new Information({x:information.x, y:information.y}, context, canvas, information.id, informationImage, innerHeight / 20, innerHeight / 20, information.html, information.title, information.link))
+            informations.push(new Information({x:information.x, y:information.y}, context, canvas, information.id, informationImage, height / 20, height / 20, information.html, information.title, information.link))
         })
     }
 
     const doorImage = createImage('../images/door.png')
     doorImage.onload = function() {
         level.doors.forEach(door => {
-            doors.push(new Door({x: door.x, y: door.y}, context, canvas, innerHeight / 10, innerHeight / 10, door.target, doorImage))
+            doors.push(new Door({x: door.x, y: door.y}, context, canvas, height / 10, height / 10, door.target, doorImage))
         })
     }
 

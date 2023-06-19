@@ -59,7 +59,7 @@ const doors = []
 const backgroundImages = []
 let scrollOffset = 0
 
-init(context, canvas, level, platforms, images, informations, doors, backgroundImages)
+init(context, canvas, level, platforms, images, informations, doors, backgroundImages, canvas.height)
 var time;
 function animate() {
     const now = new Date().getTime();
