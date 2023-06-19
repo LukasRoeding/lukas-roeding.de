@@ -3,7 +3,7 @@ export function level(height) {
         informations: [
             {
                 id: 1,
-                x: height / 2,
+                x: height / 2 - innerHeight / 20,
                 y: height - height / 3,
                 html: "<p>auf meiner Website. Mein Name ist Lukas Röding und ich bin ein Webentwickler ausm Pott.</p>" +
                 "<p>Die Website soll Ihnen einen Überblick über meine Fähigkeiten geben und ein wenig über mich persönlich erzählen.</p>" + 
@@ -35,15 +35,24 @@ export function level(height) {
                 target: '/fun.html'
             }
         ],
-        images: [        
+        images: [              
+            {
+                id: 0,
+                x: height / 2,
+                y: height - height / 10 - height / 2,
+                w: height / 2,
+                h: height / 2,
+                source: '../images/tree.png'
+            },      
             {
                 id: 1,
-                x: 100,
+                x: height / 100 + height / 8,
                 y: height / 2,
                 w: height / 4,
                 h: height / 4,
                 source: '../images/wasd.png'
             },
+
             {
                 id: 2,
                 x: height + height / 20 - height / 80,
@@ -75,24 +84,32 @@ export function level(height) {
                 w: height / 8,
                 h: height / 9,
                 source: '../images/fun.png'
-            },
+            }, 
+            {
+                id: 6,
+                x: height * 2,
+                y: height - height / 10 - height / 2,
+                w: height / 2,
+                h: height / 2,
+                source: '../images/pine.png'
+            },    
+            {
+                id: 7,
+                x: height * 2.55,
+                y: height - height / 10 - height / 1.5,
+                w: height / 2,
+                h: height / 1.5,
+                source: '../images/palm.png'
+            },  
         ],
         backgroundImages: [
             {
                 id: 1,
                 x: -1,
                 y: -2,
-                w: height * 10,
-                h: height + 4,
-                source: '../images/background.png'
-            },
-            {
-                id: 2,
-                x: 0,
-                y: 100,
-                w: height * 12,
-                h: height,
-                source: '../images/hills.png'
+                w: height * 4.5,
+                h: height + 2,
+                source: '../images/back.png'
             },
         ],
         enemies: [
