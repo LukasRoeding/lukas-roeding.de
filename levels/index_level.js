@@ -95,11 +95,11 @@ export function level(height) {
             },    
             {
                 id: 7,
-                x: height * 2.55,
-                y: height - height / 10 - height / 1.5,
-                w: height / 2,
-                h: height / 1.5,
-                source: '../images/palm.png'
+                x: height * 2.8,
+                y: height - height / 10 - height / 12,
+                w: height / 16,
+                h: height / 12,
+                source: '../images/sign.png'
             },    
             {
                 id: 8,
