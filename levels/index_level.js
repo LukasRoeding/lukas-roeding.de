@@ -105,7 +105,7 @@ export function level(height) {
         platforms: [        
             {
                 id: 1,
-                x: height - 1,
+                x: height - 2,
                 y: height - height / 4,
                 height: height / 4,
                 width: height / 2,

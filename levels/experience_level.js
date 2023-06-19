@@ -12,8 +12,8 @@ export function level(height) {
         ],
         doors: [
             {
-                x: height + height / 20,
-                y: height - height / 4 - height / 10,
+                x: 100,
+                y: height - innerHeight / 5,
                 target: '/'
             },
             {
@@ -79,7 +79,7 @@ export function level(height) {
                 id: 1,
                 x: -1,
                 y: -2,
-                w: height * 10,
+                w: height * 8,
                 h: height + 4,
                 source: '../images/background.png'
             },
