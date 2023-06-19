@@ -1,6 +1,6 @@
 export function controls(keys, player) {
     addEventListener('keydown', ({ keyCode }) => {
-        if (!keys.right.pressed && !keys.left.pressed ) {
+        if (keyCode == 87 || (!keys.right.pressed && !keys.left.pressed)) {
             switch (keyCode) {
                 case 65:
                     keys.left.pressed = true
@@ -52,11 +52,23 @@ export function controls(keys, player) {
     document.getElementById('right-button').onmouseup = () => { keys.right.pressed = false };
     document.getElementById('enter-button').onmouseup = () => { keys.enter.pressed = false };
 
-    document.getElementById('left-button').ontouchstart = () => { keys.left.pressed = true };
-    document.getElementById('right-button').ontouchstart = () => { keys.right.pressed = true };
+    document.getElementById('left-button').ontouchstart = () => { 
+        keys.left.pressed = true 
+        player.currentSprite = player.sprites.run.left
+    };
+    document.getElementById('right-button').ontouchstart = () => { 
+        keys.right.pressed = true 
+        player.currentSprite = player.sprites.run.right
+    };
     document.getElementById('enter-button').ontouchstart = () => { keys.enter.pressed = true };
 
-    document.getElementById('left-button').ontouchend = () => { keys.left.pressed = false };
-    document.getElementById('right-button').ontouchend = () => { keys.right.pressed = false };
+    document.getElementById('left-button').ontouchend = () => { 
+        keys.left.pressed = false 
+        player.currentSprite = player.sprites.stand.left
+    };
+    document.getElementById('right-button').ontouchend = () => { 
+        keys.right.pressed = false
+        player.currentSprite = player.sprites.stand.right
+     };
     document.getElementById('enter-button').ontouchend = () => { keys.enter.pressed = false };
 }
