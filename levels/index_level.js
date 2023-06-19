@@ -16,22 +16,22 @@ export function level(height) {
         doors: [
             {
                 x: height + height / 20,
-                y: height - height / 4 - height / 10,
+                y: height - height / 5 ,
                 target: '/experience.html'
             },
             {
                 x: height + height / 2 - height / 10 - height / 20,
-                y: height - height / 4 - height / 10,
+                y: height - height / 5,
                 target: '/education.html'
             },
             {
                 x: height + height / 2 + height / 20 + height / 8,
-                y: height - height / 4 - height / 10,
+                y: height - height / 5,
                 target: '/personal.html'
             },
             {
                 x: height * 2 - height / 10 - height / 20 + height / 8,
-                y: height - height / 4 - height / 10,
+                y: height - height / 5,
                 target: '/fun.html'
             }
         ],
@@ -55,39 +55,39 @@ export function level(height) {
 
             {
                 id: 2,
-                x: height + height / 20 - height / 80,
-                y: height - height / 4 - height / 10 - height / 6,
-                w: height / 8,
-                h: height / 8,
+                x: height + height / 20,
+                y: height - height / 4 - height / 6,
+                w: height / 10,
+                h: height / 10,
                 source: '../images/experience.png'
             },
             {
                 id: 3,
-                x: height + height / 2 - height / 10 - height / 20 - height / 80,
-                y: height - height / 4 - height / 10 - height / 6,
-                w: height / 8,
-                h: height / 8,
+                x: height + height / 2 - height / 10 - height / 20,
+                y: height - height / 4 - height / 6,
+                w: height / 10,
+                h: height / 10,
                 source: '../images/education.png'
             },
             {
                 id: 4,
-                x: height + height / 2 + height / 20 - height / 120 + height / 8,
-                y: height - height / 4 - height / 10 - height / 6,
-                w: height / 9,
-                h: height / 9,
+                x: height + height / 2 + height / 20 + height / 8,
+                y: height - height / 4 - height / 6,
+                w: height / 10,
+                h: height / 10,
                 source: '../images/personal.png'
             },
             {
                 id: 5,
-                x: height * 2 - height / 10 - height / 20 - height / 80 + height / 8,
-                y: height - height / 4 - height / 10 - height / 6,
-                w: height / 8,
-                h: height / 9,
+                x: height * 2 - height / 10 - height / 20 + height / 8,
+                y: height - height / 4  - height / 6,
+                w: height / 10,
+                h: height / 10,
                 source: '../images/fun.png'
             }, 
             {
                 id: 6,
-                x: height * 2,
+                x: height * 2.15,
                 y: height - height / 10 - height / 2,
                 w: height / 2,
                 h: height / 2,
@@ -100,6 +100,30 @@ export function level(height) {
                 w: height / 2,
                 h: height / 1.5,
                 source: '../images/palm.png'
+            },    
+            {
+                id: 8,
+                x: height + height / 6.7,
+                y: height - height / 4 - height / 10,
+                w: height / 5,
+                h: height / 10,
+                source: '../images/bush.png'
+            },
+            {
+                id: 9,
+                x: height + height / 1.1,
+                y: height - height / 10 - height / 20,
+                w: height / 20,
+                h: height / 20,
+                source: '../images/shrooms.png'
+            },
+            {
+                id: 10,
+                x: height + height / 1.25,
+                y: height - height / 30 - height / 4,
+                w: height / 20,
+                h: height / 30,
+                source: '../images/rock.png'
             },  
         ],
         backgroundImages: [

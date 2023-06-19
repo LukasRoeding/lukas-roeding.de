@@ -70,16 +70,6 @@ function animate() {
             image.draw();   
         }
     }; 
-    for(const image of images) {
-        if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
-            image.draw();   
-        }
-    };
-    for(const door of doors) {
-        if (door.position.x <= innerWidth || door.position.x + door.width >= 0) {
-            door.draw();   
-        }
-    };   
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = defaultVelocity * dt
     } else if (keys.left.pressed && player.position.x > 100
@@ -136,6 +126,16 @@ function animate() {
         }
     }
     collision(platforms, player, informations);    
+    for(const image of images) {
+        if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
+            image.draw();   
+        }
+    };
+    for(const door of doors) {
+        if (door.position.x <= innerWidth || door.position.x + door.width >= 0) {
+            door.draw();   
+        }
+    };   
     player.update();
 
     if (player.position.y > canvas.height) {
