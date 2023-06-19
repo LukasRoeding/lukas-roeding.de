@@ -1,5 +1,6 @@
 export function controls(keys, player) {
     addEventListener('keydown', ({ keyCode }) => {
+        if (!keys.right.pressed && !keys.left.pressed )
         switch (keyCode) {
             case 65:
                 keys.left.pressed = true
@@ -25,11 +26,15 @@ export function controls(keys, player) {
         switch (keyCode) {
             case 65:
                 keys.left.pressed = false
-                player.currentSprite = player.sprites.stand.left
+                if (player.currentSprite == player.sprites.run.left) {
+                    player.currentSprite = player.sprites.stand.left
+                }
                 break
             case 68:
                 keys.right.pressed = false
-                player.currentSprite = player.sprites.stand.right
+                if (player.currentSprite == player.sprites.run.right) {
+                    player.currentSprite = player.sprites.stand.right
+                }
                 break
             case 13:
                 keys.enter.pressed = false
