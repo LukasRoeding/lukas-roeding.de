@@ -48,7 +48,7 @@ export class Player extends Entity {
                 this.height
             )
         } else {
-            if (this.velocity.x >= 0) {
+            if (this.currentSprite == this.sprites.run.right || this.currentSprite == this.sprites.stand.right) {
                 this.context.drawImage(
                     this.sprites.jump.right, 
                     0,
