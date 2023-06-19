@@ -19,7 +19,11 @@ export class Player extends Entity {
             run: {
                 right: createImage('../images/player/RunRight.png'),
                 left: createImage('../images/player/RunLeft.png'),
-            }
+            },
+            jump: {
+                right: createImage('../images/player/Jump.png'),
+                left: createImage('../images/player/JumpLeft.png')
+            },
         }
         this.currentSprite = this.sprites.stand.right
         setInterval(() => {
@@ -31,18 +35,46 @@ export class Player extends Entity {
     }
 
     draw() {
-        this.context.fillStyle = 'red'
-        this.context.drawImage(
-            this.currentSprite, 
-            32 * this.frames,
-            0,
-            32,
-            32,
-            this.position.x, 
-            this.position.y, 
-            this.width, 
-            this.height
-        )
+        if (!this.jumped) {   
+            this.context.drawImage(
+                this.currentSprite, 
+                32 * this.frames,
+                0,
+                32,
+                32,
+                this.position.x, 
+                this.position.y, 
+                this.width, 
+                this.height
+            )
+        } else {
+            if (this.velocity.x >= 0) {
+                this.context.drawImage(
+                    this.sprites.jump.right, 
+                    0,
+                    0,
+                    32,
+                    32,
+                    this.position.x, 
+                    this.position.y, 
+                    this.width, 
+                    this.height
+                )
+            } else {
+                this.context.drawImage(
+                    this.sprites.jump.left, 
+                    0,
+                    0,
+                    32,
+                    32,
+                    this.position.x, 
+                    this.position.y, 
+                    this.width, 
+                    this.height
+                )
+            }
+
+        }
     }
 
     update() {
