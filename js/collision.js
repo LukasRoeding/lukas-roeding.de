@@ -52,5 +52,5 @@ export function collision(platforms, player, informations) {
                 }
             }
         }
-    });
+    };
 }

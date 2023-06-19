@@ -1,19 +1,48 @@
+import { createImage } from "../js/createImage.js"
 import { Entity } from "./entitiy.js"
 
 export class Player extends Entity {
     constructor(gravity, context, canvas) {
-        super({x: 100, y: 100}, innerHeight / 20, innerHeight / 20, context, canvas)
+        super({x: 100, y: 200}, innerHeight / 15, innerHeight / 15, context, canvas)
         this.velocity = {
             x: 0,
             y: 1
         }
         this.gravity = gravity
         this.jumped = false
+        this.frames = 0
+        this.sprites = {
+            stand: {
+                right: createImage('../images/player/IdleRight.png'),
+                left: createImage('../images/player/IdleLeft.png'),
+            },
+            run: {
+                right: createImage('../images/player/RunRight.png'),
+                left: createImage('../images/player/RunLeft.png'),
+            }
+        }
+        this.currentSprite = this.sprites.stand.right
+        setInterval(() => {
+            this.frames++
+            if (this.frames > 10) {
+                this.frames = 0
+            }
+        }, 40)
     }
 
     draw() {
         this.context.fillStyle = 'red'
-        this.context.fillRect(this.position.x, this.position.y, this.width, this.height)
+        this.context.drawImage(
+            this.currentSprite, 
+            32 * this.frames,
+            0,
+            32,
+            32,
+            this.position.x, 
+            this.position.y, 
+            this.width, 
+            this.height
+        )
     }
 
     update() {

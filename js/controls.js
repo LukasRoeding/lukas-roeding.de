@@ -3,12 +3,14 @@ export function controls(keys, player) {
         switch (keyCode) {
             case 65:
                 keys.left.pressed = true
+                player.currentSprite = player.sprites.run.left
                 break
             case 83:
                 console.log('down')
                 break
             case 68:
                 keys.right.pressed = true
+                player.currentSprite = player.sprites.run.right
                 break
             case 87:
                 player.up()
@@ -23,9 +25,11 @@ export function controls(keys, player) {
         switch (keyCode) {
             case 65:
                 keys.left.pressed = false
+                player.currentSprite = player.sprites.stand.left
                 break
             case 68:
                 keys.right.pressed = false
+                player.currentSprite = player.sprites.stand.right
                 break
             case 13:
                 keys.enter.pressed = false
