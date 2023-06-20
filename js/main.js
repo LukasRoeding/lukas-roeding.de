@@ -65,51 +65,52 @@ function animate() {
     const now = new Date().getTime();
     const dt = (now - (time || now)) * 0.06;
     time = now;
+    const frameVelocity = defaultVelocity * dt;
     for(const image of backgroundImages) {
         if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
             image.draw();   
         }
     }; 
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
-        player.velocity.x = defaultVelocity * dt
+        player.velocity.x = frameVelocity
     } else if (keys.left.pressed && player.position.x > 100
         || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
-        player.velocity.x = -defaultVelocity * dt
+        player.velocity.x = -frameVelocity
     } else {
         player.velocity.x = 0
         if (keys.right.pressed) {
-            scrollOffset += defaultVelocity * dt
+            scrollOffset += frameVelocity
             for(const platform of platforms) {
-                platform.position.x -= defaultVelocity * dt
+                platform.position.x -= frameVelocity
             };
             for(const image of images) {
-                image.position.x -= defaultVelocity * dt
+                image.position.x -= frameVelocity
             };
             for(const image of backgroundImages) {
                 image.position.x -= defaultVelocity / 2 * dt
             };
             for(const information of informations) {
-                information.position.x -= defaultVelocity * dt
+                information.position.x -= frameVelocity
             };
             for(const door of doors) {
-                door.position.x -= defaultVelocity * dt
+                door.position.x -= frameVelocity
             };  
         } else if (keys.left.pressed && scrollOffset > 0) {
-            scrollOffset -= defaultVelocity * dt
+            scrollOffset -= frameVelocity
             for(const platform of platforms) {
-                platform.position.x += defaultVelocity * dt
+                platform.position.x += frameVelocity
             };
             for(const image of images) {
-                image.position.x += defaultVelocity * dt
+                image.position.x += frameVelocity
             };
             for(const image of backgroundImages) {
                 image.position.x += defaultVelocity / 2 * dt
             };
             for(const information of informations) {
-                information.position.x += defaultVelocity * dt
+                information.position.x += frameVelocity
             };
             for(const door of doors) {
-                door.position.x += defaultVelocity * dt
+                door.position.x += frameVelocity
             };  
         } else if (keys.enter.pressed) {
             for(const door of doors) {
