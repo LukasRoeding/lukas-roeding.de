@@ -136,13 +136,7 @@ export function level(height) {
                 source: '../images/back.png'
             },
         ],
-        enemies: [
-            {
-                x: 100,
-                y: 100,
-                type: 'violett_mushroom'
-            }
-        ],
+        enemies: [],
         platforms: [        
             {
                 id: 1,
