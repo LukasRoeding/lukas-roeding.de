@@ -87,9 +87,9 @@ export class Player extends Entity {
         }
     }
 
-    up() {
-        if (this.jumped == false && this.velocity.y == this.gravity) {
-            this.velocity.y -= innerHeight / 50
+    up(kill) {
+        if (kill || (this.jumped == false && this.velocity.y == this.gravity)) {
+            this.velocity.y = -innerHeight / 50
             this.jumped = true  
         }
     }

@@ -148,8 +148,17 @@ function animate() {
             door.draw();   
         }
     }; 
-    for(const enemy of enemies) {
-        if (enemy.position.x <= innerWidth || enemy.position.x + enemy.width >= 0 && playerMovement) {
+    for(const [index, enemy] of enemies.entries()) {
+        if (enemy.position.x <= innerWidth || enemy.position.x + enemy.width >= 0) {
+            if (
+                player.position.y + player.height <= enemy.position.y && 
+                player.position.y + player.height + player.velocity.y >= enemy.position.y &&
+                player.position.x + player.width >= enemy.position.x &&
+                player.position.x <= enemy.position.x + enemy.width
+            ) {
+                enemies.splice(index, 1)
+                player.up(true)
+            }  
             enemy.update(frameVelocity, scrollOffset);   
         }
     };    
