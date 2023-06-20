@@ -3,8 +3,9 @@ import { Image } from "../entities/image.js";
 import { Information } from "../entities/information.js";
 import { createImage } from "./createImage.js";
 import { Door } from "../entities/door.js";
+import { Enemy } from "../entities/enemy.js";
 
-export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages, height) {
+export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, height) {
 
     level.platforms.forEach(platform => {
         const platformImage = createImage(platform.source)
@@ -41,6 +42,9 @@ export function init(context, canvas, level, platforms, images, informations, do
         })
     }
 
+    for (const enemy of level.enemies) {
+        enemies.push(new Enemy({x: enemy.x, y: enemy.y}, context, canvas, enemy.id, enemy.w, enemy.h, enemy.sprites, enemy.range, enemy.speed))
+    }
     function imagesLoaded() {
         if (level.platforms.length == platforms.length && 
             level.images.length == images.length && 

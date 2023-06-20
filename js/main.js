@@ -38,6 +38,7 @@ const context = canvas.getContext('2d');
 const gravity = innerHeight / 1000;
 const defaultVelocity = innerHeight / 100;
 
+let playerMovement = true
 
 const keys = {
     right: {
@@ -57,9 +58,10 @@ const images = []
 const informations = []
 const doors = []
 const backgroundImages = []
+const enemies = []
 let scrollOffset = 0
 
-init(context, canvas, level, platforms, images, informations, doors, backgroundImages, canvas.height)
+init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, canvas.height)
 var time;
 function animate() {
     const now = new Date().getTime();
@@ -73,11 +75,14 @@ function animate() {
     }; 
     if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
         player.velocity.x = frameVelocity
+        playerMovement = true;
     } else if (keys.left.pressed && player.position.x > 100
         || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
         player.velocity.x = -frameVelocity
+        playerMovement = true;
     } else {
         player.velocity.x = 0
+        playerMovement = false;
         if (keys.right.pressed) {
             scrollOffset += frameVelocity
             for(const platform of platforms) {
@@ -95,6 +100,9 @@ function animate() {
             for(const door of doors) {
                 door.position.x -= frameVelocity
             };  
+            for(const enemy of enemies) {
+                enemy.position.x -= frameVelocity
+            };  
         } else if (keys.left.pressed && scrollOffset > 0) {
             scrollOffset -= frameVelocity
             for(const platform of platforms) {
@@ -111,6 +119,9 @@ function animate() {
             };
             for(const door of doors) {
                 door.position.x += frameVelocity
+            };  
+            for(const enemy of enemies) {
+                enemy.position.x += frameVelocity
             };  
         } else if (keys.enter.pressed) {
             for(const door of doors) {
@@ -136,7 +147,12 @@ function animate() {
         if (door.position.x <= innerWidth || door.position.x + door.width >= 0) {
             door.draw();   
         }
-    };   
+    }; 
+    for(const enemy of enemies) {
+        if (enemy.position.x <= innerWidth || enemy.position.x + enemy.width >= 0 && playerMovement) {
+            enemy.update(frameVelocity, scrollOffset);   
+        }
+    };    
     player.update();
 
     if (player.position.y > canvas.height) {
