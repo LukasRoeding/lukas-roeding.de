@@ -18,7 +18,11 @@ export class Door extends Entity {
         }
     }
 
-    open() {
-        window.open(this.link,"_self")
+    open() {        
+        var audio = new Audio('../audio/door.mp3');
+        audio.play();
+        setTimeout(() => {
+           window.open(this.link,"_self") 
+        }, 1300)      
     }
 }

@@ -39,6 +39,7 @@ const gravity = innerHeight / 1000;
 const defaultVelocity = innerHeight / 100;
 
 let playerMovement = true
+let doorClosed = true
 
 const keys = {
     right: {
@@ -73,17 +74,17 @@ function animate() {
             image.draw();   
         }
     }; 
-    if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 ) {
+    if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 && doorClosed ) {
         player.velocity.x = frameVelocity
         playerMovement = true;
-    } else if (keys.left.pressed && player.position.x > 100
-        || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
+    } else if (keys.left.pressed && player.position.x > 100 && doorClosed
+        || keys.left.pressed && scrollOffset === 0 && player.position.x > 0 && doorClosed) {
         player.velocity.x = -frameVelocity
         playerMovement = true;
     } else {
         player.velocity.x = 0
         playerMovement = false;
-        if (keys.right.pressed) {
+        if (keys.right.pressed && doorClosed) {
             scrollOffset += frameVelocity
             for(const platform of platforms) {
                 platform.position.x -= frameVelocity
@@ -103,7 +104,7 @@ function animate() {
             for(const enemy of enemies) {
                 enemy.position.x -= frameVelocity
             };  
-        } else if (keys.left.pressed && scrollOffset > 0) {
+        } else if (keys.left.pressed && scrollOffset > 0 && doorClosed) {
             scrollOffset -= frameVelocity
             for(const platform of platforms) {
                 platform.position.x += frameVelocity
@@ -132,6 +133,7 @@ function animate() {
                     player.position.y + player.velocity.y <= door.position.y + innerHeight / 10
                     ) {
                     door.open()
+                    doorClosed = false
                     keys.enter.pressed = false
                 }
             };   
@@ -170,7 +172,7 @@ function animate() {
             } 
             enemy.update(frameVelocity, scrollOffset);   
         }
-    };    
+    };   
     player.update();
 
     if (player.position.y > canvas.height) {
