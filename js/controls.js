@@ -19,6 +19,9 @@ export function controls(keys, player) {
                 case 13:
                     keys.enter.pressed = true
                     break
+                case 27:
+                    let modal = document.getElementById('information-modal')
+                    modal.style.display = 'none'
             }
         }
     })
