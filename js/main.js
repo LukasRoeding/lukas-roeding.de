@@ -151,14 +151,23 @@ function animate() {
     for(const [index, enemy] of enemies.entries()) {
         if (enemy.position.x <= innerWidth || enemy.position.x + enemy.width >= 0) {
             if (
-                player.position.y + player.height <= enemy.position.y && 
-                player.position.y + player.height + player.velocity.y >= enemy.position.y &&
                 player.position.x + player.width >= enemy.position.x &&
                 player.position.x <= enemy.position.x + enemy.width
             ) {
-                enemies.splice(index, 1)
-                player.up(true)
-            }  
+                if (                
+                    player.position.y + player.height <= enemy.position.y && 
+                    player.position.y + player.height + player.velocity.y >= enemy.position.y
+                )
+                {
+                    enemies.splice(index, 1)
+                    player.up(true)
+                } else if (                    
+                    player.position.y + player.height + player.velocity.y >= enemy.position.y &&
+                    player.position.y + player.velocity.y <= enemy.position.y + enemy.height
+                    ) {
+                    player.position.x = 100
+                }
+            } 
             enemy.update(frameVelocity, scrollOffset);   
         }
     };    
