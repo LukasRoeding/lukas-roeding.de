@@ -15,5 +15,11 @@ export class Information extends Platform {
         modalText.innerHTML = this.information
         let modaltitle = document.getElementById('information-header')
         modaltitle.innerHTML = this.title
+        if (this.link) {
+            let modallink = document.getElementById('information-modal-link')
+            modallink.style.display = 'unset'
+            modallink.href = this.link
+            modallink.target = '__blank'
+        }
     }
 }

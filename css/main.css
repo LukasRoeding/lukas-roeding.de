@@ -44,6 +44,18 @@ canvas {
     display: flex;
     justify-content: end;
 }
+.information-footer a {
+    padding: 10px 20px;
+    background-color: #197e2f;
+    border: none;
+    font-size: medium;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: none;
+    text-decoration: none;
+}
 button {
     padding: 10px 20px;
     background-color: #197e2f;

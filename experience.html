@@ -12,6 +12,7 @@
         <div id="information-header" class="information-header"></div>
         <div id="information-text" class="information-text"></div>
         <div  id="information-footer" class="information-footer">
+            <a id="information-modal-link">Website</a>
             <button onclick="closeModal()">Schließen</button>
         </div>
     </div>
@@ -28,6 +29,8 @@
     function closeModal() {
         const modal = document.getElementById('information-modal')
         modal.style.display = 'none'
+        const modalLink = document.getElementById('information-modal-link')
+        modalLink.style.display = 'none'
     }
 </script>
 </html>
