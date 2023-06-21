@@ -64,9 +64,9 @@ export function level(height) {
             {
                 id: 3,
                 x: height + height / 2 - height / 10 - height / 20,
-                y: height - height / 4 - height / 6,
+                y: height - height / 4 - height / 7,
                 w: height / 10,
-                h: height / 10,
+                h: height / 15,
                 source: '../images/education.png'
             },
             {
