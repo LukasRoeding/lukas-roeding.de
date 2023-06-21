@@ -3,6 +3,8 @@ import { controls } from './controls.js';
 import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
+import { audio } from './audio.js';
+
 
 const path = window.location.pathname;
 let pageName = ''
@@ -28,6 +30,8 @@ if (innerWidth > 1024 ) {
 } else {
     canvas.height = innerHeight * 0.9
 }
+
+audio()
 
 const level = await getLevel(pageName, canvas.height)
 
