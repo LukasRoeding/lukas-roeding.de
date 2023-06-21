@@ -76,7 +76,8 @@ export function level(height) {
                 },
                 speed: 10,
                 spriteWidth: 38,
-                spriteHeight: 24
+                spriteHeight: 24,
+                spriteFrames: 9
             },
             {
                 id: 1,
@@ -96,7 +97,8 @@ export function level(height) {
                 },
                 speed: 10,
                 spriteWidth: 38,
-                spriteHeight: 24
+                spriteHeight: 24,
+                spriteFrames: 9
             },
             {
                 id: 2,
@@ -116,7 +118,8 @@ export function level(height) {
                 },
                 speed: 10,
                 spriteWidth: 38,
-                spriteHeight: 24
+                spriteHeight: 24,
+                spriteFrames: 9
             }
         ],
         platforms: [              
