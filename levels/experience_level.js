@@ -63,7 +63,7 @@ export function level(height) {
             {
                 x: 100,
                 y: height - height / 5,
-                target: '/'
+                target: 'back'
             },
             {
                 x: height * 3.1,

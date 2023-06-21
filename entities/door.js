@@ -22,7 +22,11 @@ export class Door extends Entity {
         var audio = new Audio('../audio/door.mp3');
         audio.play();
         setTimeout(() => {
-           window.open(this.link,"_self") 
+            if (this.link === 'back') {
+                history.back()
+            } else {
+               window.open(this.link,"_self")  
+            }
         }, 1300)      
     }
 }
