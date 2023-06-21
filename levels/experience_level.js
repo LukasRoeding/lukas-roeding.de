@@ -7,7 +7,7 @@ export function level(height) {
                 id: 1,
                 x: height / 2 - height / 5,
                 y: height - height / 3,
-                html:   "<p>In diesem Abschnitt der Website finden Sie die wichtigsten Projekte an denen ich professionell mitgewirkt habe.</p>" + 
+                html:   "<p>In diesem Level finden Sie die wichtigsten Projekte an denen ich professionell mitgewirkt habe.</p>" + 
                         "<p>Jedes Projekt hat eine Infobox, welche Informationen über das Projekt, die benutzten Technologien und meinen Anteil an dem Projekt enthält.</p>",
                 title: 'Berufserfahrung',
                 link: ''

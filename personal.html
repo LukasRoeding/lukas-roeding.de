@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
     <link href="css/main.css" rel="stylesheet" />
-    <title>About me</title>
+    <title>Persönliches</title>
 </head>
 <body>
     <div id="information-modal" class="information-modal">
         <div id="information-header" class="information-header"></div>
         <div id="information-text" class="information-text"></div>
         <div  id="information-footer" class="information-footer">
-            <button onclick="closeModal()">Schließen</button>
+            <a id="information-modal-link">Website</a>
+            <a style="display: unset;" onclick="closeModal()">Schließen</a>
         </div>
-        
     </div>
     <canvas></canvas>
+    <div class="touch-controls">
+        <button id="left-button">A</button>
+        <button id="right-button">D</button>
+        <button id="enter-button">Enter</button>
+        <button id="jump-button">W</button>
+    </div>
+    <audio id="background-music" src="audio/Luke-Bergs-Tropical-Soulmp3.mp3" autoplay loop></audio>
 </body>
 <script type="module" src="js/main.js"></script>
 <script>
     function closeModal() {
         const modal = document.getElementById('information-modal')
         modal.style.display = 'none'
+        const modalLink = document.getElementById('information-modal-link')
+        modalLink.style.display = 'none'
     }
 </script>
 </html>
