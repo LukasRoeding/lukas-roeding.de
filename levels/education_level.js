@@ -10,9 +10,9 @@ export function level(height) {
                 html:   "<p>Vom 01.09.2021 - 20.01.2023 war ich ein Azubi für den Fachinformatiker für Anwendungsentwicklung.</p>" + 
                         '<p>Die "Regelstudienzeit" beträgt 3 Jahre, ich schaffte es die Ausbildung in 16 Monaten und 20 Tagen zu absolvieren.</p>' +
                         '<p>Mein Abschlussprojekt lautete: Typo3 Nuxt 3 Skeleton.</p>' +
-                        '<p>Die Abschlussnote der Berufsschule war eine 2,0 und meine Abschlussnote der IHK war eine 3,7.</p>' +
+                        '<p>Die Abschlussnote der Berufsschule war eine 2,0 (Zwischennote 1,25, bin gegen Ende nicht mehr hingegangen, weil ich tatsächlich was lernen wollte) und meine Abschlussnote der IHK war eine 3,7.</p>' +
                         '<p>Leider litt meine Abschlussnote der IHK unter dem Fakt, dass ich 100% der Prüfungen in 4 Monaten geschrieben habe, während ich gleichzeitig umgezogen bin.</p>' + 
-                        '<p>Ich bereue das Verkürzen aber nicht, da man in der Berufsschule nicht wirklich was lernt und die IHK fast nicht prüft, ob man programmieren kann.</p>',
+                        '<p>Ich bereue das Verkürzen aber nicht, da man in der Berufsschule nicht wirklich was lernt und die IHK fast nichts sinnvolles prüft.</p>',
                 title: 'Fachinformatiker für Anwendungsentwicklung',
                 link: ''
             },
