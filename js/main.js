@@ -154,7 +154,7 @@ function animate() {
             door.draw();   
         }
     }; 
-    for(const [index, enemy] of enemies.entries()) {
+    for(const enemy of enemies) {
         if (enemy.position.x <= innerWidth || enemy.position.x + enemy.width >= 0) {
             if (
                 player.position.x + player.width >= enemy.position.x &&
