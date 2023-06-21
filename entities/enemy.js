@@ -16,6 +16,7 @@ export class Enemy extends Entity {
             }
         }, 60)
         this.speed = speed
+        this.dead = false
     }
 
     draw() {
@@ -32,20 +33,27 @@ export class Enemy extends Entity {
         )
     }
 
+    death() {
+        this.dead = true;
+        this.position = {x: -100, y: -100}
+    }
+
     update(velocity, scrollOffset) {
-        this.draw()
-        if (this.direction === 'left') {
-            this.position.x -= velocity / this.speed
-            if (this.position.x + scrollOffset < this.movementRange.leftX) {
-                this.direction = 'right'
-                this.currentSprite = this.sprites.run.right
-            }
-        } else {
-            this.position.x += velocity / this.speed
-            if (this.position.x + scrollOffset > this.movementRange.rightX) {
-                this.direction = 'left'
-                this.currentSprite = this.sprites.run.left
-            }
-        } 
+        if (!this.dead) {
+            this.draw()
+            if (this.direction === 'left') {
+                this.position.x -= velocity / this.speed
+                if (this.position.x + scrollOffset < this.movementRange.leftX) {
+                    this.direction = 'right'
+                    this.currentSprite = this.sprites.run.right
+                }
+            } else {
+                this.position.x += velocity / this.speed
+                if (this.position.x + scrollOffset > this.movementRange.rightX) {
+                    this.direction = 'left'
+                    this.currentSprite = this.sprites.run.left
+                }
+            } 
+        }
     }
 }

@@ -161,13 +161,14 @@ function animate() {
                     player.position.y + player.height + player.velocity.y >= enemy.position.y
                 )
                 {
-                    enemies.splice(index, 1)
+                    enemy.death()
                     player.up(true)
                 } else if (                    
                     player.position.y + player.height + player.velocity.y >= enemy.position.y &&
                     player.position.y + player.velocity.y <= enemy.position.y + enemy.height
                     ) {
-                    reset(player, platforms, images, informations, doors, backgroundImages, level)
+                    scrollOffset = 0
+                    reset(player, platforms, images, informations, doors, backgroundImages, enemies, level)
                 }
             } 
             enemy.update(frameVelocity, scrollOffset);   
@@ -177,7 +178,7 @@ function animate() {
 
     if (player.position.y > canvas.height) {
         scrollOffset = 0
-        reset(player, platforms, images, informations, doors, backgroundImages, level)
+        reset(player, platforms, images, informations, doors, backgroundImages, enemies, level)
     }
     requestAnimationFrame(animate);
 }
