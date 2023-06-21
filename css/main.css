@@ -7,6 +7,7 @@ body {
     justify-content: center;
     box-sizing: border-box;
     color: whitesmoke;
+    font-family: 'Inter', sans-serif;
 }
 canvas {
     display:block;
@@ -48,7 +49,7 @@ canvas {
     padding: 10px 20px;
     background-color: #197e2f;
     border: none;
-    font-size: medium;
+    font-size: large;
     color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
