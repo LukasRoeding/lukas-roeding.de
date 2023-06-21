@@ -149,6 +149,42 @@ export function level(height) {
                     rightX: height - height / 20,
                 },
                 speed: 10
+            },
+            {
+                id: 1,
+                x: height + 2,
+                y: height - height / 10 - height / 20,
+                w: height / 20,
+                h: height / 20,
+                sprites: {
+                    run: {
+                        left: createImage('../images/enemies/snail_run_left.png'),
+                        right: createImage('../images/enemies/snail_run_right.png')
+                    }
+                },
+                range: {
+                    leftX: height,
+                    rightX: height * 2,
+                },
+                speed: 10
+            },
+            {
+                id: 2,
+                x: height * 2.25,
+                y: height - height / 4 - height / 20,
+                w: height / 20,
+                h: height / 20,
+                sprites: {
+                    run: {
+                        left: createImage('../images/enemies/snail_run_left.png'),
+                        right: createImage('../images/enemies/snail_run_right.png')
+                    }
+                },
+                range: {
+                    leftX: height * 2.375 - 6,
+                    rightX: height * 2.875 - 6 - height / 20,
+                },
+                speed: 10
             }
         ],
         platforms: [        
