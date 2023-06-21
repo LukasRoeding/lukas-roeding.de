@@ -89,6 +89,8 @@ export class Player extends Entity {
 
     up(kill) {
         if (kill || (this.jumped == false && this.velocity.y == this.gravity)) {
+            const audio = new Audio('../audio/jump.mp3');
+            audio.play();
             this.velocity.y = -innerHeight / 50
             this.jumped = true  
         }
