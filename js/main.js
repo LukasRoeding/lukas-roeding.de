@@ -167,7 +167,7 @@ function animate() {
                     player.position.y + player.height + player.velocity.y >= enemy.position.y &&
                     player.position.y + player.velocity.y <= enemy.position.y + enemy.height
                     ) {
-                    player.position.x = 100
+                    reset(player, platforms, images, informations, doors, backgroundImages, level)
                 }
             } 
             enemy.update(frameVelocity, scrollOffset);   
