@@ -14,15 +14,12 @@ export function level(height) {
             },
             {
                 id: 2,
-                x: height - height / 5,
-                y: height - height / 1.6,
-                html:   "<p>Vom 01.09.2021 - 20.01.2023 war ich ein Azubi für den Fachinformatiker für Anwendungsentwicklung.</p>" + 
-                        '<p>Die "Regelstudienzeit" beträgt 3 Jahre, ich schaffte es die Ausbildung in 16 Monaten und 20 Tagen zu absolvieren.</p>' +
-                        '<p>Mein Abschlussprojekt lautete: Typo3 Nuxt 3 Skeleton.</p>' +
-                        '<p>Die Abschlussnote der Berufsschule war eine 2,0 (Zwischennote 1,25, bin gegen Ende nicht mehr hingegangen, weil ich tatsächlich was lernen wollte) und meine Abschlussnote der IHK war eine 3,7.</p>' +
-                        '<p>Leider litt meine Abschlussnote der IHK unter dem Fakt, dass ich 100% der Prüfungen in 4 Monaten geschrieben habe, während ich gleichzeitig umgezogen bin.</p>' + 
-                        '<p>Ich bereue das Verkürzen aber nicht, da man in der Berufsschule nicht wirklich was lernt und die IHK fast nichts sinnvolles prüft.</p>',
-                title: 'Fachinformatiker für Anwendungsentwicklung',
+                x: height - height / 2,
+                y: height - height / 2,
+                html:   "<p>Aktuell ist mein größtes Hobby DnD. Ich bin meistens der Dungeon Master(oft der größte Nerd im Raum).</p>" + 
+                        "<p>Auf dem Bild spiele ich mit alten Arbeitskollegen, nach der Arbeit, im Konferenzraum.</p>" +
+                        "<p>Es würde mich sehr freuen, wenn es sowas auch bei meinem neuen Job geben würde(Spieleabende generell, oder gerne auch DnD).</p>",
+                title: 'Dungeons and Dragons / Brettspiele',
                 link: ''
             },
         ],
@@ -41,11 +38,11 @@ export function level(height) {
         images: [    
             {
                 id: 1,
-                x: height - height / 8 - 3,
-                y: height - height / 1.6,
+                x: height - height * 0.375 - 3,
+                y: height - height / 1.25,
                 w: height * 0.375,
-                h: height / 5,
-                source: '../images/education/ihk.jpg'
+                h: height / 2,
+                source: '../images/personal/DnD.jpg'
             },                                        
             {
                 id: 2,
@@ -132,14 +129,6 @@ export function level(height) {
             }
         ],
         platforms: [              
-            {
-                id: 1,
-                x: height - height / 4 - 2,
-                y: height - height / 4 - height / 6,
-                height: height / 4,
-                width: height / 2,
-                source: '../images/platformSmallTall.png'
-            },      
             {
                 id: 2,
                 x: height / 2 - 2,
