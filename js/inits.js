@@ -43,7 +43,7 @@ export function init(context, canvas, level, platforms, images, informations, do
     }
 
     for (const enemy of level.enemies) {
-        enemies.push(new Enemy({x: enemy.x, y: enemy.y}, context, canvas, enemy.id, enemy.w, enemy.h, enemy.sprites, enemy.range, enemy.speed))
+        enemies.push(new Enemy({x: enemy.x, y: enemy.y}, context, canvas, enemy.id, enemy.w, enemy.h, enemy.sprites, enemy.range, enemy.speed, enemy.spriteHeight, enemy.spriteWidth, enemy.spriteFrames))
     }
     function imagesLoaded() {
         if (level.platforms.length == platforms.length && 

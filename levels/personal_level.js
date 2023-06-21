@@ -83,7 +83,10 @@ export function level(height) {
                     leftX: height / 2,
                     rightX: height - height / 20,
                 },
-                speed: 10
+                speed: 10,
+                spriteWidth: 38,
+                spriteHeight: 24,
+                spriteFrames: 9
             },
             {
                 id: 1,
@@ -101,7 +104,10 @@ export function level(height) {
                     leftX: height / 2 - height / 8,
                     rightX: height * 1.5 + height / 8 - height / 20,
                 },
-                speed: 10
+                speed: 10,
+                spriteWidth: 38,
+                spriteHeight: 24,
+                spriteFrames: 9
             },
             {
                 id: 2,
@@ -111,15 +117,18 @@ export function level(height) {
                 h: height / 20,
                 sprites: {
                     run: {
-                        left: createImage('../images/enemies/snail_run_left.png'),
-                        right: createImage('../images/enemies/snail_run_right.png')
+                        left: createImage('../images/enemies/bird_flying_left.png'),
+                        right: createImage('../images/enemies/bird_flying_right.png')
                     }
                 },
                 range: {
                     leftX: height * 0.75,
                     rightX: height * 1.2,
                 },
-                speed: 10
+                speed: 10,
+                spriteWidth: 32,
+                spriteHeight: 32,
+                spriteFrames: 8
             }
         ],
         platforms: [              

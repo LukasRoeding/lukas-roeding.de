@@ -148,7 +148,9 @@ export function level(height) {
                     leftX: height / 2,
                     rightX: height - height / 20,
                 },
-                speed: 10
+                speed: 10,
+                spriteWidth: 38,
+                spriteHeight: 24
             },
             {
                 id: 1,
@@ -166,7 +168,9 @@ export function level(height) {
                     leftX: height,
                     rightX: height * 2,
                 },
-                speed: 10
+                speed: 10,
+                spriteWidth: 38,
+                spriteHeight: 24
             },
             {
                 id: 2,
@@ -184,7 +188,9 @@ export function level(height) {
                     leftX: height * 2.375 - 6,
                     rightX: height * 2.875 - 6 - height / 20,
                 },
-                speed: 10
+                speed: 10,
+                spriteWidth: 38,
+                spriteHeight: 24
             }
         ],
         platforms: [        

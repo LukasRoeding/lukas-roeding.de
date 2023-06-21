@@ -1,7 +1,7 @@
 import { Entity } from "./entitiy.js"
 
 export class Enemy extends Entity {
-    constructor(position, context, canvas, id, width, height, sprites, range, speed) {
+    constructor(position, context, canvas, id, width, height, sprites, range, speed, spriteHeight, spriteWidth, spriteFrames) {
         super({x:position.x, y:position.y}, width, height, context, canvas, id)
         this.sprites = sprites
         this.currentSprite = this.sprites.run.left
@@ -11,21 +11,24 @@ export class Enemy extends Entity {
         this.currentSprite = this.sprites.run.right
         setInterval(() => {
             this.frames++
-            if (this.frames > 9) {
+            if (this.frames > this.spriteFrames) {
                 this.frames = 0
             }
         }, 60)
         this.speed = speed
         this.dead = false
+        this.spriteHeight = spriteHeight
+        this.spriteWidth = spriteWidth
+        this.spriteFrames = spriteFrames
     }
 
     draw() {
         this.context.drawImage(
             this.currentSprite, 
-            38 * this.frames,
+            this.spriteWidth * this.frames,
             0,
-            38,
-            24,
+            this.spriteWidth,
+            this.spriteHeight,
             this.position.x, 
             this.position.y, 
             this.width, 
