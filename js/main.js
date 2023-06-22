@@ -39,7 +39,7 @@ canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
 
-const gravity = innerHeight / 1000;
+let gravity = innerHeight / 1000;
 const defaultVelocity = innerHeight / 100;
 
 let playerMovement = true
@@ -73,6 +73,7 @@ function animate() {
     const dt = (now - (time || now)) * 0.06;
     time = now;
     const frameVelocity = defaultVelocity * dt;
+    gravity = gravity * dt;
     for(const image of backgroundImages) {
         if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
             image.draw();   
@@ -178,7 +179,7 @@ function animate() {
             enemy.update(frameVelocity, scrollOffset);   
         }
     };   
-    player.update(frameVelocity);
+    player.update();
 
     if (player.position.y > canvas.height) {
         scrollOffset = 0
