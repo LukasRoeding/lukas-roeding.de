@@ -117,7 +117,7 @@ export function level(height) {
                 source: '../images/pine.png'
             },     
             {
-                id: 6,
+                id: 7,
                 x: height * 2.5,
                 y: height - height * 0.375 - height / 10,
                 w: height * 0.375,

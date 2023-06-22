@@ -216,7 +216,7 @@ export function level(height) {
             },
             {
                 id: 2,
-                x: height * 2.25,
+                x: height * 2.375,
                 y: height - height / 4 - height / 20,
                 w: height / 20,
                 h: height / 20,
