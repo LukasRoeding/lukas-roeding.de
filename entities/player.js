@@ -26,6 +26,7 @@ export class Player extends Entity {
             },
         }
         this.currentSprite = this.sprites.stand.right
+        this.audio = new Audio('../audio/jump.mp3')
         setInterval(() => {
             this.frames++
             if (this.frames > 10) {
@@ -89,8 +90,11 @@ export class Player extends Entity {
 
     up(kill) {
         if (kill || (this.jumped == false && this.velocity.y == this.gravity)) {
-            const audio = new Audio('../audio/jump.mp3');
-            audio.play();
+            if (this.audio.paused) {
+                this.audio.play();
+            }   else{
+                this.audio.currentTime = 0
+            }
             this.velocity.y = -innerHeight / 50
             this.jumped = true  
         }
