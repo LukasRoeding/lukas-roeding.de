@@ -8,7 +8,7 @@ export class Enemy extends Entity {
         this.movementRange = range
         this.direction = 'left'
         this.frames = 0
-        this.currentSprite = this.sprites.run.right
+        this.currentSprite = this.sprites.run.left
         setInterval(() => {
             this.frames++
             if (this.frames > this.spriteFrames) {
