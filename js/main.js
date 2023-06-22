@@ -180,7 +180,7 @@ function animate() {
                     player.position.y + player.velocity.y <= enemy.position.y + enemy.height
                     ) {
                     scrollOffset = 0
-                    reset(player, platforms, images, informations, doors, backgroundImages, enemies, level)
+                    reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
                 }
             } 
             enemy.update(frameVelocity, scrollOffset);   
@@ -191,7 +191,7 @@ function animate() {
 
     if (player.position.y > canvas.height) {
         scrollOffset = 0
-        reset(player, platforms, images, informations, doors, backgroundImages, enemies, level)
+        reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
     requestAnimationFrame(animate);
 }
