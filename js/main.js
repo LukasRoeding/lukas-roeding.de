@@ -178,7 +178,7 @@ function animate() {
             enemy.update(frameVelocity, scrollOffset);   
         }
     };   
-    player.update();
+    player.update(frameVelocity);
 
     if (player.position.y > canvas.height) {
         scrollOffset = 0
