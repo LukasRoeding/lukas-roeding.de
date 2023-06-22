@@ -33,6 +33,27 @@ export function level(height) {
                 title: 'Programmieren',
                 link: 'https://github.com/LukasRoeding/lukas-roeding.de'
             },
+            {
+                id: 4,
+                x: height * 3 - 1,
+                y: height - height / 2,
+                html:   "<p>Seit 2015 spende ich regelmäßig Blutplasma. Auf dem Bild habe ich zu meiner 100. Spende eine Urkunde bekommen.</p>" + 
+                "<p>Leider finde ich, dass das Bild sehr doof aussieht und ich gerne ein besseres hätte. Hoffentlich bekomme ich das, wenn ich 200. Spende geknackt habe. Aktuell bin ich bei 164.</p>",
+                title: 'Blutspenden',
+                link: ''
+            },
+            {
+                id: 5,
+                x: height * 4 - height / 20 - 1,
+                y: height - height / 2,
+                html:   "<p>Mein primäres ehrenamtliches Engagement liegt bei foodsharing.</p>" + 
+                "<p>Dort bin ich seit 2020 im Vorstand und auch Gründungsmitglied des Vereins. foodsharing hat vorher schon in Dortmund existiert, aber nicht als eingetragener Verein.</p>" +
+                "<p>Mitlerweile sind wir fast 500 Vereinsmitglieder und kooperieren mit 30 Betrieben in Dortmund.</p>" + 
+                "<p>Zusätzlich zur generellen Vorstandsarbeit kümmere ich mich um die Finanzen und Website des Vereins.</p>" +
+                "<p>Wir entwickeln gerade unsere eigene Vereinsverwaltungs-Software, da vorhandene Produkte sehr teuer sind und unseren Use Case nicht abdecken.</p>",
+                title: 'foodsharing Dortmund e.V.',
+                link: ''
+            },
         ],
         doors: [
             {
@@ -62,7 +83,23 @@ export function level(height) {
                 w: height * 0.375,
                 h: height / 2,
                 source: '../images/personal/3D_Snake.png'
-            },                                    
+            }, 
+            {
+                id: 3,
+                x: height * 3.125 - 4,
+                y: height - height / 1.25,
+                w: height * 0.375,
+                h: height * 0.375,
+                source: '../images/personal/Blutspenden.png'
+            }, 
+            {
+                id: 3,
+                x: height * 3.5 - 5,
+                y: height - height / 1.25,
+                w: height * 0.375,
+                h: height * 0.375,
+                source: '../images/personal/foodsharing.png'
+            },                                         
             {
                 id: 5,
                 x: height * 4.2,
@@ -165,6 +202,22 @@ export function level(height) {
                 source: '../images/platformSmallTall.png'
             },
             {
+                id: 3,
+                x: height * 3,
+                y: height - height / 4,
+                height: height / 4,
+                width: height / 2,
+                source: '../images/platformSmallTall.png'
+            },
+            {
+                id: 3,
+                x: height * 3.5 - 1,
+                y: height - height / 4,
+                height: height / 4,
+                width: height / 2,
+                source: '../images/platformSmallTall.png'
+            },
+            {
                 id: 4,
                 x: -2,
                 y: height - height / 10,
@@ -190,7 +243,7 @@ export function level(height) {
             },
             {
                 id: 10,
-                x: height * 3.5,
+                x: height * 3.5 - 1,
                 y: height - height / 10,
                 height: height / 10,
                 width: height,
