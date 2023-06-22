@@ -86,7 +86,7 @@ export function level(height) {
             {
                 id: 3,
                 x: height * 2.6,
-                y: height - height / 1.5 - height / 20,
+                y: height - height / 1.6 - height / 20,
                 w: height / 20,
                 h: height / 20,
                 sprites: {
@@ -159,7 +159,7 @@ export function level(height) {
             {
                 id: 4,
                 x: height * 2.6,
-                y: height - height / 1.5,
+                y: height - height / 1.6,
                 height: height / 5,
                 width: height / 5,
                 source: '../images/block.png'
@@ -181,7 +181,15 @@ export function level(height) {
                 source: '../images/block.png'
             },
             {
-                id: 7,
+                id: 6,
+                x: height * 2,
+                y: height - height / 3.3,
+                height: height / 20,
+                width: height / 20,
+                source: '../images/block.png'
+            },
+            {
+                id: 8,
                 x: height * 3.2,
                 y: height - height / 10,
                 height: height / 20,
