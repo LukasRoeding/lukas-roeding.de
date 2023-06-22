@@ -111,7 +111,47 @@ export function level(height) {
                 w: height / 2,
                 h: height / 4,
                 source: '../images/experience/murtfeldt_group.de.png'
-            },                    
+            },
+            {
+                id: 6,
+                x: height - height / 2.5,
+                y: height - height / 10 - height / 20,
+                w: height / 20,
+                h: height / 20,
+                source: '../images/shrooms.png'
+            },  
+            {
+                id: 7,
+                x: height * 1.25,
+                y: height - height / 10 - height / 4,
+                w: height / 5,
+                h: height / 10,
+                source: '../images/bush.png'
+            },    
+            {
+                id: 8,
+                x: height * 3.4,
+                y: height - height / 2 - height / 10,
+                w: height / 2,
+                h: height / 2,
+                source: '../images/tree.png'
+            },    
+            {
+                id: 9,
+                x: height * 2.25,
+                y: height - height / 10 - height / 20,
+                w: height / 20,
+                h: height / 20,
+                source: '../images/rock.png'
+            },    
+            {
+                id: 10,
+                x: height * 2.75,
+                y: height - height / 25 - height / 4,
+                w: height / 25,
+                h: height / 25,
+                source: '../images/skulls.png'
+            },              
             {
                 id: 15,
                 x: height * 3.1,

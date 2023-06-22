@@ -37,9 +37,33 @@ export function level(height) {
                 w: height * 0.375,
                 h: height / 5,
                 source: '../images/education/ihk.jpg'
-            },                                        
+            },    
             {
                 id: 2,
+                x: height - height / 8 - 3,
+                y: height - height / 10 - height / 25,
+                w: height / 25,
+                h: height / 25,
+                source: '../images/skulls.png'
+            },   
+            {
+                id: 3,
+                x: height * 1.25,
+                y: height - height / 4 - height / 25,
+                w: height / 25,
+                h: height / 25,
+                source: '../images/skulls.png'
+            },    
+            {
+                id: 4,
+                x: height * 0.8,
+                y: height - height / 4 - height / 6 - height / 25,
+                w: height / 25,
+                h: height / 25,
+                source: '../images/spike-skull.png'
+            },                                    
+            {
+                id: 5,
                 x: height * 1.8,
                 y: height - height / 4 - height / 8,
                 w: height / 10,
@@ -120,7 +144,28 @@ export function level(height) {
                 spriteWidth: 38,
                 spriteHeight: 24,
                 spriteFrames: 9
-            }
+            },         
+            {
+                id: 3,
+                x: height * 1.2,
+                y: height - height / 4 - height / 6 - height / 20,
+                w: height / 20,
+                h: height / 20,
+                sprites: {
+                    run: {
+                        left: createImage('../images/enemies/snail_run_left.png'),
+                        right: createImage('../images/enemies/snail_run_right.png')
+                    }
+                },
+                range: {
+                    leftX: height * 0.75,
+                    rightX: height * 1.2,
+                },
+                speed: 10,
+                spriteWidth: 38,
+                spriteHeight: 24,
+                spriteFrames: 9
+            },
         ],
         platforms: [              
             {
