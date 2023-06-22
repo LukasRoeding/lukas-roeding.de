@@ -22,6 +22,17 @@ export function level(height) {
                 title: 'Dungeons and Dragons / Brettspiele',
                 link: ''
             },
+            {
+                id: 3,
+                x: height + height / 2 - height / 20 - 4,
+                y: height - height / 2,
+                html:   "<p>Mein zweites großes Hobby ist Programmieren.</p>" + 
+                        "<p>Aktuell liebe ich es Spiele in Javascript zu programmieren, wobei ich so langsam auch den Drang verspühre, mal mit C++ rumzuspielen.</p>" +
+                        "<p>Das letzte Spiel was ich programmiert habe, spielst du gerade. Den Code zum Spiel findest du auf Github, der Website Button leitet dich dahin.</p>" +
+                        "<p>Das dümmste Spiel, was ich jemals programmiert habe, ist 3D-Snake. Es ist das Spiel, was auf dem Bild zu erkennen ist. <a href='https://3d-snake.lukas-roeding.de/' target='__blank'>Hier</a> gelangst du zu diesem wunderbaren Spiel. Mit der Leertaste kann man dort die Zeit zurückdrehen.</p>",
+                title: 'Programmieren',
+                link: 'https://github.com/LukasRoeding/lukas-roeding.de'
+            },
         ],
         doors: [
             {
@@ -30,7 +41,7 @@ export function level(height) {
                 target: 'back'
             },
             {
-                x: height * 1.8,
+                x: height * 4.2,
                 y: height - height / 5,
                 target: '/fun.html'
             },
@@ -43,10 +54,18 @@ export function level(height) {
                 w: height * 0.375,
                 h: height / 2,
                 source: '../images/personal/DnD.jpg'
-            },                                        
+            },     
             {
                 id: 2,
-                x: height * 1.8,
+                x: height - 4,
+                y: height - height / 1.25,
+                w: height * 0.375,
+                h: height / 2,
+                source: '../images/personal/3D_Snake.png'
+            },                                    
+            {
+                id: 5,
+                x: height * 4.2,
                 y: height - height / 4 - height / 8,
                 w: height / 10,
                 h: height / 10,
@@ -64,27 +83,6 @@ export function level(height) {
             },
         ],
         enemies: [
-            {
-                id: 0,
-                x: height / 2 + 2,
-                y: height - height / 4 - height / 20,
-                w: height / 20,
-                h: height / 20,
-                sprites: {
-                    run: {
-                        left: createImage('../images/enemies/snail_run_left.png'),
-                        right: createImage('../images/enemies/snail_run_right.png')
-                    }
-                },
-                range: {
-                    leftX: height / 2,
-                    rightX: height - height / 20,
-                },
-                speed: 10,
-                spriteWidth: 38,
-                spriteHeight: 24,
-                spriteFrames: 9
-            },
             {
                 id: 1,
                 x: height / 2 - height / 8 + 2,
@@ -126,6 +124,27 @@ export function level(height) {
                 spriteWidth: 32,
                 spriteHeight: 32,
                 spriteFrames: 8
+            },
+            {
+                id: 2,
+                x: height * 2.05,
+                y: height - height / 10,
+                w: height / 20,
+                h: height / 20,
+                sprites: {
+                    run: {
+                        left: createImage('../images/enemies/bird_flying_left.png'),
+                        right: createImage('../images/enemies/bird_flying_right.png')
+                    }
+                },
+                range: {
+                    leftX: height * 2,
+                    rightX: height * 2.45 
+                },
+                speed: 10,
+                spriteWidth: 32,
+                spriteHeight: 32,
+                spriteFrames: 8
             }
         ],
         platforms: [              
@@ -156,6 +175,22 @@ export function level(height) {
             {
                 id: 5,
                 x: height - 3,
+                y: height - height / 10,
+                height: height / 10,
+                width: height,
+                source: '../images/platform.png'
+            },
+            {
+                id: 9,
+                x: height * 2.5,
+                y: height - height / 10,
+                height: height / 10,
+                width: height,
+                source: '../images/platform.png'
+            },
+            {
+                id: 10,
+                x: height * 3.5,
                 y: height - height / 10,
                 height: height / 10,
                 width: height,
