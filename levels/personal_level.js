@@ -93,13 +93,13 @@ export function level(height) {
                 source: '../images/personal/Blutspenden.png'
             }, 
             {
-                id: 3,
+                id: 4,
                 x: height * 3.5 - 5,
                 y: height - height / 1.25,
                 w: height * 0.375,
                 h: height * 0.375,
                 source: '../images/personal/foodsharing.png'
-            },                                         
+            },                           
             {
                 id: 5,
                 x: height * 4.2,
@@ -107,7 +107,23 @@ export function level(height) {
                 w: height / 10,
                 h: height / 10,
                 source: '../images/fun.png'
-            },  
+            },              
+            {
+                id: 6,
+                x: height * 1.5,
+                y: height - height * 0.375 - height / 10,
+                w: height * 0.375,
+                h: height * 0.375,
+                source: '../images/pine.png'
+            },     
+            {
+                id: 6,
+                x: height * 2.5,
+                y: height - height * 0.375 - height / 10,
+                w: height * 0.375,
+                h: height * 0.375,
+                source: '../images/tree.png'
+            },    
         ],
         backgroundImages: [
             {
