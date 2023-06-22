@@ -1,4 +1,4 @@
-export function collision(platforms, player, informations) {
+export function collision(platforms, player, informations, blocks) {
     for(const platform of platforms) {
         if (platform.position.x <= innerWidth || platform.position.x + platform.width >= 0) {
             platform.draw();
@@ -13,6 +13,44 @@ export function collision(platforms, player, informations) {
             }  
         }
 
+    };
+    for(const block of blocks) {
+        if (block.position.x <= innerWidth || block.position.x + block.width >= 0) {
+        block.draw();
+        if (
+            player.position.x + player.width >= block.position.x &&
+            player.position.x <= block.position.x + block.width
+        ) {
+            if (
+                player.position.y + player.height <= block.position.y && 
+                player.position.y + player.height + player.velocity.y >= block.position.y
+            ) {
+                player.jumped = false;
+                player.velocity.y = 0
+            } else if (
+                player.position.y >= block.position.y + block.height && 
+                player.position.y + player.velocity.y <= block.position.y + block.height
+            ) {
+                player.velocity.y = 0
+            }
+        } else if 
+            (
+                player.position.y + player.height + player.velocity.y >= block.position.y &&
+                player.position.y + player.velocity.y <= block.position.y + block.height
+            )  {
+                if (
+                    player.position.x + player.velocity.x + player.width >= block.position.x &&
+                    player.position.x + player.velocity.x < block.position.x + block.width
+                    ) { 
+                    player.velocity.x = 0;
+                } else if (
+                    player.position.x + player.velocity.x <= block.position.x + block.width &&
+                    player.position.x > block.position.x + block.width
+                    ) {
+                    player.velocity.x = 0;
+                }
+            }
+        }
     };
     for(const information of informations) {
         if (information.position.x <= innerWidth || information.position.x + information.width >= 0) {

@@ -38,7 +38,7 @@ export function level(height) {
                 x: height * 3 - 1,
                 y: height - height / 2,
                 html:   "<p>Seit 2015 spende ich regelmäßig Blutplasma. Auf dem Bild habe ich zu meiner 100. Spende eine Urkunde bekommen.</p>" + 
-                "<p>Leider finde ich, dass das Bild sehr doof aussieht und ich gerne ein besseres hätte. Hoffentlich bekomme ich das, wenn ich 200. Spende geknackt habe. Aktuell bin ich bei 164.</p>",
+                "<p>Leider finde ich, dass das Bild sehr doof aussieht und ich gerne ein besseres hätte. Hoffentlich bekomme ich das, wenn ich dir 200. Spende geknackt habe. Aktuell bin ich bei 164.</p>",
                 title: 'Blutspenden',
                 link: ''
             },
@@ -249,6 +249,7 @@ export function level(height) {
                 width: height,
                 source: '../images/platform.png'
             },
-        ]
+        ],
+        blocks: []
     }
 }

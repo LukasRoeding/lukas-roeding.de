@@ -172,6 +172,16 @@ export function level(height) {
                 width: height,
                 source: '../images/platform.png'
             },
+        ],
+        blocks: [
+            {
+                id: 1,
+                x: height / 2,
+                y: height / 2,
+                height: height / 10,
+                width: height / 10,
+                source: '../images/block.png'
+            },
         ]
     }
 }

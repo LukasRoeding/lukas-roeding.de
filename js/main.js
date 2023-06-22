@@ -64,9 +64,10 @@ const informations = []
 const doors = []
 const backgroundImages = []
 const enemies = []
+const blocks = []
 let scrollOffset = 0
 
-init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, canvas.height)
+init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
 var time;
 function animate() {
     const now = new Date().getTime();
@@ -103,6 +104,9 @@ function animate() {
             for(const information of informations) {
                 information.position.x -= frameVelocity
             };
+            for(const block of blocks) {
+                block.position.x -= frameVelocity
+            };
             for(const door of doors) {
                 door.position.x -= frameVelocity
             };  
@@ -122,6 +126,9 @@ function animate() {
             };
             for(const information of informations) {
                 information.position.x += frameVelocity
+            };
+            for(const block of blocks) {
+                block.position.x += frameVelocity
             };
             for(const door of doors) {
                 door.position.x += frameVelocity
@@ -144,7 +151,7 @@ function animate() {
             };   
         }
     }
-    collision(platforms, player, informations);    
+    collision(platforms, player, informations, blocks);    
     for(const image of images) {
         if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
             image.draw();   

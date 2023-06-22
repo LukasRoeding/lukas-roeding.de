@@ -5,7 +5,7 @@ import { createImage } from "./createImage.js";
 import { Door } from "../entities/door.js";
 import { Enemy } from "../entities/enemy.js";
 
-export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, height) {
+export function init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, height) {
 
     level.platforms.forEach(platform => {
         const platformImage = createImage(platform.source)
@@ -35,6 +35,13 @@ export function init(context, canvas, level, platforms, images, informations, do
         })
     }
 
+    const blockImage = createImage('../images/block.png')
+    blockImage.onload = function() {
+        level.blocks.forEach(block => {
+            blocks.push(new Platform({x:block.x, y:block.y}, context, canvas, block.id, blockImage, block.width, block.height))
+        })
+    }
+
     const doorImage = createImage('../images/door.png')
     doorImage.onload = function() {
         level.doors.forEach(door => {
@@ -48,7 +55,6 @@ export function init(context, canvas, level, platforms, images, informations, do
     function imagesLoaded() {
         if (level.platforms.length == platforms.length && 
             level.images.length == images.length && 
-            level.informations.length == informations.length && 
             level.backgroundImages.length == backgroundImages.length) {
             images.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
             platforms.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))

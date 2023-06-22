@@ -163,6 +163,7 @@ export function level(height) {
                 width: height,
                 source: '../images/platform.png'
             },
-        ]
+        ],
+        blocks: []
     }
 }
