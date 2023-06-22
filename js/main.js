@@ -76,7 +76,7 @@ function animate() {
     const frameVelocity = defaultVelocity * dt;
     gravity = gravityBase * dt;
     for(const image of backgroundImages) {
-        if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
+        if (image.position.x <= innerWidth && image.position.x + image.width >= 0) {
             image.draw();   
         }
     }; 
@@ -153,17 +153,17 @@ function animate() {
     }
     collision(platforms, player, informations, blocks);    
     for(const image of images) {
-        if (image.position.x <= innerWidth || image.position.x + image.width >= 0) {
+        if (image.position.x <= innerWidth && image.position.x + image.width >= 0) {
             image.draw();   
         }
     };
     for(const door of doors) {
-        if (door.position.x <= innerWidth || door.position.x + door.width >= 0) {
+        if (door.position.x <= innerWidth && door.position.x + door.width >= 0) {
             door.draw();   
         }
     }; 
     for(const enemy of enemies) {
-        if (enemy.position.x <= innerWidth || enemy.position.x + enemy.width >= 0) {
+        if (enemy.position.x <= innerWidth && enemy.position.x + enemy.width >= 0) {
             if (
                 player.position.x + player.width >= enemy.position.x &&
                 player.position.x <= enemy.position.x + enemy.width
