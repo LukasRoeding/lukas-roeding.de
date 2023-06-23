@@ -184,6 +184,8 @@ function animate() {
                 }
             } 
             enemy.update(frameVelocity, scrollOffset);   
+        } else {
+            enemy.update(frameVelocity, scrollOffset, false);
         }
     };   
     player.gravity = gravity;

@@ -41,9 +41,11 @@ export class Enemy extends Entity {
         this.position = {x: -100, y: -100}
     }
 
-    update(velocity, scrollOffset) {
+    update(velocity, scrollOffset, draw = true) {
         if (!this.dead) {
-            this.draw()
+            if (draw) {
+              this.draw()  
+            }
             if (this.direction === 'left') {
                 this.position.x -= velocity / this.speed
                 if (this.position.x + scrollOffset < this.movementRange.leftX) {
