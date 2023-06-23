@@ -10,6 +10,7 @@ export function level(height) {
                 "<p>Wenn du einfach ein kleines Sidescroller-Spiel spielen willst, überspring die ersten drei Türen und geh direkt durch die letzte.</p>" +
                 "<p>Du kannst durch Türen gehen, indem du Enter oder e drückst.</p>" +
                 "<p>Drück unten auf den Button oder auf Esc um das Modal zu schließen.</p>" +
+                "<p>Hier finden sie Credits zu allen Assets und Audiodateien, die ich auf der Seite genutzt habe: <a href='/credits.html' target='__blank'>lukas-roeding.de/credits</a></p>" +
                 "<p>PS: Schnecken und blaue Vögel sind böse.</p>",
                 title: 'Moin!',
                 link: ''
