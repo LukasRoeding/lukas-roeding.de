@@ -29,7 +29,7 @@ export function level(height) {
                 html:   "<p>Mein zweites großes Hobby ist Programmieren.</p>" + 
                         "<p>Aktuell liebe ich es Spiele in Javascript zu programmieren, wobei ich so langsam auch den Drang verspühre, mal mit C++ rumzuspielen.</p>" +
                         "<p>Das letzte Spiel was ich programmiert habe, spielst du gerade. Den Code zum Spiel findest du auf Github, der Website Button leitet dich dahin.</p>" +
-                        "<p>Das dümmste Spiel, was ich jemals programmiert habe, ist 3D-Snake. Es ist das Spiel, was auf dem Bild zu erkennen ist. <a href='https://3d-snake.lukas-roeding.de/' target='__blank'>Hier</a> gelangst du zu diesem wunderbaren Spiel. Mit der Leertaste kann man dort die Zeit zurückdrehen.</p>",
+                        "<p>Das dümmste Spiel, was ich jemals programmiert habe, ist 3D-Snake. Es ist das Spiel, was auf dem Bild zu erkennen ist. <a href='https://3d-snake.lukas-roeding.de/' target='__blank'>Hier</a> gelangst du zu diesem wunderbaren Spiel. Mit der Leertaste kann man dort die Zeit zurückdrehen. Vielleicht könnte man es dann auch als 4D-Snake bezeichnen.</p>",
                 title: 'Programmieren',
                 link: 'https://github.com/LukasRoeding/lukas-roeding.de'
             },

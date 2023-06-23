@@ -7,7 +7,7 @@ export function level(height) {
                 id: 1,
                 x: height / 2 - height / 5,
                 y: height - height / 3,
-                html:   "<p>In diesem Level finden Sie die wichtigsten Projekte an denen ich professionell mitgewirkt habe.</p>" + 
+                html:   "<p>In diesem Level findest du die wichtigsten Projekte an denen ich professionell mitgewirkt habe.</p>" + 
                         "<p>Jedes Projekt hat eine Infobox, welche Informationen über das Projekt, die benutzten Technologien und meinen Anteil an dem Projekt enthält.</p>",
                 title: 'Berufserfahrung',
                 link: ''
@@ -29,7 +29,7 @@ export function level(height) {
                 x: height + height / 8 - 2,
                 y: height - height / 2,
                 html: "<p>Das Projekt an dem ich am kürzesten gearbeitet habe. Unter anderem entwickelte Ich UI-Komponenten für das Adminbackend. Die UI-Komponenten wurden genutzt um die verschiedenen Druckmodi für den 3D-Druck zu konfigurieren.</p>" + 
-                "<p>Zusätzlich konnte ich erste Erfahrungen in der Backend-Entwicklung sammeln, als ich Anpassungen an das API-Gateway machte, um verschiedene Mikroservices miteinander zu verbinden.</p>" + 
+                "<p>Zusätzlich konnte ich erste Erfahrungen in der Backend-Entwicklung sammeln, als ich Anpassungen an dem API-Gateway machte, um verschiedene Mikroservices miteinander zu verbinden.</p>" + 
                 "<p>Technologien: Vue 2, Typescript, Vuex, Nest.js</p>",
                 title: 'Murtfeldt Additive Solutions 3D-Druck',
                 link: 'https://murtfeldt-as.de/'
@@ -38,7 +38,7 @@ export function level(height) {
                 id: 4,
                 x: height + height / 2 + height / 4 - 6,
                 y: height - height / 2,
-                html: "<p>Das größte Projekt an dem ich bisher mitwirken durfte. Die Website der Murtfeldt GmbH sollte komplett neu programmiert werden. In dem Projekt arbeitete ich von August 2021 bis Mai 2023. Die Website ging im März 2023 live und generiert täglich neue leads für die Murtfeldt GmbH.</p>" +
+                html: "<p>Das größte Projekt an dem ich bisher mitwirken durfte. Die Website der Murtfeldt Kunststoffe GmbH & Co. KG sollte komplett neu programmiert werden. In dem Projekt arbeitete ich von August 2021 bis Mai 2023. Die Website ging im März 2023 live und generiert täglich neue leads für Murtfeldt</p>" +
                 "<p>Die Website nutzt wie Murdotec ein Headless Shopware für die E-Commerce Logik. Zusätzlich dient ein Headless Typo3 als Content-Management-System. Die Daten der beiden Systeme werden mit Nuxt 2 dargestellt. Eine Suche wurde ebenfalls mithilfe von Elasticsearch integriert,</p>" + 
                 "<p>Über die Jahre arbeitete ich an vielen Bereichen der Website. Ich erstellte den Großteil der UI-Komponenten und war für die Erweiterung des Typo3 zuständig. Ich kümmerte mich zusätzlich um die Darstellung der Produktdetailseiten.</p>" +
                 "<p>Bis zum Livegang der neuen Seite, war ich mit der Pflege der alten Typo3 Seite beauftragt. Ich trat häufig in direkten Kundenkontakt und betreute diesen streckenweise alleine.</p>" +
@@ -50,7 +50,7 @@ export function level(height) {
                 id: 5,
                 x: height * 2 + height / 4 + height / 8 - 8,
                 y: height - height / 2,
-                html: "<p>Ein etwas kleineres Projekt an dem ich gearbeitet habe. Was das Projekt für mich besonders macht, ist dass ich es fast komplett alleine umgesetzt habe.</p>" +
+                html: "<p>Ein etwas kleineres Projekt an dem ich gearbeitet habe. Das Projekt ist für mich besonders, da ich es fast komplett alleine umgesetzt habe.</p>" +
                 "<p>Der Großteil der Seite wurde Sommer 2022, auf Basis der neuen Murtfeldt Seite, entwickelt. Die Murtfeldt-Group(Murtfeldt, Murdotec, Murtfeldt-AS, Crosslink, ...) hatte noch keine Seite.</p>" +
                 "<p>Da die Seite ein Klon der Murtfeldt Seite ist, war das Grundgerüst schon gegeben. Es mussten primär nur neue UI-Komponenten entwickelt werden.</p>" +
                 "<p>In dem Projekt lernte ich mich selbst zu organisieren.</p>" + 

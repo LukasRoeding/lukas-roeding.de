@@ -5,11 +5,13 @@ export function level(height) {
                 id: 1,
                 x: height / 2 - innerHeight / 20,
                 y: height - height / 3,
-                html: "<p>auf meiner Website. Mein Name ist Lukas Röding und ich bin ein Webentwickler ausm Pott.</p>" +
-                "<p>Die Website soll Ihnen einen Überblick über meine Fähigkeiten geben und ein wenig über mich persönlich erzählen.</p>" + 
-                "<p>Falls Ihnen das zu langweilig ist, überspringen Sie einfach die ersten drei Türen und gehen Sie direkt durch die letzte. Dort gelangen Sie in ein kleines Sidescroller-Spiel.</p>" +
-                "<p>Sie können durch Türen gehen, indem Sie Enter drücken, wenn Sie sich auf einer Tür befinden.</p>",
-                title: 'Willkommen...',
+                html: "<p>Willkommen auf meiner Website. Mein Name ist Lukas Röding und ich bin ein Webentwickler aus'm Pott.</p>" +
+                "<p>Die Website soll dir einen Überblick über meine Fähigkeiten geben und ein wenig über mich persönlich erzählen.</p>" + 
+                "<p>Wenn du einfach ein kleines Sidescroller-Spiel spielen willst, überspring die ersten drei Türen und geh direkt durch die letzte.</p>" +
+                "<p>Du kannst durch Türen gehen, indem du Enter oder e drückst.</p>" +
+                "<p>Drück unten auf den Button oder auf Esc um das Modal zu schließen.</p>" +
+                "<p>PS: Schnecken und blaue Vögel sind böse.</p>",
+                title: 'Moin!',
                 link: ''
             }
         ],

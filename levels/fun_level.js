@@ -8,7 +8,7 @@ export function level(height) {
                 x: height * 3.75,
                 y: height - height / 3,
                 html: "<p>Glückwunsch! Du hast es ins Ziel geschafft!</p>" +
-                "<p>Das wars fürs erste mit der Website. Ich werde bestimmt in der Zukunft weiter dran arbeiten, oder ein reines Sidescroller-Spiel entwickeln.</p>" + 
+                "<p>Das wars fürs Erste mit der Website. Ich werde bestimmt in der Zukunft weiter dran arbeiten, oder ein reines Sidescroller-Spiel entwickeln.</p>" + 
                 "<p>Wenn dir gefallen hat, was du hier gesehen hast, melde dich doch bei mir.</p>" +
                 "<p>Meine Email-Adresse lautet: <a href='mailto:email@lukas-roeding.de'>email@lukas-roeding.de</a></p>" +
                 "<p>Wenn du durch die nächste Tür gehst, landest du wieder am Ausgangslevel.</p>",
