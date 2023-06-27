@@ -3,7 +3,7 @@ export function level(height) {
         informations: [
             {
                 id: 1,
-                x: height / 2 - innerHeight / 20,
+                x: height / 2 - height / 20,
                 y: height - height / 3,
                 html: "<p>Willkommen auf meiner Website. Mein Name ist Lukas Röding und ich bin ein Webentwickler aus'm Pott.</p>" +
                 "<p>Die Website soll dir einen Überblick über meine Fähigkeiten geben und ein wenig über mich persönlich erzählen.</p>" + 
@@ -11,7 +11,7 @@ export function level(height) {
                 "<p>Du kannst durch Türen gehen, indem du Enter oder e drückst.</p>" +
                 "<p>Drück unten auf den Button oder auf Esc um das Modal zu schließen.</p>" +
                 "<p>Hier findest du Credits zu allen Assets und Audiodateien, die ich auf der Seite genutzt habe: <a href='/credits.html' target='__blank'>lukas-roeding.de/credits.html</a></p>" +
-                "<p>PS: Schnecken und blaue Vögel sind böse.</p>",
+                "<p>PS: Schnecken und blaue Vögel sind böse. Man kann ihnen aber auf den Kopf springen</p>",
                 title: 'Moin!',
                 link: ''
             }

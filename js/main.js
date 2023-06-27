@@ -38,9 +38,9 @@ const level = await getLevel(pageName, canvas.height)
 canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
-let gravityBase = innerHeight / 1000
-let gravity = innerHeight / 1000;
-const defaultVelocity = innerHeight / 100;
+let gravityBase = canvas.height / 1000
+let gravity = canvas.height / 1000;
+const defaultVelocity = canvas.height / 100;
 
 let playerMovement = true
 let doorClosed = true
@@ -140,9 +140,9 @@ function animate() {
             for(const door of doors) {
                 if (
                     player.position.x + player.width + player.velocity.x >= door.position.x &&
-                    player.position.x + player.velocity.x <= door.position.x + innerHeight / 10 &&
+                    player.position.x + player.velocity.x <= door.position.x + canvas.height / 10 &&
                     player.position.y + player.velocity.y + player.height >= door.position.y &&
-                    player.position.y + player.velocity.y <= door.position.y + innerHeight / 10
+                    player.position.y + player.velocity.y <= door.position.y + canvas.height / 10
                     ) {
                     door.open()
                     doorClosed = false

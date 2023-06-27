@@ -3,7 +3,7 @@ import { Entity } from "./entitiy.js"
 
 export class Player extends Entity {
     constructor(gravity, context, canvas) {
-        super({x: 100, y: 200}, innerHeight / 15, innerHeight / 15, context, canvas)
+        super({x: 100, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas)
         this.velocity = {
             x: 0,
             y: 1
@@ -95,7 +95,7 @@ export class Player extends Entity {
             }   else{
                 this.audio.currentTime = 0
             }
-            this.velocity.y = -innerHeight / 50
+            this.velocity.y = -canvas.height / 50
             this.jumped = true  
         }
     }

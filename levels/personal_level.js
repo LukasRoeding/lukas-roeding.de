@@ -16,7 +16,7 @@ export function level(height) {
                 id: 2,
                 x: height - height / 2,
                 y: height - height / 2,
-                html:   "<p>Aktuell ist mein größtes Hobby DnD. Ich bin meistens der Dungeon Master(oft der größte Nerd im Raum).</p>" + 
+                html:   "<p>Aktuell ist mein größtes Hobby DnD. Ich bin meistens der Dungeon Master.</p>" + 
                         "<p>Auf dem Bild spiele ich mit alten Arbeitskollegen, nach der Arbeit, im Konferenzraum.</p>" +
                         "<p>Es würde mich sehr freuen, wenn es sowas auch bei meinem neuen Job geben würde(Spieleabende generell, oder gerne auch DnD).</p>",
                 title: 'Dungeons and Dragons / Brettspiele',
