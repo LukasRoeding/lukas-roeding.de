@@ -95,7 +95,7 @@ export class Player extends Entity {
             }   else{
                 this.audio.currentTime = 0
             }
-            this.velocity.y = -canvas.height / 50
+            this.velocity.y = -this.canvas.height / 50
             this.jumped = true  
         }
     }
