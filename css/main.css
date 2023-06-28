@@ -95,4 +95,9 @@ button {
         width: 100%;
         display: flex;
     }
+    .information-modal {
+        top: 5%;
+        transform: translate(-50%, 0%);
+        height: 80vh;
+    }
   }
