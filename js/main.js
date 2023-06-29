@@ -144,9 +144,12 @@ function animate() {
                     player.position.y + player.velocity.y + player.height >= door.position.y &&
                     player.position.y + player.velocity.y <= door.position.y + canvas.height / 10
                     ) {
-                    door.open()
                     doorClosed = false
+                    setTimeout(() => {
+                        doorClosed = true
+                    }, 1300)
                     keys.enter.pressed = false
+                    door.open()
                 }
             };   
         }
