@@ -5,6 +5,14 @@ import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
 
+var data = new FormData();
+data.append( "name", 'lukas' );
+
+fetch("/backend/index.php",
+{
+    method: "POST",
+    body: data
+})
 
 const path = window.location.pathname;
 let pageName = ''
