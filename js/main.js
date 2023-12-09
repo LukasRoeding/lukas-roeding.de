@@ -8,7 +8,7 @@ import { audio } from './audio.js';
 var data = new FormData();
 data.append( "name", 'lukas' );
 
-fetch("/backend/index.php",
+fetch("https://lukas-roeding.de/backend/index.php",
 {
     method: "POST",
     body: data
