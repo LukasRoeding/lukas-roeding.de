@@ -67,18 +67,20 @@ const enemies = []
 const blocks = []
 const OtherPlayers = new Map()
 
-socket.emit("newPlayer", {height: canvas.height, room: pageName});
+console.log(player.rndInt)
+socket.emit("newPlayer", {height: canvas.height, room: pageName, skin: player.rndInt});
 
 socket.on("newPlayer", (data) => {
+    console.log(data)
     if (data.id != socket.id) {
-        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
-        socket.emit("currentPlayer", {height: canvas.height, room: pageName});
+        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height, data.height.skin))
+        socket.emit("currentPlayer", {height: canvas.height, room: pageName, skin: player.rndInt});
     }
 });
 
 socket.on("currentPlayer", (data) => {
     if (data.id != socket.id) {
-        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
+        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height), data.height.skin)
     }
 });
 
@@ -100,7 +102,6 @@ socket.on("newPlayerData", (data) => {
 });
 
 socket.on("user-disconnected", (id) => {
-    console.log(id)
     OtherPlayers.delete(id)
 });
 
