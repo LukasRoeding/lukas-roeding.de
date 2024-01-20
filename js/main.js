@@ -4,6 +4,9 @@ import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
+import { socket } from './socket.js'
+
+console.log(socket)
 
 const path = window.location.pathname;
 let pageName = ''
