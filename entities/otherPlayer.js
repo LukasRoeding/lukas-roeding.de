@@ -88,8 +88,4 @@ export class OtherPlayer extends Entity {
         }
         this.draw();
     }
-
-    kill() {
-        this.position.x = 1000000000
-    }
 }
