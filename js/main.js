@@ -77,10 +77,10 @@ socket.on("newPlayer", (data) => {
 });
 
 socket.on("currentPlayer", (data) => {
-    OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
+    if (data.id != socket.id) {
+        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
+    }
 });
-
-console.log(OtherPlayers)
 
 let scrollOffset = 0
 var frameVelocity = 0
