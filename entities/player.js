@@ -12,19 +12,53 @@ export class Player extends Entity {
         this.defaultPosition = canvas.width / 2 - canvas.height / 30
         this.jumped = false
         this.frames = 0
-        this.sprites = {
-            stand: {
-                right: createImage('../images/player/IdleRight.png'),
-                left: createImage('../images/player/IdleLeft.png'),
-            },
-            run: {
-                right: createImage('../images/player/RunRight.png'),
-                left: createImage('../images/player/RunLeft.png'),
-            },
-            jump: {
-                right: createImage('../images/player/Jump.png'),
-                left: createImage('../images/player/JumpLeft.png')
-            },
+        this.rndInt = Math.floor(Math.random() * 3) + 1
+        this.sprites = null
+        if (this.rndInt == 1) {
+            this.sprites = {
+                stand: {
+                    right: createImage('../images/player/IdleRight.png'),
+                    left: createImage('../images/player/IdleLeft.png'),
+                },
+                run: {
+                    right: createImage('../images/player/RunRight.png'),
+                    left: createImage('../images/player/RunLeft.png'),
+                },
+                jump: {
+                    right: createImage('../images/player/Jump.png'),
+                    left: createImage('../images/player/JumpLeft.png')
+                },
+            }
+        } else if (this.rndInt == 2){
+            this.sprites = {
+                stand: {
+                    right: createImage('../images/player/PinkMan/IdleRight.png'),
+                    left: createImage('../images/player/PinkMan/IdleLeft.png'),
+                },
+                run: {
+                    right: createImage('../images/player/PinkMan/RunRight.png'),
+                    left: createImage('../images/player/PinkMan/RunLeft.png'),
+                },
+                jump: {
+                    right: createImage('../images/player/PinkMan/Jump.png'),
+                    left: createImage('../images/player/PinkMan/JumpLeft.png')
+                },
+            }
+        } else {
+            this.sprites = {
+                stand: {
+                    right: createImage('../images/player/MaskDude/IdleRight.png'),
+                    left: createImage('../images/player/MaskDude/IdleLeft.png'),
+                },
+                run: {
+                    right: createImage('../images/player/MaskDude/RunRight.png'),
+                    left: createImage('../images/player/MaskDude/RunLeft.png'),
+                },
+                jump: {
+                    right: createImage('../images/player/MaskDude/Jump.png'),
+                    left: createImage('../images/player/MaskDude/JumpLeft.png')
+                },
+            }
         }
         this.currentSprite = this.sprites.stand.right
         this.audio = new Audio('../audio/jump.mp3')
