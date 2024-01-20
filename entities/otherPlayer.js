@@ -44,6 +44,21 @@ export class OtherPlayer extends Entity {
                     left: createImage('../images/player/PinkMan/JumpLeft.png')
                 },
             }
+        } else if (this.skinInt == 3){
+            this.sprites = {
+                stand: {
+                    right: createImage('../images/player/VirtualGuy/IdleRight.png'),
+                    left: createImage('../images/player/VirtualGuy/IdleLeft.png'),
+                },
+                run: {
+                    right: createImage('../images/player/VirtualGuy/RunRight.png'),
+                    left: createImage('../images/player/VirtualGuy/RunLeft.png'),
+                },
+                jump: {
+                    right: createImage('../images/player/VirtualGuy/Jump.png'),
+                    left: createImage('../images/player/VirtualGuy/JumpLeft.png')
+                },
+            }
         } else {
             this.sprites = {
                 stand: {

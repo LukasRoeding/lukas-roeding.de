@@ -6,7 +6,7 @@ import { init } from './inits.js';
 import { audio } from './audio.js';
 import { OtherPlayer } from '../entities/otherPlayer.js';
 
-const socket = io("192.168.20.40:3000");
+const socket = io("192.168.90.33:3000");
 const path = window.location.pathname;
 let pageName = ''
 if (path == '/') {

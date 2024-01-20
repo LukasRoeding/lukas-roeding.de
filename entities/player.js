@@ -12,7 +12,7 @@ export class Player extends Entity {
         this.defaultPosition = canvas.width / 2 - canvas.height / 30
         this.jumped = false
         this.frames = 0
-        this.rndInt = Math.floor(Math.random() * 3) + 1
+        this.rndInt = Math.floor(Math.random() * 4) + 1
         this.sprites = null
         if (this.rndInt == 1) {
             this.sprites = {
@@ -42,6 +42,21 @@ export class Player extends Entity {
                 jump: {
                     right: createImage('../images/player/PinkMan/Jump.png'),
                     left: createImage('../images/player/PinkMan/JumpLeft.png')
+                },
+            }
+        } else if (this.rndInt == 3){
+            this.sprites = {
+                stand: {
+                    right: createImage('../images/player/VirtualGuy/IdleRight.png'),
+                    left: createImage('../images/player/VirtualGuy/IdleLeft.png'),
+                },
+                run: {
+                    right: createImage('../images/player/VirtualGuy/RunRight.png'),
+                    left: createImage('../images/player/VirtualGuy/RunLeft.png'),
+                },
+                jump: {
+                    right: createImage('../images/player/VirtualGuy/Jump.png'),
+                    left: createImage('../images/player/VirtualGuy/JumpLeft.png')
                 },
             }
         } else {
