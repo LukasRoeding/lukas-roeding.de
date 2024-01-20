@@ -6,7 +6,7 @@ import { init } from './inits.js';
 import { audio } from './audio.js';
 import { OtherPlayer } from '../entities/otherPlayer.js';
 
-const socket = io("localhost:3000");
+const socket = io("192.168.20.40:3000");
 const path = window.location.pathname;
 let pageName = ''
 if (path == '/') {
@@ -86,7 +86,7 @@ socket.on("newPlayerData", (data) => {
     const otherPlayer = OtherPlayers.get(data.id)
     console.log("test", data)
     otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
-    otherPlayer.position.y = data.data.player.position.y / otherPlayer.heightFactor
+    otherPlayer.position.y = data.data.positionY / otherPlayer.heightFactor
 });
 
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
@@ -216,7 +216,7 @@ function animate() {
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
     socket.emit("playerData", {
-        player: player,
+        positionY: player.position.y,
         scrollOffset: scrollOffset,
     })
 
