@@ -8,8 +8,11 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: '*'
-	}
+		origin: "*",
+		methods: ["GET", "POST"],
+		credentials: true
+	},
+	transports: ['websocket', 'polling']
 });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -19,6 +22,11 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+
+	socket.on('newPlayer', (height) => {
+		socket.broadcast.emit("newPlayer", {height: height, id: socket.id})
+	})
+
 	console.log('a user connected');
 
 	socket.on('disconnect', () => {
@@ -30,7 +38,12 @@ io.on('connection', (socket) => {
 
 		socket.emit("message", "Reply");
 	})
+	socket.on('playerData', (data) => {
+		socket.broadcast.emit("newPlayerData", {data: data, id: socket.id})
+	})
+
 });
+
 
 server.listen(3000, () => {
   console.log('server running at http://localhost:3000');

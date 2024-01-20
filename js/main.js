@@ -4,17 +4,9 @@ import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
+import { OtherPlayer } from '../entities/otherPlayer.js';
 
-const socket = io("192.168.20.42:3000");
-
-socket.on("connect", () => {
-    console.log(socket.id); // x8WIv7-mJelg7on_ALbx
-});
-  
-socket.on("disconnect", () => {
-    console.log(socket.id); // undefined
-});
-
+const socket = io("localhost:3000");
 const path = window.location.pathname;
 let pageName = ''
 if (path == '/') {
@@ -40,10 +32,9 @@ if (innerWidth > 1024 ) {
     canvas.height = innerHeight * 0.9
 }
 
-audio()
+//audio()
 
 const level = await getLevel(pageName, canvas.height)
-
 canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
@@ -76,9 +67,13 @@ const enemies = []
 const blocks = []
 const OtherPlayers = new Map()
 
-socket.on("connect", () => {
-    console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+socket.on("newPlayer", (data) => {
+    console.log(data)
+    OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
+    console.log(OtherPlayers.get(data.id)) // x8WIv7-mJelg7on_ALbx
 });
+
+socket.emit("newPlayer", {height: canvas.height, id: socket.id});
 
 let scrollOffset = 0
 var frameVelocity = 0
@@ -86,6 +81,13 @@ var frameVelocity = 0
 function stopMovement() {
     frameVelocity = 0
 }
+
+socket.on("newPlayerData", (data) => {
+    const otherPlayer = OtherPlayers.get(data.id)
+    console.log("test", data)
+    otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
+    otherPlayer.position.y = data.data.player.position.y / otherPlayer.heightFactor
+});
 
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
 var time;
@@ -206,15 +208,16 @@ function animate() {
     };   
     player.gravity = gravity;
     player.update();
-
+    for (let [key, value] of OtherPlayers) {
+        value.update()
+    }
     if (player.position.y > canvas.height) {
         scrollOffset = 0
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
     socket.emit("playerData", {
+        player: player,
         scrollOffset: scrollOffset,
-        currentSprite: player.currentSprite,
-        frame: player.frames
     })
 
     requestAnimationFrame(animate);

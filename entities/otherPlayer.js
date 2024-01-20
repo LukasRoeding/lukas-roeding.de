@@ -2,13 +2,13 @@ import { createImage } from "../js/createImage.js"
 import { Entity } from "./entitiy.js"
 
 export class OtherPlayer extends Entity {
-    constructor(context, canvas) {
-        super({x: canvas.width / 2 - canvas.height / 30, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas, socketID)
+    constructor(context, canvas, socketID, heightFactor) {
+        super({x: (canvas.width / 2 - canvas.height / 30) / heightFactor, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas)
         this.velocity = {
             x: 0,
             y: 1
         }
-        this.defaultPosition = canvas.width / 2 - canvas.height / 30
+        this.defaultPosition = (canvas.width / 2 - canvas.height / 30) / heightFactor
         this.jumped = false
         this.frames = 0
         this.socketID = socketID
@@ -28,6 +28,7 @@ export class OtherPlayer extends Entity {
         }
         this.currentSprite = this.sprites.stand.right
         this.audio = new Audio('../audio/jump.mp3')
+        this.heightFactor = heightFactor
     }
 
     draw() {
