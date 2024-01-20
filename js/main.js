@@ -94,7 +94,14 @@ socket.on("newPlayerData", (data) => {
         const otherPlayer = OtherPlayers.get(data.id)
         otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
         otherPlayer.position.y = data.data.positionY / otherPlayer.heightFactor
+        otherPlayer.frames = data.data.frame
+        otherPlayer.keys = data.data.keys
     }
+});
+
+socket.on("user-disconnected", (id) => {
+    console.log(id)
+    OtherPlayers.delete(id)
 });
 
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
@@ -137,6 +144,9 @@ function animate() {
         for(const enemy of enemies) {
             enemy.position.x -= frameVelocity
         };  
+        for (let [key, value] of OtherPlayers) {
+            value.position.x -= frameVelocity
+        }
     } else if (keys.left.pressed && doorClosed) {
         scrollOffset -= frameVelocity
         for(const platform of platforms) {
@@ -160,6 +170,9 @@ function animate() {
         for(const enemy of enemies) {
             enemy.position.x += frameVelocity
         };  
+        for (let [key, value] of OtherPlayers) {
+            value.position.x += frameVelocity
+        }
     } else if (keys.enter.pressed) {
         for(const door of doors) {
             if (
@@ -231,9 +244,11 @@ setInterval(function () {
     socket.emit("playerData", {
         positionY: player.position.y,
         scrollOffset: scrollOffset,
-        room: pageName
+        room: pageName,
+        frame: player.frames, 
+        keys: keys
     })
-}, 30);
+}, 20);
 
 animate()
 canvas.style.display = 'unset'

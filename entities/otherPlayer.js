@@ -29,6 +29,7 @@ export class OtherPlayer extends Entity {
         this.currentSprite = this.sprites.stand.right
         this.audio = new Audio('../audio/jump.mp3')
         this.heightFactor = heightFactor
+        this.keys = null
     }
 
     draw() {
@@ -70,11 +71,25 @@ export class OtherPlayer extends Entity {
                     this.height
                 )
             }
-
         }
     }
 
     update() {
+        if (this.keys) {
+            if (this.keys.left.pressed) {
+                this.currentSprite = this.sprites.run.left
+            } else if (this.keys.right.pressed){
+                this.currentSprite = this.sprites.run.right
+            } else if (this.keys.left.pressed === false) {
+                this.currentSprite = this.sprites.stand.left
+            } else {
+                this.currentSprite = this.sprites.stand.right
+            }
+        }
         this.draw();
+    }
+
+    kill() {
+        this.position.x = 1000000000
     }
 }
