@@ -5,7 +5,7 @@ import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
 
-const socket = io("https://192.168.20.42:8080/");
+const socket = io("192.168.20.42:3000");
 
 socket.on("connect", () => {
     console.log(socket.id); // x8WIv7-mJelg7on_ALbx
@@ -74,6 +74,12 @@ const doors = []
 const backgroundImages = []
 const enemies = []
 const blocks = []
+const OtherPlayers = new Map()
+
+socket.on("connect", () => {
+    console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+});
+
 let scrollOffset = 0
 var frameVelocity = 0
 
@@ -205,7 +211,6 @@ function animate() {
         scrollOffset = 0
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
-
     socket.emit("playerData", {
         scrollOffset: scrollOffset,
         currentSprite: player.currentSprite,

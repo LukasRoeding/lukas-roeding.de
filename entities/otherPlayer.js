@@ -3,7 +3,7 @@ import { Entity } from "./entitiy.js"
 
 export class OtherPlayer extends Entity {
     constructor(context, canvas) {
-        super({x: canvas.width / 2 - canvas.height / 30, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas)
+        super({x: canvas.width / 2 - canvas.height / 30, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas, socketID)
         this.velocity = {
             x: 0,
             y: 1
@@ -11,6 +11,7 @@ export class OtherPlayer extends Entity {
         this.defaultPosition = canvas.width / 2 - canvas.height / 30
         this.jumped = false
         this.frames = 0
+        this.socketID = socketID
         this.sprites = {
             stand: {
                 right: createImage('../images/player/IdleRight.png'),
