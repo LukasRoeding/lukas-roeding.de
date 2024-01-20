@@ -67,18 +67,20 @@ const enemies = []
 const blocks = []
 const OtherPlayers = new Map()
 
-
+socket.emit("newPlayer", {height: canvas.height, room: pageName});
 
 socket.on("newPlayer", (data) => {
-    OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
-    socket.emit("currentPlayer", {height: canvas.height, room: pageName});
+    if (data.id != socket.id) {
+        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
+        socket.emit("currentPlayer", {height: canvas.height, room: pageName});
+    }
 });
 
 socket.on("currentPlayer", (data) => {
     OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
 });
 
-socket.emit("newPlayer", {height: canvas.height, room: pageName});
+console.log(OtherPlayers)
 
 let scrollOffset = 0
 var frameVelocity = 0
@@ -88,9 +90,11 @@ function stopMovement() {
 }
 
 socket.on("newPlayerData", (data) => {
-    const otherPlayer = OtherPlayers.get(data.id)
-    otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
-    otherPlayer.position.y = data.data.positionY / otherPlayer.heightFactor
+    if (data.id != socket.id) {
+        const otherPlayer = OtherPlayers.get(data.id)
+        otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
+        otherPlayer.position.y = data.data.positionY / otherPlayer.heightFactor
+    }
 });
 
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
