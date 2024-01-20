@@ -4,9 +4,16 @@ import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
-import { socket } from './socket.js'
 
-socket()
+const socket = io("https://192.168.20.42:8080/");
+
+socket.on("connect", () => {
+    console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+});
+  
+socket.on("disconnect", () => {
+    console.log(socket.id); // undefined
+});
 
 const path = window.location.pathname;
 let pageName = ''
@@ -198,6 +205,13 @@ function animate() {
         scrollOffset = 0
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
+
+    socket.emit("playerData", {
+        scrollOffset: scrollOffset,
+        currentSprite: player.currentSprite,
+        frame: player.frames
+    })
+
     requestAnimationFrame(animate);
 }
 
