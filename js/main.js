@@ -96,7 +96,7 @@ function animate() {
             image.position.x -= frameVelocity
         };
         for(const image of backgroundImages) {
-            image.position.x -= defaultVelocity / 2 * dt
+            image.position.x -= frameVelocity / 2
         };
         for(const information of informations) {
             information.position.x -= frameVelocity
