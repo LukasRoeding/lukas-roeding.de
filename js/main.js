@@ -6,7 +6,7 @@ import { init } from './inits.js';
 import { audio } from './audio.js';
 import { socket } from './socket.js'
 
-console.log(socket)
+socket()
 
 const path = window.location.pathname;
 let pageName = ''
@@ -79,8 +79,9 @@ var time;
 function animate() {
     const now = new Date().getTime();
     const dt = (now - (time || now)) * 0.06;
+    const calculatedFrameVeloctiy = defaultVelocity * dt;
     time = now;
-    frameVelocity = defaultVelocity * dt;
+    frameVelocity = calculatedFrameVeloctiy;
     gravity = gravityBase * dt;
     for(const image of backgroundImages) {
         if (image.position.x <= innerWidth && image.position.x + image.width >= 0) {
@@ -185,9 +186,9 @@ function animate() {
                     reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
                 }
             } 
-            enemy.update(defaultVelocity * dt, scrollOffset);   
+            enemy.update(calculatedFrameVeloctiy, scrollOffset);   
         } else {
-            enemy.update(defaultVelocity * dt, scrollOffset, false);
+            enemy.update(calculatedFrameVeloctiy, scrollOffset, false);
         }
     };   
     player.gravity = gravity;

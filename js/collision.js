@@ -42,12 +42,12 @@ export function collision(platforms, player, informations, blocks, frameVelocity
                     player.position.x + frameVelocity + player.width >= block.position.x &&
                     player.position.x + frameVelocity < block.position.x + block.width
                     ) { 
-                    frameVelocity = 0;
+                        stopMovement()
                 } else if (
-                    player.position.x + frameVelocity <= block.position.x + block.width &&
+                    player.position.x <= block.position.x + block.width + frameVelocity &&
                     player.position.x > block.position.x + block.width
                     ) {
-                    frameVelocity = 0;
+                        stopMovement()
                 }
             }
         }
