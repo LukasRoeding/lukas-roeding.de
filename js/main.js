@@ -182,9 +182,9 @@ function animate() {
                     reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
                 }
             } 
-            enemy.update(frameVelocity, scrollOffset);   
+            enemy.update(defaultVelocity * dt, scrollOffset);   
         } else {
-            enemy.update(frameVelocity, scrollOffset, false);
+            enemy.update(defaultVelocity * dt, scrollOffset, false);
         }
     };   
     player.gravity = gravity;
