@@ -32,7 +32,7 @@ if (innerWidth > 1024 ) {
     canvas.height = innerHeight * 0.9
 }
 
-//audio()
+audio()
 
 const level = await getLevel(pageName, canvas.height)
 canvas.style.display = 'none'
