@@ -74,7 +74,7 @@ export function level(height) {
         backgroundImages: [
             {
                 id: 1,
-                x: -1,
+                x: -10,
                 y: -2,
                 w: height * 4,
                 h: height + 2,
