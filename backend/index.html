@@ -1,0 +1,17 @@
+<html>
+	<button>Test</button>
+</html>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io("ws://localhost:3000");
+
+  socket.on("message", (message) => {
+	console.log("Message: ", message);
+  });
+
+  document.querySelector('button').onclick = () => {
+	socket.send("message", "Eine Testnachricht");
+  };
+
+</script>
