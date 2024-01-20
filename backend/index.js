@@ -23,8 +23,14 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
 
-	socket.on('newPlayer', (height) => {
-		socket.broadcast.emit("newPlayer", {height: height, id: socket.id})
+	socket.on('newPlayer', (data) => {
+		socket.join(data.room)
+		io.to(data.room).emit("newPlayer", {height: data, id: socket.id})
+	})
+
+	socket.on('currentPlayer', (data) => {
+		console.log(data)
+		io.to(data.room).emit("currentPlayer", {height: data, id: socket.id})
 	})
 
 	console.log('a user connected');
@@ -39,7 +45,7 @@ io.on('connection', (socket) => {
 		socket.emit("message", "Reply");
 	})
 	socket.on('playerData', (data) => {
-		socket.broadcast.emit("newPlayerData", {data: data, id: socket.id})
+		io.to(data.room).emit("newPlayerData", {data: data, id: socket.id})
 	})
 
 });

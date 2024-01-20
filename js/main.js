@@ -67,11 +67,18 @@ const enemies = []
 const blocks = []
 const OtherPlayers = new Map()
 
+
+
 socket.on("newPlayer", (data) => {
+    OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
+    socket.emit("currentPlayer", {height: canvas.height, room: pageName});
+});
+
+socket.on("currentPlayer", (data) => {
     OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
 });
 
-socket.emit("newPlayer", {height: canvas.height, id: socket.id});
+socket.emit("newPlayer", {height: canvas.height, room: pageName});
 
 let scrollOffset = 0
 var frameVelocity = 0
@@ -220,8 +227,9 @@ setInterval(function () {
     socket.emit("playerData", {
         positionY: player.position.y,
         scrollOffset: scrollOffset,
+        room: pageName
     })
-}, 50);
+}, 30);
 
 animate()
 canvas.style.display = 'unset'
