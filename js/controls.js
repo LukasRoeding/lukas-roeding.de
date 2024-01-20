@@ -7,7 +7,6 @@ export function controls(keys, player) {
                     player.currentSprite = player.sprites.run.left
                     break
                 case 83:
-                    console.log('down')
                     break
                 case 68:
                     keys.right.pressed = true

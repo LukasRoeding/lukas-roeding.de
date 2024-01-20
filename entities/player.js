@@ -3,12 +3,13 @@ import { Entity } from "./entitiy.js"
 
 export class Player extends Entity {
     constructor(gravity, context, canvas) {
-        super({x: 100, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas)
+        super({x: canvas.width / 2 - canvas.height / 30, y: 200}, canvas.height / 15, canvas.height / 15, context, canvas)
         this.velocity = {
             x: 0,
             y: 1
         }
         this.gravity = gravity
+        this.defaultPosition = canvas.width / 2 - canvas.height / 30
         this.jumped = false
         this.frames = 0
         this.sprites = {

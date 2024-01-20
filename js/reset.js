@@ -1,7 +1,7 @@
 export function reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level) {
     const audio = new Audio('../audio/death.mp3');
     audio.play();
-    player.position.x = 100
+    player.position.x = player.defaultPosition
     player.position.y = 200
     for (let index = 0; index < platforms.length; index++) {
         platforms[index].position.x = level.platforms[index].x

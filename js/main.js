@@ -5,15 +5,6 @@ import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
 
-var data = new FormData();
-data.append( "name", 'lukas' );
-
-fetch("https://lukas-roeding.de/backend/index.php",
-{
-    method: "POST",
-    body: data
-})
-
 const path = window.location.pathname;
 let pageName = ''
 if (path == '/') {
@@ -74,6 +65,11 @@ const backgroundImages = []
 const enemies = []
 const blocks = []
 let scrollOffset = 0
+var frameVelocity = 0
+
+function stopMovement() {
+    frameVelocity = 0
+}
 
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
 var time;
@@ -81,88 +77,80 @@ function animate() {
     const now = new Date().getTime();
     const dt = (now - (time || now)) * 0.06;
     time = now;
-    const frameVelocity = defaultVelocity * dt;
+    frameVelocity = defaultVelocity * dt;
     gravity = gravityBase * dt;
     for(const image of backgroundImages) {
         if (image.position.x <= innerWidth && image.position.x + image.width >= 0) {
             image.draw();   
         }
     }; 
-    if (keys.right.pressed && player.position.x < canvas.width / 2 - player.width / 2 && doorClosed ) {
-        player.velocity.x = frameVelocity
-        playerMovement = true;
-    } else if (keys.left.pressed && player.position.x > 100 && doorClosed
-        || keys.left.pressed && scrollOffset === 0 && player.position.x > 0 && doorClosed) {
-        player.velocity.x = -frameVelocity
-        playerMovement = true;
-    } else {
-        player.velocity.x = 0
-        playerMovement = false;
-        if (keys.right.pressed && doorClosed) {
-            scrollOffset += frameVelocity
-            for(const platform of platforms) {
-                platform.position.x -= frameVelocity
-            };
-            for(const image of images) {
-                image.position.x -= frameVelocity
-            };
-            for(const image of backgroundImages) {
-                image.position.x -= defaultVelocity / 2 * dt
-            };
-            for(const information of informations) {
-                information.position.x -= frameVelocity
-            };
-            for(const block of blocks) {
-                block.position.x -= frameVelocity
-            };
-            for(const door of doors) {
-                door.position.x -= frameVelocity
-            };  
-            for(const enemy of enemies) {
-                enemy.position.x -= frameVelocity
-            };  
-        } else if (keys.left.pressed && scrollOffset > 0 && doorClosed) {
-            scrollOffset -= frameVelocity
-            for(const platform of platforms) {
-                platform.position.x += frameVelocity
-            };
-            for(const image of images) {
-                image.position.x += frameVelocity
-            };
-            for(const image of backgroundImages) {
-                image.position.x += defaultVelocity / 2 * dt
-            };
-            for(const information of informations) {
-                information.position.x += frameVelocity
-            };
-            for(const block of blocks) {
-                block.position.x += frameVelocity
-            };
-            for(const door of doors) {
-                door.position.x += frameVelocity
-            };  
-            for(const enemy of enemies) {
-                enemy.position.x += frameVelocity
-            };  
-        } else if (keys.enter.pressed) {
-            for(const door of doors) {
-                if (
-                    player.position.x + player.width + player.velocity.x >= door.position.x &&
-                    player.position.x + player.velocity.x <= door.position.x + canvas.height / 10 &&
-                    player.position.y + player.velocity.y + player.height >= door.position.y &&
-                    player.position.y + player.velocity.y <= door.position.y + canvas.height / 10
-                    ) {
-                    doorClosed = false
-                    setTimeout(() => {
-                        doorClosed = true
-                    }, 1300)
-                    keys.enter.pressed = false
-                    door.open()
-                }
-            };   
-        }
+    player.velocity.x = 0
+    playerMovement = false;
+    collision(platforms, player, informations, blocks, frameVelocity, stopMovement);    
+    if (keys.right.pressed && doorClosed) {
+        scrollOffset += frameVelocity
+        for(const platform of platforms) {
+            platform.position.x -= frameVelocity
+        };
+        for(const image of images) {
+            image.position.x -= frameVelocity
+        };
+        for(const image of backgroundImages) {
+            image.position.x -= defaultVelocity / 2 * dt
+        };
+        for(const information of informations) {
+            information.position.x -= frameVelocity
+        };
+        for(const block of blocks) {
+            block.position.x -= frameVelocity
+        };
+        for(const door of doors) {
+            door.position.x -= frameVelocity
+        };  
+        for(const enemy of enemies) {
+            enemy.position.x -= frameVelocity
+        };  
+    } else if (keys.left.pressed && scrollOffset > 0 && doorClosed) {
+        scrollOffset -= frameVelocity
+        for(const platform of platforms) {
+            platform.position.x += frameVelocity
+        };
+        for(const image of images) {
+            image.position.x += frameVelocity
+        };
+        for(const image of backgroundImages) {
+            image.position.x += defaultVelocity / 2 * dt
+        };
+        for(const information of informations) {
+            information.position.x += frameVelocity
+        };
+        for(const block of blocks) {
+            block.position.x += frameVelocity
+        };
+        for(const door of doors) {
+            door.position.x += frameVelocity
+        };  
+        for(const enemy of enemies) {
+            enemy.position.x += frameVelocity
+        };  
+    } else if (keys.enter.pressed) {
+        for(const door of doors) {
+            if (
+                player.position.x + player.width + player.velocity.x >= door.position.x &&
+                player.position.x + player.velocity.x <= door.position.x + canvas.height / 10 &&
+                player.position.y + player.velocity.y + player.height >= door.position.y &&
+                player.position.y + player.velocity.y <= door.position.y + canvas.height / 10
+                ) {
+                doorClosed = false
+                setTimeout(() => {
+                    doorClosed = true
+                }, 1300)
+                keys.enter.pressed = false
+                door.open()
+            }
+        };   
     }
-    collision(platforms, player, informations, blocks);    
+
     for(const image of images) {
         if (image.position.x <= innerWidth && image.position.x + image.width >= 0) {
             image.draw();   

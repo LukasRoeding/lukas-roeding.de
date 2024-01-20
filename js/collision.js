@@ -1,4 +1,4 @@
-export function collision(platforms, player, informations, blocks) {
+export function collision(platforms, player, informations, blocks, frameVelocity, stopMovement) {
     for(const platform of platforms) {
         if (platform.position.x <= innerWidth || platform.position.x + platform.width >= 0) {
             platform.draw();
@@ -39,15 +39,15 @@ export function collision(platforms, player, informations, blocks) {
                 player.position.y + player.velocity.y <= block.position.y + block.height
             )  {
                 if (
-                    player.position.x + player.velocity.x + player.width >= block.position.x &&
-                    player.position.x + player.velocity.x < block.position.x + block.width
+                    player.position.x + frameVelocity + player.width >= block.position.x &&
+                    player.position.x + frameVelocity < block.position.x + block.width
                     ) { 
-                    player.velocity.x = 0;
+                    frameVelocity = 0;
                 } else if (
-                    player.position.x + player.velocity.x <= block.position.x + block.width &&
+                    player.position.x + frameVelocity <= block.position.x + block.width &&
                     player.position.x > block.position.x + block.width
                     ) {
-                    player.velocity.x = 0;
+                    frameVelocity = 0;
                 }
             }
         }
@@ -78,15 +78,17 @@ export function collision(platforms, player, informations, blocks) {
                 player.position.y + player.velocity.y <= information.position.y + information.height
             )  {
                 if (
-                    player.position.x + player.velocity.x + player.width >= information.position.x &&
-                    player.position.x + player.velocity.x < information.position.x + information.width
+                    player.position.x + frameVelocity + player.width >= information.position.x &&
+                    player.position.x + frameVelocity < information.position.x + information.width
                     ) { 
-                    player.velocity.x = 0;
+                    stopMovement()
+                    
                 } else if (
-                    player.position.x + player.velocity.x <= information.position.x + information.width &&
+                    player.position.x <= information.position.x + information.width + frameVelocity &&
                     player.position.x > information.position.x + information.width
                     ) {
-                    player.velocity.x = 0;
+                    stopMovement()
+                    
                 }
             }
         }
