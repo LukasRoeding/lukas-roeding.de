@@ -110,7 +110,7 @@ function animate() {
         for(const enemy of enemies) {
             enemy.position.x -= frameVelocity
         };  
-    } else if (keys.left.pressed && scrollOffset > 0 && doorClosed) {
+    } else if (keys.left.pressed && doorClosed) {
         scrollOffset -= frameVelocity
         for(const platform of platforms) {
             platform.position.x += frameVelocity
