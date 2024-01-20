@@ -68,9 +68,7 @@ const blocks = []
 const OtherPlayers = new Map()
 
 socket.on("newPlayer", (data) => {
-    console.log(data)
     OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height))
-    console.log(OtherPlayers.get(data.id)) // x8WIv7-mJelg7on_ALbx
 });
 
 socket.emit("newPlayer", {height: canvas.height, id: socket.id});
@@ -84,7 +82,6 @@ function stopMovement() {
 
 socket.on("newPlayerData", (data) => {
     const otherPlayer = OtherPlayers.get(data.id)
-    console.log("test", data)
     otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
     otherPlayer.position.y = data.data.positionY / otherPlayer.heightFactor
 });
@@ -215,13 +212,16 @@ function animate() {
         scrollOffset = 0
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
+
+    requestAnimationFrame(animate);
+}
+
+setInterval(function () {
     socket.emit("playerData", {
         positionY: player.position.y,
         scrollOffset: scrollOffset,
     })
-
-    requestAnimationFrame(animate);
-}
+}, 50);
 
 animate()
 canvas.style.display = 'unset'
