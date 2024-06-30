@@ -14,6 +14,16 @@ if (path == '/') {
     pageName = path.split("/").pop().split(".")[0];
 }
 
+const closeModalButton = document.getElementById('closeModalButton')
+closeModalButton.addEventListener('click', () => {
+    const backgroundOffset = document.getElementById('backgroundOffset')
+    backgroundOffset.style.display = 'none'
+    const modal = document.getElementById('information-modal')
+    modal.style.display = 'none'
+    const modalLink = document.getElementById('information-modal-link')
+    modalLink.style.display = 'none'
+})
+
 async function getLevel(pageName, levelHeight) {
     try {
        const module = await import('../levels/' + pageName + '_level.js');
@@ -77,6 +87,7 @@ init(context, canvas, level, platforms, images, informations, doors, backgroundI
 changeOutfitEvents(player)
 
 var time;
+
 function animate() {
     const now = new Date().getTime();
     const dt = (now - (time || now)) * 0.06;

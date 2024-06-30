@@ -8,12 +8,13 @@
     <title>Spiel</title>
 </head>
 <body>
+    <div id="backgroundOffset"></div>
     <div id="information-modal" class="information-modal">
         <div id="information-header" class="information-header"></div>
         <div id="information-text" class="information-text"></div>
         <div  id="information-footer" class="information-footer">
             <a id="information-modal-link">Website</a>
-            <a style="display: unset;" onclick="closeModal()">Schließen</a>
+            <a id="closeModalButton" style="display: unset;">Schließen</a>
         </div>
     </div>
     <canvas></canvas>
@@ -26,12 +27,4 @@
     <audio id="background-music" src="audio/Luke-Bergs-Tropical-Soulmp3.mp3" autoplay loop></audio>
 </body>
 <script type="module" src="js/main.js"></script>
-<script>
-    function closeModal() {
-        const modal = document.getElementById('information-modal')
-        modal.style.display = 'none'
-        const modalLink = document.getElementById('information-modal-link')
-        modalLink.style.display = 'none'
-    }
-</script>
 </html>

@@ -9,14 +9,16 @@ export class Information extends Platform {
     }
 
     displayInformation() {
-        let modal = document.getElementById('information-modal')
+        const backgroundOffset = document.getElementById('backgroundOffset')
+        backgroundOffset.style.display = 'block'
+        const modal = document.getElementById('information-modal')
         modal.style.display = 'flex'
-        let modalText = document.getElementById('information-text')
+        const modalText = document.getElementById('information-text')
         modalText.innerHTML = this.information
-        let modaltitle = document.getElementById('information-header')
+        const modaltitle = document.getElementById('information-header')
         modaltitle.innerHTML = this.title
         if (this.link) {
-            let modallink = document.getElementById('information-modal-link')
+            const modallink = document.getElementById('information-modal-link')
             modallink.style.display = 'unset'
             modallink.href = this.link
             modallink.target = '__blank'

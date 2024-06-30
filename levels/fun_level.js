@@ -35,7 +35,7 @@ export function level(height) {
                 id: 1,
                 x: -255,
                 y: -2,
-                w: height * 4,
+                w: height * 5,
                 h: height + 2,
                 source: '../images/back.png'
             },

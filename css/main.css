@@ -25,6 +25,8 @@ canvas {
     height: 90vh;
     align-items: stretch;
     max-height: 700px;
+    border: 2px solid #dbc9ba;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .information-header {
     padding: 20px;
@@ -87,6 +89,16 @@ button {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Edge, IE */
     user-select: none; /* Modern browsers */
+}
+
+#backgroundOffset {
+    position: fixed; 
+    top: 0px; 
+    left: 0px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    height: 100vw;
+    width: 100vw;
+    display: none;
 }
 
 @media only screen and (max-width: 1024px) {
