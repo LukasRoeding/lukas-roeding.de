@@ -12,10 +12,27 @@ export class Player extends Entity {
         this.defaultPosition = canvas.width / 2 - canvas.height / 30
         this.jumped = false
         this.frames = 0
-        this.rndInt = Math.floor(Math.random() * 4) + 1
-        this.sprites = null
-        if (this.rndInt == 1) {
-            this.sprites = {
+        this.rdnInt = () => {
+            if (localStorage.getItem('outfit') !== null) {
+                return localStorage.getItem('outfit')
+            } else {
+                return Math.floor(Math.random() * 4) + 1
+            }
+        }
+        this.sprites = this.changeLook(this.rdnInt)
+        this.currentSprite = this.sprites.stand.right
+        this.currentSpritePath = 'stand.right'
+        this.audio = new Audio('../audio/jump.mp3')
+        setInterval(() => {
+            this.frames++
+            if (this.frames > 10) {
+                this.frames = 0
+            }
+        }, 40)
+    }
+    changeLook(outfitNumber) {
+        if (outfitNumber == 1) {
+            return {
                 stand: {
                     right: createImage('../images/player/IdleRight.png'),
                     left: createImage('../images/player/IdleLeft.png'),
@@ -29,8 +46,8 @@ export class Player extends Entity {
                     left: createImage('../images/player/JumpLeft.png')
                 },
             }
-        } else if (this.rndInt == 2){
-            this.sprites = {
+        } else if (outfitNumber == 2){
+            return {
                 stand: {
                     right: createImage('../images/player/PinkMan/IdleRight.png'),
                     left: createImage('../images/player/PinkMan/IdleLeft.png'),
@@ -44,8 +61,8 @@ export class Player extends Entity {
                     left: createImage('../images/player/PinkMan/JumpLeft.png')
                 },
             }
-        } else if (this.rndInt == 3){
-            this.sprites = {
+        } else if (outfitNumber == 3){
+            return {
                 stand: {
                     right: createImage('../images/player/VirtualGuy/IdleRight.png'),
                     left: createImage('../images/player/VirtualGuy/IdleLeft.png'),
@@ -60,7 +77,7 @@ export class Player extends Entity {
                 },
             }
         } else {
-            this.sprites = {
+            return {
                 stand: {
                     right: createImage('../images/player/MaskDude/IdleRight.png'),
                     left: createImage('../images/player/MaskDude/IdleLeft.png'),
@@ -75,16 +92,8 @@ export class Player extends Entity {
                 },
             }
         }
-        this.currentSprite = this.sprites.stand.right
-        this.audio = new Audio('../audio/jump.mp3')
-        setInterval(() => {
-            this.frames++
-            if (this.frames > 10) {
-                this.frames = 0
-            }
-        }, 40)
-    }
 
+    }
     draw() {
         if (!this.jumped) {   
             this.context.drawImage(
@@ -148,5 +157,9 @@ export class Player extends Entity {
             this.velocity.y = -this.canvas.height / 50
             this.jumped = true  
         }
+    }
+
+    updateCurrentSprite() {
+        this.currentSprite = this.currentSpritePath.split('.').reduce((o, p) => (o ? o[p] : undefined), this.sprites);
     }
 }

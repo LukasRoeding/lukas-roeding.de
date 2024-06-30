@@ -10,47 +10,47 @@ export function init(context, canvas, level, platforms, images, informations, do
     level.platforms.forEach(platform => {
         const platformImage = createImage(platform.source)
         platformImage.onload = function() {
-            platforms.push(new Platform({x:platform.x, y:platform.y}, context, canvas, platform.id, platformImage , platform.width, platform.height))
+            platforms.push(new Platform({x:platform.x + canvas.width / 2 - canvas.height / 15, y:platform.y}, context, canvas, platform.id, platformImage , platform.width, platform.height))
         } 
     })
 
     for (const image of level.images) {
         const createdImage = createImage(image.source)
         createdImage.onload = function() {
-            images.push(new Image({x:image.x, y:image.y}, context, canvas, image.id, createdImage, image.w, image.h, image.id))
+            images.push(new Image({x:image.x + canvas.width / 2 - canvas.height / 15, y:image.y}, context, canvas, image.id, createdImage, image.w, image.h, image.id))
         }
     }
 
     for (const image of level.backgroundImages) {
         const createdImage = createImage(image.source)
         createdImage.onload = function() {
-            backgroundImages.push(new Image({x:image.x, y:image.y}, context, canvas, image.id, createdImage, image.w, image.h, image.id))
+            backgroundImages.push(new Image({x:image.x - canvas.width / 2 - canvas.height / 15, y:image.y}, context, canvas, image.id, createdImage, image.w, image.h, image.id))
         }
     }
 
     const informationImage = createImage('../images/info.png')
     informationImage.onload = function() {
         level.informations.forEach(information => {
-            informations.push(new Information({x:information.x, y:information.y}, context, canvas, information.id, informationImage, height / 20, height / 20, information.html, information.title, information.link))
+            informations.push(new Information({x:information.x + canvas.width / 2 - canvas.height / 15, y:information.y}, context, canvas, information.id, informationImage, height / 20, height / 20, information.html, information.title, information.link))
         })
     }
 
     const blockImage = createImage('../images/block.png')
     blockImage.onload = function() {
         level.blocks.forEach(block => {
-            blocks.push(new Platform({x:block.x, y:block.y}, context, canvas, block.id, blockImage, block.width, block.height))
+            blocks.push(new Platform({x:block.x + canvas.width / 2 - canvas.height / 15, y:block.y}, context, canvas, block.id, blockImage, block.width, block.height))
         })
     }
 
     const doorImage = createImage('../images/door.png')
     doorImage.onload = function() {
         level.doors.forEach(door => {
-            doors.push(new Door({x: door.x, y: door.y}, context, canvas, height / 10, height / 10, door.target, doorImage))
+            doors.push(new Door({x: door.x + canvas.width / 2 - canvas.height / 15, y: door.y}, context, canvas, height / 10, height / 10, door.target, doorImage))
         })
     }
 
     for (const enemy of level.enemies) {
-        enemies.push(new Enemy({x: enemy.x, y: enemy.y}, context, canvas, enemy.id, enemy.w, enemy.h, enemy.sprites, enemy.range, enemy.speed, enemy.spriteHeight, enemy.spriteWidth, enemy.spriteFrames))
+        enemies.push(new Enemy({x: enemy.x + canvas.width / 2 - canvas.height / 15, y: enemy.y}, context, canvas, enemy.id, enemy.w, enemy.h, enemy.sprites, enemy.range, enemy.speed, enemy.spriteHeight, enemy.spriteWidth, enemy.spriteFrames))
     }
     function imagesLoaded() {
         if (level.platforms.length == platforms.length && 

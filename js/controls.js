@@ -5,12 +5,14 @@ export function controls(keys, player) {
                 case 65:
                     keys.left.pressed = true
                     player.currentSprite = player.sprites.run.left
+                    player.currentSpritePath = 'run.left'
                     break
                 case 83:
                     break
                 case 68:
                     keys.right.pressed = true
                     player.currentSprite = player.sprites.run.right
+                        player.currentSpritePath = 'run.right'
                     break
                 case 87:
                     player.up()
@@ -34,12 +36,14 @@ export function controls(keys, player) {
                 keys.left.pressed = false
                 if (player.currentSprite == player.sprites.run.left) {
                     player.currentSprite = player.sprites.stand.left
+                    player.currentSpritePath = 'stand.left'
                 }
                 break
             case 68:
                 keys.right.pressed = false
                 if (player.currentSprite == player.sprites.run.right) {
                     player.currentSprite = player.sprites.stand.right
+                    player.currentSpritePath = 'stand.right'
                 }
                 break
             case 13:
@@ -63,20 +67,24 @@ export function controls(keys, player) {
     document.getElementById('left-button').ontouchstart = () => { 
         keys.left.pressed = true 
         player.currentSprite = player.sprites.run.left
+        player.currentSpritePath = 'run.left'
     };
     document.getElementById('right-button').ontouchstart = () => { 
         keys.right.pressed = true 
         player.currentSprite = player.sprites.run.right
+        player.currentSpritePath = 'run.right'
     };
     document.getElementById('enter-button').ontouchstart = () => { keys.enter.pressed = true };
 
     document.getElementById('left-button').ontouchend = () => { 
         keys.left.pressed = false 
         player.currentSprite = player.sprites.stand.left
+        player.currentSpritePath = 'stand.left'
     };
     document.getElementById('right-button').ontouchend = () => { 
         keys.right.pressed = false
         player.currentSprite = player.sprites.stand.right
+        player.currentSpritePath = 'stand.right'
      };
     document.getElementById('enter-button').ontouchend = () => { keys.enter.pressed = false };
 }

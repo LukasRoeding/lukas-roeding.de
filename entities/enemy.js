@@ -5,10 +5,9 @@ export class Enemy extends Entity {
         super({x:position.x, y:position.y}, width, height, context, canvas, id)
         this.sprites = sprites
         this.currentSprite = this.sprites.run.left
-        this.movementRange = range
+        this.movementRange = {leftX: range.leftX + canvas.width / 2 - canvas.height / 15, rightX: range.rightX + canvas.width / 2 - canvas.height / 15}
         this.direction = 'left'
         this.frames = 0
-        this.currentSprite = this.sprites.run.left
         setInterval(() => {
             this.frames++
             if (this.frames > this.spriteFrames) {

@@ -4,9 +4,8 @@ import { collision } from './collision.js';
 import { reset } from './reset.js';
 import { init } from './inits.js';
 import { audio } from './audio.js';
-import { OtherPlayer } from '../entities/otherPlayer.js';
+import { changeOutfitEvents } from './outfitEvents.js';
 
-const socket = io("192.168.90.33:3000");
 const path = window.location.pathname;
 let pageName = ''
 if (path == '/') {
@@ -65,24 +64,6 @@ const doors = []
 const backgroundImages = []
 const enemies = []
 const blocks = []
-const OtherPlayers = new Map()
-
-console.log(player.rndInt)
-socket.emit("newPlayer", {height: canvas.height, room: pageName, skin: player.rndInt});
-
-socket.on("newPlayer", (data) => {
-    console.log(data)
-    if (data.id != socket.id) {
-        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height, data.height.skin))
-        socket.emit("currentPlayer", {height: canvas.height, room: pageName, skin: player.rndInt});
-    }
-});
-
-socket.on("currentPlayer", (data) => {
-    if (data.id != socket.id) {
-        OtherPlayers.set(data.id, new OtherPlayer(context, canvas, data.id, data.height.height / canvas.height), data.height.skin)
-    }
-});
 
 let scrollOffset = 0
 var frameVelocity = 0
@@ -91,21 +72,10 @@ function stopMovement() {
     frameVelocity = 0
 }
 
-socket.on("newPlayerData", (data) => {
-    if (data.id != socket.id) {
-        const otherPlayer = OtherPlayers.get(data.id)
-        otherPlayer.position.x = otherPlayer.defaultPosition + data.data.scrollOffset - scrollOffset 
-        otherPlayer.position.y = data.data.positionY / otherPlayer.heightFactor
-        otherPlayer.frames = data.data.frame
-        otherPlayer.keys = data.data.keys
-    }
-});
-
-socket.on("user-disconnected", (id) => {
-    OtherPlayers.delete(id)
-});
-
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
+
+changeOutfitEvents(player)
+
 var time;
 function animate() {
     const now = new Date().getTime();
@@ -121,7 +91,8 @@ function animate() {
     }; 
     player.velocity.x = 0
     playerMovement = false;
-    collision(platforms, player, informations, blocks, frameVelocity, stopMovement);    
+    collision(platforms, player, informations, blocks, frameVelocity, stopMovement);   
+     
     if (keys.right.pressed && doorClosed) {
         scrollOffset += frameVelocity
         for(const platform of platforms) {
@@ -145,9 +116,6 @@ function animate() {
         for(const enemy of enemies) {
             enemy.position.x -= frameVelocity
         };  
-        for (let [key, value] of OtherPlayers) {
-            value.position.x -= frameVelocity
-        }
     } else if (keys.left.pressed && doorClosed) {
         scrollOffset -= frameVelocity
         for(const platform of platforms) {
@@ -171,9 +139,6 @@ function animate() {
         for(const enemy of enemies) {
             enemy.position.x += frameVelocity
         };  
-        for (let [key, value] of OtherPlayers) {
-            value.position.x += frameVelocity
-        }
     } else if (keys.enter.pressed) {
         for(const door of doors) {
             if (
@@ -230,9 +195,7 @@ function animate() {
     };   
     player.gravity = gravity;
     player.update();
-    for (let [key, value] of OtherPlayers) {
-        value.update()
-    }
+    
     if (player.position.y > canvas.height) {
         scrollOffset = 0
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
@@ -240,16 +203,6 @@ function animate() {
 
     requestAnimationFrame(animate);
 }
-
-setInterval(function () {
-    socket.emit("playerData", {
-        positionY: player.position.y,
-        scrollOffset: scrollOffset,
-        room: pageName,
-        frame: player.frames, 
-        keys: keys
-    })
-}, 20);
 
 animate()
 canvas.style.display = 'unset'
