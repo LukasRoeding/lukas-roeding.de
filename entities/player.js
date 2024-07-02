@@ -148,14 +148,16 @@ export class Player extends Entity {
     }
 
     up(kill) {
-        if (kill || (this.jumped == false && this.velocity.y == this.gravity)) {
-            if (this.audio.paused) {
-                this.audio.play();
-            }   else{
-                this.audio.currentTime = 0
+        if(localStorage.getItem('movementFlag') == 'true') {
+            if (kill || (this.jumped == false && this.velocity.y == this.gravity)) {
+                if (this.audio.paused) {
+                    this.audio.play();
+                }   else{
+                    this.audio.currentTime = 0
+                }
+                this.velocity.y = -this.canvas.height / 50
+                this.jumped = true  
             }
-            this.velocity.y = -this.canvas.height / 50
-            this.jumped = true  
         }
     }
 

@@ -9,5 +9,6 @@ export class Entity {
         this.context = context
         this.canvas = canvas
         this.id = id
+        this.movementFlag = localStorage.getItem('movementFlag') ? localStorage.getItem('movementFlag') : true
     }
 }

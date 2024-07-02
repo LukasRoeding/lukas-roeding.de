@@ -22,6 +22,7 @@ closeModalButton.addEventListener('click', () => {
     modal.style.display = 'none'
     const modalLink = document.getElementById('information-modal-link')
     modalLink.style.display = 'none'
+    localStorage.setItem('movementFlag', true)
 })
 
 async function getLevel(pageName, levelHeight) {
@@ -51,8 +52,7 @@ let gravityBase = canvas.height / 1000
 let gravity = canvas.height / 1000;
 const defaultVelocity = canvas.height / 100;
 
-let playerMovement = true
-let doorClosed = true
+localStorage.setItem('movementFlag', true)
 
 const keys = {
     right: {
@@ -82,6 +82,7 @@ function stopMovement() {
     frameVelocity = 0
 }
 
+
 init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
 
 changeOutfitEvents(player)
@@ -101,10 +102,9 @@ function animate() {
         }
     }; 
     player.velocity.x = 0
-    playerMovement = false;
+
     collision(platforms, player, informations, blocks, frameVelocity, stopMovement);   
-     
-    if (keys.right.pressed && doorClosed) {
+    if (keys.right.pressed && localStorage.getItem('movementFlag') == 'true') {
         scrollOffset += frameVelocity
         for(const platform of platforms) {
             platform.position.x -= frameVelocity
@@ -127,7 +127,7 @@ function animate() {
         for(const enemy of enemies) {
             enemy.position.x -= frameVelocity
         };  
-    } else if (keys.left.pressed && doorClosed) {
+    } else if (keys.left.pressed && localStorage.getItem('movementFlag') == 'true') {
         scrollOffset -= frameVelocity
         for(const platform of platforms) {
             platform.position.x += frameVelocity
@@ -158,10 +158,7 @@ function animate() {
                 player.position.y + player.velocity.y + player.height >= door.position.y &&
                 player.position.y + player.velocity.y <= door.position.y + canvas.height / 10
                 ) {
-                doorClosed = false
-                setTimeout(() => {
-                    doorClosed = true
-                }, 1300)
+                localStorage.setItem('movementFlag', false)
                 keys.enter.pressed = false
                 door.open()
             }
@@ -199,9 +196,17 @@ function animate() {
                     reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
                 }
             } 
-            enemy.update(calculatedFrameVeloctiy, scrollOffset);   
+            if (localStorage.getItem('movementFlag') == 'true') {
+                enemy.update(calculatedFrameVeloctiy, scrollOffset);   
+            } else {
+                enemy.draw()
+            }
         } else {
-            enemy.update(calculatedFrameVeloctiy, scrollOffset, false);
+            if (localStorage.getItem('movementFlag') == 'true') {
+                enemy.update(calculatedFrameVeloctiy, scrollOffset, false);
+            } else {
+                enemy.draw()
+            }
         }
     };   
     player.gravity = gravity;

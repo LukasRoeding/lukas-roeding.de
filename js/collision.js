@@ -69,6 +69,7 @@ export function collision(platforms, player, informations, blocks, frameVelocity
                 player.position.y >= information.position.y + information.height && 
                 player.position.y + player.velocity.y <= information.position.y + information.height
             ) {
+                localStorage.setItem('movementFlag', false)
                 information.displayInformation()
                 player.velocity.y = 0
             }
