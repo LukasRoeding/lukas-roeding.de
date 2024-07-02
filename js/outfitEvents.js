@@ -13,7 +13,14 @@ export function changeOutfitEvents(player) {
     outfitButton.style.borderBottom = "3px solid #38251b"
 
     outfitButton.addEventListener("click", () => {
-        player.sprites = player.changeLook(Math.floor(Math.random() * 4) + 1)
+        let newLook
+        if(localStorage.getItem('outfit') == 4) {
+            newLook = 1
+        } else {
+            newLook = Number(localStorage.getItem('outfit')) + 1
+        }
+        console.log(newLook, localStorage.getItem('outfit'))
+        player.sprites = player.changeLook(newLook)
         player.updateCurrentSprite()
         player.draw()
     })

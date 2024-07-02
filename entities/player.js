@@ -12,12 +12,10 @@ export class Player extends Entity {
         this.defaultPosition = canvas.width / 2 - canvas.height / 30
         this.jumped = false
         this.frames = 0
-        this.rdnInt = () => {
-            if (localStorage.getItem('outfit') !== null) {
-                return localStorage.getItem('outfit')
-            } else {
-                return Math.floor(Math.random() * 4) + 1
-            }
+        if (localStorage.getItem('outfit') !== null) {
+            this.rdnInt = localStorage.getItem('outfit')
+        } else {
+            this.rdnInt = Math.floor(Math.random() * 4) + 1
         }
         this.sprites = this.changeLook(this.rdnInt)
         this.currentSprite = this.sprites.stand.right
@@ -31,6 +29,7 @@ export class Player extends Entity {
         }, 40)
     }
     changeLook(outfitNumber) {
+        localStorage.setItem('outfit', outfitNumber)
         if (outfitNumber == 1) {
             return {
                 stand: {
