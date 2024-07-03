@@ -33,7 +33,7 @@ export function level(height) {
         backgroundImages: [
             {
                 id: 1,
-                x: -255,
+                x: -10,
                 y: -2,
                 w: height * 5,
                 h: height + 2,
