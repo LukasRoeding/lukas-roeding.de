@@ -28,7 +28,7 @@ export function level(height) {
                 y: height - height / 2,
                 html:   "<p>Mein zweites großes Hobby ist Programmieren.</p>" + 
                         "<p>Aktuell liebe ich es Spiele in Javascript zu programmieren, wobei ich so langsam auch den Drang verspühre, mal mit C++ rumzuspielen.</p>" +
-                        "<iframe style='width: 100%; height: 100%' src='https://3d-snake.lukas-roeding.de/'></iframe>",
+                        "<iframe style='width: 100%; height: 100%; margin-bottom: 1em' src='https://3d-snake.lukas-roeding.de/'></iframe>",
                 title: 'Programmieren',
                 link: 'https://github.com/LukasRoeding/lukas-roeding.de'
             },
