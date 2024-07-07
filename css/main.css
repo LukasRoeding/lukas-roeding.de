@@ -27,6 +27,7 @@ canvas {
     max-height: 700px;
     border: 2px solid #dbc9ba;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    z-index: 2
 }
 .information-header {
     padding: 20px;
