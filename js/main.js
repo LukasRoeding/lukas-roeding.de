@@ -83,7 +83,7 @@ function stopMovement() {
 }
 
 
-init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
+await init(context, canvas, level, platforms, images, informations, doors, backgroundImages, enemies, blocks, canvas.height)
 
 changeOutfitEvents(player)
 
