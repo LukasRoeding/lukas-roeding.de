@@ -19,11 +19,9 @@ export function changeOutfitEvents(player) {
         } else {
             newLook = Number(localStorage.getItem('outfit')) + 1
         }
-        console.log(newLook, localStorage.getItem('outfit'))
         player.sprites = player.changeLook(newLook)
         player.updateCurrentSprite()
         player.draw()
     })
     body.appendChild(outfitButton);
-    console.log(body)
 }
