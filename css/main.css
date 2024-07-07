@@ -78,6 +78,8 @@ button {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Edge, IE */
     user-select: none; /* Modern browsers */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
 }
 
 .touch-controls button{
@@ -89,6 +91,8 @@ button {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Edge, IE */
     user-select: none; /* Modern browsers */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
 }
 
 #backgroundOffset {
