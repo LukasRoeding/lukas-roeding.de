@@ -216,8 +216,9 @@ function animate() {
         scrollOffset = 0
         reset(player, platforms, images, informations, doors, backgroundImages, enemies, blocks, level)
     }
-
-    requestAnimationFrame(animate);
+    setTimeout(() => {
+        requestAnimationFrame(animate);
+    }, 10);
 }
 
 animate()
