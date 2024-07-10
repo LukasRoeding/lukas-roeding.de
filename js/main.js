@@ -160,6 +160,9 @@ function animate() {
                 ) {
                 localStorage.setItem('movementFlag', false)
                 keys.enter.pressed = false
+                setTimeout(()=> {
+                    localStorage.setItem('movementFlag', true)
+                }, 1300)
                 door.open()
             }
         };   
