@@ -87,4 +87,5 @@ export function controls(keys, player) {
         player.currentSpritePath = 'stand.right'
      };
     document.getElementById('enter-button').ontouchend = () => { keys.enter.pressed = false };
+    document.getElementById('jump-button').ontouchstart = () => { player.up() };
 }
