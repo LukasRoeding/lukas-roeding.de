@@ -141,9 +141,7 @@ export class Player extends Entity {
         this.position.y += this.velocity.y;
         this.position.x += this.velocity.x;
 
-        if (this.position.y + this.height + this.velocity.y <= this.canvas.height) {
-            this.velocity.y += this.gravity;
-        }
+        this.velocity.y += this.gravity;
     }
 
     up(kill) {

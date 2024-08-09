@@ -48,7 +48,7 @@ const level = await getLevel(pageName, canvas.height)
 canvas.style.display = 'none'
 
 const context = canvas.getContext('2d');
-let gravityBase = canvas.height / 1000
+
 let gravity = canvas.height / 1000;
 const defaultVelocity = canvas.height / 100;
 
@@ -95,13 +95,14 @@ function animate() {
     const calculatedFrameVeloctiy = defaultVelocity * dt;
     time = now;
     frameVelocity = calculatedFrameVeloctiy;
-    gravity = gravityBase * dt;
+    player.velocity.y = player.velocity.y + (gravity / 10 * dt)
+    player.velocity.x = 0
+
     for(const image of backgroundImages) {
         if (image.position.x <= innerWidth && image.position.x + image.width >= 0) {
             image.draw();   
         }
     }; 
-    player.velocity.x = 0
 
     collision(platforms, player, informations, blocks, frameVelocity, stopMovement);   
     if (keys.right.pressed && localStorage.getItem('movementFlag') == 'true') {
@@ -212,7 +213,7 @@ function animate() {
             }
         }
     };   
-    player.gravity = gravity;
+
     player.update();
     
     if (player.position.y > canvas.height) {
@@ -221,7 +222,8 @@ function animate() {
     }
     setTimeout(() => {
         requestAnimationFrame(animate);
-    }, 10);
+    }, 20)
+    
 }
 
 animate()
